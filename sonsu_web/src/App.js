@@ -16,6 +16,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          {/* 지현이의 테스트입니다. */}
         </a>
       </header>
     </div>
