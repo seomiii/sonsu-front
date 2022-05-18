@@ -1,0 +1,61 @@
+home.js
+    service_intro.js
+
+    study.js
+        study_level1_ja.js
+
+            팝업
+            study_play.js
+            study_result.js
+
+        study_level1_mo.js
+
+            팝업
+            study_play.js
+            study_result.js
+
+        study_level2.js
+
+            팝업
+            study_play.js
+            study_result.js
+        
+        study_level3.js
+            
+            팝업
+            study_play.js
+            study_result.js
+
+    test.js
+        test_level1.js
+
+            팝업
+            test_play.js
+            test_result.js
+        
+        test_level2.js
+
+            팝업
+            test_play.js
+            test_result.js
+
+        test_level3.js
+
+            팝업
+            test_play.js
+            test_result.js
+
+  
+    mypage.js
+
+        진행현황
+        mystate.js
+
+        오답노트
+        mynote.js
+
+        성적표
+        myscore.js
+
+        개인정보 수정
+        inform.js
