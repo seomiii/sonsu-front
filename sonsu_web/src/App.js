@@ -1,12 +1,12 @@
 import './App.css';
 import Test from './component/Test';
+import TestPopup from './component/TestPopup';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Test/>
-      </header>
+        <TestPopup/>
     </div>
   );
 }
