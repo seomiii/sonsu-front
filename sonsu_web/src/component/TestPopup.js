@@ -12,6 +12,15 @@ class TestPopup extends React.Component{
     }
 }
 
+function Testdetail(){
+    return(
+        <div className="Testdetail">
+            {/* 동영상 팝업 */}
+            {/* 동영상 버튼 */}
+        </div>
+    );
+}
+
 function Testsidebar(){
     return(
         <div className="Testsidebar">
@@ -23,15 +32,6 @@ function Testsidebar(){
                 <li>4번 문제</li>
                 <li>5번 문제</li>    
             </ul>
-        </div>
-    );
-}
-
-function Testdetail(){
-    return(
-        <div className="Testdetail">
-            {/* 동영상 팝업 */}
-            {/* 동영상 버튼 */}
         </div>
     );
 }
