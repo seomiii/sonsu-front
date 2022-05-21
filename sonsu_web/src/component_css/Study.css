@@ -1,0 +1,18 @@
+.sidebar{
+    margin:0;
+    padding: 20px;
+    background-color: ivory;
+    text-align: left;
+
+    top:0;
+    left:0;
+    
+    
+    width:225px;
+    height:100%;
+
+}
+
+.sidebar li{
+    list-style: none;
+}

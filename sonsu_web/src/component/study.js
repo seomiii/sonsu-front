@@ -1,13 +1,13 @@
 import React from 'react';
 
-class study extends React.Component{
+class Study extends React.Component{
     render(){
         return (
             <>
-                
+                <Study_sidebar />
             </>
         );
     }
 }
 
-export default study;
+export default Study;
