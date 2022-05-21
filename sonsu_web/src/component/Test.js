@@ -6,7 +6,7 @@ class Test extends React.Component{
 
     onButtonClick = () => {
         window.open('TestPopup.js',
-        'TestPopup', 'width=300, height=300, menubar=no, status=no, toolbar=no'); 
+        'TestPopup', 'width=1500, height=1000, menubar=no, status=no, toolbar=no'); 
       }
 
     render(){
