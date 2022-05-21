@@ -1,7 +1,7 @@
 home.js
     service_intro.js
 
-    study.js (Study.js = (Study_sidebar.js + Study_study.js))
+    study.js
         study_level1_ja.js
 
             팝업
