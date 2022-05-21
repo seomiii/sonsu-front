@@ -4,33 +4,15 @@
 
 /* Testsidebar */
 .Testsidebar{
-    padding: 20px;
-    background-color: ivory;
-    text-align: right;
-
-    /* top:100px;
-    left:0;
-    position: absolute; */
-    
-    width:225px;
-    min-height:100%;
-    /* overflow: auto; */
+    background:#fef;
+    width:15%;
+    float:right;
 
 }
-
-.Testdetail li{
-    list-style: none;
-}
-
 
 /* Testdetail */
 .Testdetail{
-    background-color: aliceblue;
-    /* top:100px;
-    left: 225px;
-    position:absolute; */
-
-    width:100%;
-    height: 100%;
-    /* overflow: auto; */
+    background:#eee;
+    width:85%;
+    float:left;
 }
