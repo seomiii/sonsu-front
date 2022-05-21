@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Study from './component/Study';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           Learn React
           {/* 지현이의 테스트입니다. */}
           {/* 정윤이의 테스트입니다. */}
+
+          <Study />
           
         </a>
       </header>
