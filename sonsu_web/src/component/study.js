@@ -1,11 +1,13 @@
 import React from 'react';
 import '../component_css/Study.css';
+import Study_play from './Study_play';
 
 function Study(){   
         return (
             <div className='study'>
-                <Study_sidebar />
-                <Study_study />
+                {/* <Study_sidebar />
+                <Study_study /> */}
+                <Study_play/>
             </div>
         );    
 }
