@@ -17,18 +17,7 @@ class TestPopup extends React.Component{
 function Testdetail(){
     return(
         <div className="Testdetail">
-            {/* 동영상 팝업 */}
-            {/* 이동 버튼 */}
-            <h1>
-                동영상 팝업입니다. 우선 시범적으로 유튜브 영상을 넣었습니다.
-            </h1>
-            <ReactPlayer
-                    className='reactplayer'
-                    url={'https://youtu.be/BjOPmIcC_fo'}    // 플레이어 url
-                    width='100%'         // 플레이어 크기 (가로)
-                    height='1000px'        // 플레이어 크기 (세로)
-                    controls={true}       // 플레이어 컨트롤 노출 여부
-                />
+            
         </div>
     );
 }
