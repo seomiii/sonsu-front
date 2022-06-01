@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
+import Webcam from "react-webcam";
 import '../component_css/TestPopup.css';
 
 class TestPopup extends React.Component{
@@ -17,7 +17,12 @@ class TestPopup extends React.Component{
 function Testdetail(){
     return(
         <div className="Testdetail">
-            
+            <Webcam
+                audio={false}
+                mirrored={true}
+                height={720}
+                width={1280}
+            ></Webcam>
         </div>
     );
 }
