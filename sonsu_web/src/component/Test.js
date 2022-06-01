@@ -1,51 +1,47 @@
 import React from 'react';
-import { Paper, Grid, Button } from "@material-ui/core";
+import Webcam from "react-webcam";
+import '../component_css/TestPopup.css';
 
-
-class Test extends React.Component{
-
-    onButtonClick = () => {
-        window.open('TestPopup.js',
-        'TestPopup', 'width=1500, height=1000, menubar=no, status=no, toolbar=no'); 
-      }
+class TestPopup extends React.Component{
 
     render(){
         return (
-            <Paper style={{ margin: 16, padding: 16 }}>
-                <Grid container>
-                    {/* <Header /> */}
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Button 
-                            color="secondary"
-                            variant="contained"
-                            onClick={this.onButtonClick}>
-                            초급
-                        </Button>
-                    </Grid>
-
-
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Button 
-                            color="secondary"
-                            variant="contained"
-                            onClick={this.onButtonClick}>
-                            중급
-                        </Button>
-                    </Grid>
-
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Button 
-                            color="secondary"
-                            variant="contained"
-                            onClick={this.onButtonClick}>
-                            고급
-                        </Button>
-                    </Grid>
-                    {/* <Footer / > */}
-                </Grid>
-            </Paper>
+            <div className='TestPopup'>
+                <Testdetail />
+                <Testsidebar />
+            </div>
         );
     }
 }
 
-export default Test;
+function Testdetail(){
+    return(
+        <div className="Testdetail">
+            <Webcam
+                audio={false}
+                mirrored={true}
+                height={720}
+                width={1280}
+            ></Webcam>
+        </div>
+    );
+}
+
+function Testsidebar(){
+    return(
+        <div className="Testsidebar">
+            <h1>초급</h1>
+            <ul>                
+                <ol type="1">
+                    <li>1번 문제</li>
+                    <li>2번 문제</li>
+                    <li>3번 문제</li> 
+                    <li>4번 문제</li>
+                    <li>5번 문제</li>    
+                </ol>
+            </ul>
+        </div>
+    );
+}
+
+export default TestPopup;
