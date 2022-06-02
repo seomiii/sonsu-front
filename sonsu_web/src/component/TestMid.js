@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import { Paper, Grid, Button } from "@material-ui/core";
 
 
-class Test extends React.Component{
+class TestMid extends React.Component{
 
     render(){
         return (
             <Paper style={{ margin: 16, padding: 16 }}>
                 <Grid container>
                     <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Link to="/testmid">
+                        <Link to="/test">
                             <Button 
-                                color="secondary"
+                                color="primary"
                                 variant="contained">
-                                초급
+                                자음
                             </Button>
                         </Link>
                     </Grid>
@@ -23,19 +23,9 @@ class Test extends React.Component{
                     <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
                         <Link to="/test">
                             <Button 
-                                color="secondary"
+                                color="primary"
                                 variant="contained">
-                                중급
-                            </Button>
-                        </Link>
-                    </Grid>
-
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Link to="/test">
-                            <Button 
-                                color="secondary"
-                                variant="contained">
-                                고급
+                                모음
                             </Button>
                         </Link>
                     </Grid>
@@ -45,4 +35,4 @@ class Test extends React.Component{
     }
 }
 
-export default Test;
+export default TestMid;
