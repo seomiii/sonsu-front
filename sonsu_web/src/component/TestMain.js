@@ -13,8 +13,7 @@ class Test extends React.Component{
                         <Link to="/test">
                             <Button 
                                 color="secondary"
-                                variant="contained"
-                                onClick={this.onButtonClick}>
+                                variant="contained">
                                 초급
                             </Button>
                         </Link>
@@ -22,21 +21,23 @@ class Test extends React.Component{
 
 
                     <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Button 
-                            color="secondary"
-                            variant="contained"
-                            onClick={this.onButtonClick}>
-                            중급
-                        </Button>
+                        <Link to="/test">
+                            <Button 
+                                color="secondary"
+                                variant="contained">
+                                중급
+                            </Button>
+                        </Link>
                     </Grid>
 
                     <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Button 
-                            color="secondary"
-                            variant="contained"
-                            onClick={this.onButtonClick}>
-                            고급
-                        </Button>
+                        <Link to="/test">
+                            <Button 
+                                color="secondary"
+                                variant="contained">
+                                고급
+                            </Button>
+                        </Link>
                     </Grid>
                 </Grid>
             </Paper>
