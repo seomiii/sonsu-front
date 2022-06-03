@@ -1,13 +1,14 @@
 import React from 'react';
+import {Button,Paper} from '@material-ui/core'
 import '../component_css/Study.css';
 import Study_play from './Study_play';
+import { Link } from "react-router-dom";
 
 function Study(){   
         return (
             <div className='study'>
-                {/* <Study_sidebar />
-                <Study_study /> */}
-                <Study_play/>
+                <Study_sidebar />
+                <Study_study />
             </div>
         );    
 }
@@ -49,6 +50,7 @@ function Study_sidebar(){
 }
 
 function Study_study(){
+
     return(
         <div className="study_study">
             <div className="level">
@@ -56,8 +58,13 @@ function Study_study(){
                 
 
                 <div className="flex_container">
-                    <div className="level_component">자음</div>
-                    <div className="level_component">모음</div>
+                    <Link to={"study_play"}>
+                        <div className="level_component">자음</div>
+                    </Link>
+
+                    <Link to={"study_play"}>
+                        <div className="level_component">모음</div>
+                    </Link>
                 </div>
                 
             </div>

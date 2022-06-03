@@ -1,14 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Study from './component/Study';
+import Study_play from './component/Study_play';
+
 
 function App() {
   return (
     <div className="App"> 
-      <p>~sonsu~</p>    
-      <Study />        
-       
-     
+      {/* <p>~sonsu~</p>     */}        
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Study />}/>
+          <Route exact path="study_play" element={<Study_play/>} />
+        </Routes>
+      </BrowserRouter> 
     </div>
   );
 }

@@ -61,3 +61,13 @@
     text-align:center;
     line-height: 240px;
 }
+
+/* study_play.js */
+
+.study_play{
+    background-color: antiquewhite;
+}
+.play_button_display{
+    background-color: aquamarine;
+    /* flex-direction: column; */
+}
