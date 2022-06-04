@@ -2,11 +2,12 @@ import React from 'react';
 import Webcam from "react-webcam";
 import {Button,Paper} from '@material-ui/core'
 import '../component_css/Study.css';
+import "react-router-dom";
 
 import video from "../ㄱ.mp4";
 
 
-function Study_play(){
+function Study_play({history}){
     return(
         <div className='study_play'>  
             <Play_video/>
