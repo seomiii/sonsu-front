@@ -7,12 +7,6 @@ import Test from './component/Test';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<TestHome />} />
-          <Route exact path="test" element={<Test />} />
-        </Routes>
-      </BrowserRouter>
 
     </div>
   );
