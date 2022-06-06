@@ -33,7 +33,8 @@ function Study_study2(){
     return(
         <>  
             {choosePage()}
-            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>></button>
+            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>++</button>
+            {/* <button onClick={()=>{setLevel(Math.abs((level-1)%3))}} className='next_btn2'>--</button> */}
             <p>{level}</p>           
         </> 
          );

@@ -8,13 +8,7 @@ import Study_play from './component/Study_play';
 function App() {
   return (
     <div className="App"> 
-      {/* <p>~sonsu~</p>     */}        
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Study />}/>
-          <Route exact path="study_play" element={<Study_play/>} />
-        </Routes>
-      </BrowserRouter> 
+      
     </div>
   );
 }
