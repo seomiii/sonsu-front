@@ -1,0 +1,18 @@
+.TestPopup{
+    display:flex;
+}
+
+/* Testsidebar */
+.Testsidebar{
+    background:#fef;
+    width:15%;
+    float:right;
+
+}
+
+/* Testdetail */
+.Testdetail{
+    background:#eee;
+    width:85%;
+    float:left;
+}
