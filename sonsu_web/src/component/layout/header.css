@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+.header {
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background-color: lightgray;
+}
+
+ul {
+    list-style-type : none;
+}
+
+li{
+    float: left; /* 왼쪽부터 가로정렬 */
+    width: 10%; /* 메뉴가 5개 이므로 5등분 사이즈 정의 */
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20pt;
+    /* background: #98E0AD; */
+}
