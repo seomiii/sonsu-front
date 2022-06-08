@@ -1,0 +1,13 @@
+.home {
+    position: absolute;
+    top: 80px;
+    height: 10px;
+    margin-top: auto;
+    background-color: white;
+}
+
+.handImage{
+    /* width: fit-content;
+    height: fit-content; */
+    background-size: contain;
+}
