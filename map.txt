@@ -1,8 +1,13 @@
 home.js
     service_intro.js
 
-    study.js
-        study_level1_ja.js
+    study.js (수강하기 페이지)
+ 
+        Study_class.js (초급|중급|고급 누르면 나타나는 페이지 : 중간 페이지)
+
+            Study_play.js (구 팝업창 - 동영상이 들어있는)
+
+        (study_level1_ja.js
 
             팝업
             study_play.js
@@ -24,7 +29,7 @@ home.js
             
             팝업
             study_play.js
-            study_result.js
+            study_result.js)
 
     test.js
         test_level1.js
