@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Button,Paper} from '@material-ui/core'
 import '../component_css/Study.css';
 import Study_play from './Study_play';
-import { Link,BrowserRouter } from "react-router-dom";
+import { Link,BrowserRouter,useLocation} from "react-router-dom";
 
 function Study(){   
         return (
@@ -17,6 +17,7 @@ function Study(){
 // 디자인에 따른 변경
 function Study_study2(){
     let [level,setLevel]=useState(0);
+    
     const choosePage=()=>{
         switch(level){
             case 0:
@@ -46,7 +47,7 @@ function Study_level1(){
     return(
         <div className='study_level1'>
                 <div className='study_pic'>
-                    <Link to={"study_play"}>
+                    <Link to={"study_class"} state={{level : 1}}>
                         <p>초급 이미지</p>
                     </Link>                    
                 </div>               
@@ -75,7 +76,7 @@ function Study_level2(){
     return(
         <div className='study_level2'>
                 <div className='study_pic'>
-                    <Link to={"study_play"}>
+                    <Link to={"study_class"} state={{level : 2}}>
                         <p>중급 이미지</p>
                     </Link>                    
                 </div>               
@@ -104,7 +105,7 @@ function Study_level3(){
     return(
         <div className='study_level3'>
                 <div className='study_pic'>
-                    <Link to={"study_play"}>
+                    <Link to={"study_play"} state={{level : 3}}>
                         <p>고급 이미지</p>
                     </Link>                    
                 </div>               

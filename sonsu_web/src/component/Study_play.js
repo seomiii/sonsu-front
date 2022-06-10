@@ -4,7 +4,7 @@ import {Button,Paper} from '@material-ui/core'
 import '../component_css/Study.css';
 import "react-router-dom";
 
-import video from "../ㄱ.mp4";
+// import video from "../ㄱ.mp4";
 
 
 function Study_play({history}){
@@ -29,10 +29,10 @@ function Study_play({history}){
 function Play_video(){
     return(
         <div>
-            <video width='960' height='540' controls="controls">
+            {/* <video width='960' height='540' controls="controls"> */}
                 {/* <source src={require("../ㄱ.mp4")} type="video/mp4"/> */}
-                <source src={video} type="video/mp4"/>
-            </video>        
+                {/* <source src={video} type="video/mp4"/>
+            </video>         */}
         </div>
     );
 }
