@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 import {Button,Paper} from '@material-ui/core'
 
 
@@ -49,7 +49,10 @@ function Class_hole(props) {
             <video key={i} src={i} width='268' height='164' controls="controls"/>
             <h2>{video_title_ja[index][0]}</h2>
             <div>{video_title_ja[index][1]}</div>
-            <Button>이 강좌 수강하기</Button> 
+
+            <Link to={"../study_play"} state={ {level: 1, curri : '자음', video_src : {i}, video_index:{index}} }>
+                <Button>이 강좌 수강하기</Button> 
+            </Link>
         </Paper>
     </>    
     ))
@@ -61,7 +64,11 @@ function Class_hole(props) {
                 <video key={i} src={i} width='268' height='164' controls="controls"/>
                 <h2>{video_title_mo[index][0]}</h2>
                 <div>{video_title_mo[index][1]}</div>
+
+                
                 <Button>이 강좌 수강하기</Button> 
+                
+
             </Paper>
         </>    
         ))
