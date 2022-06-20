@@ -6,21 +6,27 @@ import Test from './component/Test';
 import Study from './component/study';
 import Study_play from './component/Study_play';
 import Study_class from './component/Study_class';
+import WebcamStreamCapture from './component/WebcamStreamCapture';
+
 
 function App() {
+  
   return (
     <div className="App"> 
-      <BrowserRouter>
-        <Routes>
+      {/* <BrowserRouter>
+        <Routes> */}
           {/* 수강하기 */}
-          <Route exact path="/" element={<Study />}/>
+          {/* <Route exact path="/" element={<Study />}/> */}
           {/* 수강하기 중간 페이지 */}
-          <Route path="study_class" element={<Study_class/>} />
+          {/* <Route path="study_class" element={<Study_class/>} /> */}
           {/* 영상나오는 페이지 */}
-          <Route path="study_play" element={<Study_play/>} />
+          {/* <Route path="study_play" element={<Study_play/>} /> */}
           
-        </Routes>
-      </BrowserRouter> 
+        {/* </Routes>
+      </BrowserRouter>  */}
+
+      <WebcamStreamCapture></WebcamStreamCapture>
+      
     </div>
   );
 }
