@@ -2,7 +2,7 @@ home.js
     service_intro.js
 
     study.js
-        study_level1_ja.js
+        study_level1_ja.js 
 
             팝업
             study_play.js
