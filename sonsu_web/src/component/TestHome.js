@@ -1,4 +1,4 @@
-import '../component_css/TestHome.css';
+import '../component_css/Test.css';
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
