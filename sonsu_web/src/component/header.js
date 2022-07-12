@@ -5,6 +5,10 @@ import {Link} from 'react-router-dom';
 
 
 const Header = () => {
+    if (window.location.pathname === "/test") {
+        return null;
+    }
+
     return (
         <header className="header">
             <div className='nav'>
