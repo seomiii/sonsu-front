@@ -1,0 +1,22 @@
+.flex_container {
+    display:flex; /* 수평속성 */
+    border:1px solid black;
+    margin: 10px;
+}
+
+.flex_item {
+    margin:20px;
+    width:100px;
+    height:100px;
+    background-color:#f2c9dc;
+}
+
+.before {
+    margin: 10px;
+}
+
+.list {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
