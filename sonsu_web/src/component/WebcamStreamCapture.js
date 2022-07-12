@@ -68,7 +68,6 @@ const WebcamStreamCapture = () => {
       // alert("error");
       // console.log(err)
       // },[recordedChunks]);
-
      
 
       // var request=new XMLHttpRequest();
@@ -107,10 +106,11 @@ const WebcamStreamCapture = () => {
         <button onClick={handleStartCaptureClick}>Start Capture</button>
       )}
 
-      <button onClick={Send}>pp</button>
+      {/* <button onClick={Send}>결과 보기</button>
+      <button onClick={handleDownload}>Download</button> */}
 
       {recordedChunks.length > 0 && (
-        <button onClick={handleDownload}>Download</button>
+        <button onClick={Send}>결과 보기</button>
       )}
     </>
   );

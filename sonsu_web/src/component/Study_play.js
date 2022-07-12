@@ -79,6 +79,10 @@ function Play_menubar (props) {
                 <li>{props.curri}</li>
                 {/* <li>{cur_words}</li> */}
                 {cur_words.map((i,index)=>(<li>{i}</li>))}
+
+                <Link to={"/webcamstreamcapture"} >
+                    <Button>따라하기</Button>
+                </Link>
             </ul>
         
         </>
