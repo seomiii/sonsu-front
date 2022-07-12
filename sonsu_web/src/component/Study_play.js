@@ -1,7 +1,7 @@
+import '../component_css/Study.css';
 import React from 'react';
 import Webcam from "react-webcam";
 import {Button,Paper} from '@material-ui/core'
-import '../component_css/Study.css';
 import { useLocation,Link } from 'react-router-dom';
 
 
@@ -10,6 +10,10 @@ function Study_play(props){
     const curri=useLocation().state.curri;  
     const video_src=useLocation().state.video_src;
     const video_index=useLocation().state.video_index;  
+    const location = useLocation();
+
+    console.log("hihihihi")
+    console.log(location);
 
     console.log(chapter,curri,video_src,video_index);
     console.log(video_src.i)  
@@ -80,7 +84,7 @@ function Play_menubar (props) {
                 {/* <li>{cur_words}</li> */}
                 {cur_words.map((i,index)=>(<li>{i}</li>))}
 
-                <Link to={"/webcamstreamcapture"} >
+                <Link to={"/webcam"} >
                     <Button>따라하기</Button>
                 </Link>
             </ul>

@@ -1,35 +1,62 @@
 import './App.css';
 import React from "react";
-import { BrowserRouter, Route, Routes,useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./component/footer";
+import Header from "./component/header";
+import Home from "./component/home";
+import Mypage from "./component/mypage";
+import Wrong from "./component/wrong";
+import Grade from "./component/grade";
 import TestHome from './component/TestHome';
 import Test from './component/Test';
-import Study from './component/study';
+import Study from './component/Study';
 import Study_play from './component/Study_play';
 import Study_class from './component/Study_class';
+import Login from './component/login';
+import Service_intro from './component/Service_intro';
 import WebcamStreamCapture from './component/WebcamStreamCapture';
 
 
 function App() {
-  
   return (
+      // <Layout>
+      // </Layout>
     <div className="App"> 
-       <BrowserRouter>
-        <Routes> 
+      <BrowserRouter>
+        <a><Header /></a>
+        <div className="section">
+        <Routes>
+          {/* 홈 */}
+          <Route exact path="/" element={<Home />}/>
+          {/* 홈 */}
+          <Route exact path="home" element={<Home />}/>
+          {/* 서비스소개 */}
+          <Route exact path="service_intro" element={<Service_intro />}/>
+          {/* 로그인 */}
+          <Route exact path="login" element={<Login />} /> 
+          {/* 마이페이지 */}
+          <Route exact path="mypage" element={<Mypage />} />
+          {/* 오답노트 */}
+          <Route exact path="wrong" element={<Wrong />} />
+          {/* 성적표 */}
+          <Route exact path="grade" element={<Grade />} />
           {/* 수강하기 */}
-           <Route exact path="/" element={<Study />}/>
+          <Route exact path="study" element={<Study />}/>
           {/* 수강하기 중간 페이지 */}
-          <Route path="study_class" element={<Study_class/>} />
-          {/* 영상나오는 페이지 */}
-          <Route path="study_play" element={<Study_play/>} /> 
-          
+          <Route path="study/study_class" element={<Study_class/>} />
+          {/* 수강 영상나오는 페이지 */}
+          <Route path="study/study_class/study_play" element={<Study_play/>} />
           {/* 사용자 웹캠 페이지 */}
-          <Route path="webcamstreamcapture" element={<WebcamStreamCapture/>}/>
-          
-         </Routes>
-      </BrowserRouter>  
+          <Route path="webcam" element={<WebcamStreamCapture/>}/>
 
-      {/* <WebcamStreamCapture></WebcamStreamCapture> */}
-      
+          {/* 테스트하기 */}
+          <Route path="test_home" element={<TestHome/>} />
+          {/* 테스트 영상나오는 페이지 */}
+          <Route path="test" element={<Test/>} />
+        </Routes>
+        </div>
+        {/* <a><Footer /></a> */}
+      </BrowserRouter> 
     </div>
   );
 }

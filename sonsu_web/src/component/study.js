@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
-import {Button,Paper} from '@material-ui/core'
 import '../component_css/Study.css';
-import Study_play from './Study_play';
+// import Study_play from './Study_play';
+import React, { useState } from 'react';
+// import {Button,Paper} from '@material-ui/core'
 import { Link,BrowserRouter,useLocation} from "react-router-dom";
 
-function Study(){   
+// function Study(){   
+//         return (
+//             <div className='study'>
+//                 {/* <Study_sidebar />
+//                 <Study_study /> */}
+//                 <Study_study2/>
+//             </div>
+//         );    
+// }
+
+class Study extends React.Component{
+
+    render(){
         return (
             <div className='study'>
                 {/* <Study_sidebar />
                 <Study_study /> */}
                 <Study_study2/>
             </div>
-        );    
+        );
+    }
 }
 
 // 디자인에 따른 변경
@@ -34,9 +47,9 @@ function Study_study2(){
     return(
         <>  
             {choosePage()}
-            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>++</button>
+            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>+</button>
             {/* <button onClick={()=>{setLevel(Math.abs((level-1)%3))}} className='next_btn2'>--</button> */}
-            <p>{level}</p>           
+            {/* <p>{level}</p>            */}
         </> 
          );
 
@@ -48,7 +61,7 @@ function Study_level1(){
         <div className='study_level1'>
                 <div className='study_pic'>
                     <Link to={"study_class"} state={{level : 1}}>
-                        <p>초급 이미지</p>
+                        <a><p>초급 이미지</p></a>
                     </Link>                    
                 </div>               
 
@@ -57,7 +70,7 @@ function Study_level1(){
                     <p>basic course</p>
                     <p>~~초급에 대한 설명~~</p>
 
-                    <Link to={"study_play"}>
+                    <Link to={"study_class"} state={{level : 1}}>
                      <button>수강하기</button>
                     </Link>                    
                 </div>
@@ -86,8 +99,8 @@ function Study_level2(){
                     <p>basic course</p>
                     <p>~~중급에 대한 설명~~</p>
 
-                    <Link to={"study_play"}>
-                     <button>수강하기</button>
+                    <Link to={"study_class"} state={{level : 2}}>
+                        <button>수강하기</button>
                     </Link>                    
                 </div>
 
@@ -115,7 +128,7 @@ function Study_level3(){
                     <p>basic course</p>
                     <p>~~고급에 대한 설명~~</p>
 
-                    <Link to={"study_play"}>
+                    <Link to={"study_play"} state={{level : 3}}>
                      <button>수강하기</button>
                     </Link>                    
                 </div>

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import { useLocation,Link } from 'react-router-dom';
 import {Button,Paper} from '@material-ui/core'
+import { useLocation,Link } from 'react-router-dom';
 
 
 function Study_class(props) {
@@ -50,7 +50,7 @@ function Class_hole(props) {
             <h2>{video_title_ja[index][0]}</h2>
             <div>{video_title_ja[index][1]}</div>
 
-            <Link to={"../study_play"} state={ {level: 1, curri : '자음', video_src : {i}, video_index:{index}} }>
+            <Link to={"study_play"} state={ {level: 1, curri : '자음', video_src : {i}, video_index:{index}} }>
                 <Button>이 강좌 수강하기</Button> 
             </Link>
         </Paper>
