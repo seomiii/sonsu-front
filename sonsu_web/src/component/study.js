@@ -1,13 +1,14 @@
 //import '../component_css/Study.css';
-//import Study_play from './Study_play';
-// import {Button,Paper} from '@material-ui/core'
+
+//import {Button,Paper} from '@material-ui/core'
 
 import React, { useState } from 'react';
 import { Link,BrowserRouter,useLocation} from "react-router-dom";
 import Service_intro from './Service_intro';
+import study_play from './Study_play';
 import axios from 'axios';
 
-//예상되는 서버에서 오는 데이터
+//프론트 고정 리소스
 const Levels=[
     {
         level : 1,
@@ -28,17 +29,19 @@ const Levels=[
     }    
 ]
 
-const getLevels=()=>{
-    axios.get("")
-    .then(
-        (response) => {
+// 이미지 받아오는거는 나중에 생각해보자
+// const getLevelImage=()=>{
+//     axios.get("")
+//     .then(
+//         (response) => {
             
-        }
-    )
-}
+//         }
+//     )
+// }
+
 //---------------------------리소스-------------------------------
 
-function Study(){   
+function Study(){  
      
 
     return (
@@ -72,7 +75,9 @@ function Study_level(level){
             </div>
 
             <div>
-                <button>수강하기</button>
+                <Link to = {"study_class"} state={{level : (level)}}>
+                    <button>수강하기</button>
+                </Link>
             </div>                
         </>
     );
