@@ -9,7 +9,7 @@ import Wrong from "./component/wrong";
 import Grade from "./component/grade";
 import TestHome from './component/TestHome';
 import Test from './component/Test';
-import Study from './component/Study';
+import Study from './component/study';
 import Study_play from './component/Study_play';
 import Study_class from './component/Study_class';
 import Login from './component/login';

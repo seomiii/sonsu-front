@@ -1,65 +1,91 @@
-import '../component_css/Study.css';
-// import Study_play from './Study_play';
-import React, { useState } from 'react';
+//import '../component_css/Study.css';
+//import Study_play from './Study_play';
 // import {Button,Paper} from '@material-ui/core'
+
+import React, { useState } from 'react';
 import { Link,BrowserRouter,useLocation} from "react-router-dom";
+import Service_intro from './Service_intro';
+import axios from 'axios';
 
-// function Study(){   
-//         return (
-//             <div className='study'>
-//                 {/* <Study_sidebar />
-//                 <Study_study /> */}
-//                 <Study_study2/>
-//             </div>
-//         );    
-// }
-
-class Study extends React.Component{
-
-    render(){
-        return (
-            <div className='study'>
-                {/* <Study_sidebar />
-                <Study_study /> */}
-                <Study_study2/>
-            </div>
-        );
+//예상되는 서버에서 오는 데이터
+const Levels=[
+    {
+        level : 1,
+        level_name : '초급',
+        level_info : '수어의 지문자를 배워 자음과 모음을 표현해봅시다. 손수와 함께 수어의 첫단추를 끼워보아요.',
     }
-}
+    ,
+    {
+        level : 2,
+        level_name : '중급',
+        level_info : '일상생활에서 자주 쓰이는 표현들을 배워봅시다. 간단한 의사소통을 주고받아 보아요.'
+    }
+    ,
+    {
+        level : 3,
+        level_name : '고급',
+        level_info : '문장 구성의 핵심이 되는 다양한 단어들을 배워봅시다. 배운 단어들을 이용하여 원하는 문장을 만들어보아요.'
+    }    
+]
 
-// 디자인에 따른 변경
-function Study_study2(){
-    let [level,setLevel]=useState(0);
-    
-    const choosePage=()=>{
-        switch(level){
-            case 0:
-                return <Study_level1/>
-            case 1:
-                return <Study_level2/>
-            case 2: 
-                return <Study_level3/>
-            default:
-                return <Study_level1/>
+const getLevels=()=>{
+    axios.get("")
+    .then(
+        (response) => {
+            
         }
-    }
+    )
+}
+//---------------------------리소스-------------------------------
 
-    return(
-        <>  
-            {choosePage()}
-            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>+</button>
-            {/* <button onClick={()=>{setLevel(Math.abs((level-1)%3))}} className='next_btn2'>--</button> */}
-            {/* <p>{level}</p>            */}
-        </> 
-         );
+function Study(){   
+     
 
+    return (
+        <div className='study'>                
+            {Study_level(1)}
+            {Study_level(2)}
+            {Study_level(3)} 
+
+            <div>
+                <Link to={"../Service_intro"}>
+                    <p>수어의 학습 과정에 대해 더 알아보고 싶다면?</p>
+                </Link>
+            </div> 
+        </div>
+    );    
 }
 
-//초급
-function Study_level1(){
+//단계 컴포넌트 (단계무관)
+function Study_level(level){
+    let [curlevel,setLevel]=useState(0); 
+
     return(
-        <div className='study_level1'>
-                <div className='study_pic'>
+        <>
+            <div>
+                <p>이미지</p>
+            </div>
+
+            <div>
+                <p>{Levels[(level-1)].level_name}</p>
+                <p>{Levels[(level-1)].level_info}</p>
+            </div>
+
+            <div>
+                <button>수강하기</button>
+            </div>                
+        </>
+    );
+}
+
+export default Study;
+
+
+
+
+
+// ------------------------------------얼렁이뚱땅이 코드------------------------------------------
+{/* <div className='study_pic'>
                     <Link to={"study_class"} state={{level : 1}}>
                         <a><p>초급 이미지</p></a>
                     </Link>                    
@@ -79,76 +105,10 @@ function Study_level1(){
                     <li className='circle_'></li>
                     <li className='circle'></li>
                     <li className='circle'></li>
-                </ul>
-            </div>
-    );
-}
-
-//중급
-function Study_level2(){
-    return(
-        <div className='study_level2'>
-                <div className='study_pic'>
-                    <Link to={"study_class"} state={{level : 2}}>
-                        <p>중급 이미지</p>
-                    </Link>                    
-                </div>               
-
-                <div className='study_text'>
-                    <p>중급</p>
-                    <p>basic course</p>
-                    <p>~~중급에 대한 설명~~</p>
-
-                    <Link to={"study_class"} state={{level : 2}}>
-                        <button>수강하기</button>
-                    </Link>                    
-                </div>
-
-                <ul className='circles'>
-                    <li className='circle'></li>
-                    <li className='circle_'></li>
-                    <li className='circle'></li>
-                </ul>
-            </div>
-    );
-}
-
-//고급
-function Study_level3(){
-    return(
-        <div className='study_level3'>
-                <div className='study_pic'>
-                    <Link to={"study_play"} state={{level : 3}}>
-                        <p>고급 이미지</p>
-                    </Link>                    
-                </div>               
-
-                <div className='study_text'>
-                    <p>고급</p>
-                    <p>basic course</p>
-                    <p>~~고급에 대한 설명~~</p>
-
-                    <Link to={"study_play"} state={{level : 3}}>
-                     <button>수강하기</button>
-                    </Link>                    
-                </div>
-
-                <ul className='circles'>
-                    <li className='circle'></li>
-                    <li className='circle'></li>
-                    <li className='circle_'></li>
-                </ul>
-            </div>
-    );
-}
-
-export default Study;
+                </ul> */}
 
 
 
-
-
-// ------------------------------------디자인 없을때 나혼자 얼렁이뚱땅이 코드임------------------------------------------
 function Study_sidebar(){
     // const menus=[
     //     {name:'초급',path:'/'},
@@ -185,42 +145,58 @@ function Study_sidebar(){
     );
 }
 
-function Study_study({history}){
+// function Study_study({history}){
 
-    return(
-        <div className="study_study">
-            <div className="level">
-                <h3>초급</h3>
+//     return(
+//         <div className="study_study">
+//             <div className="level">
+//                 <h3>초급</h3>
                 
 
-                <div className="flex_container">
-                    <Link to={"study_play"}>
-                        <div className="level_component">자음</div>
-                    </Link>
+//                 <div className="flex_container">
+//                     <Link to={"study_play"}>
+//                         <div className="level_component">자음</div>
+//                     </Link>
 
-                    <button onClick={()=>{history.push("study_play")}}>
-                        <div className="level_component">모음</div>
-                    </button>
-                </div>
+//                     <button onClick={()=>{history.push("study_play")}}>
+//                         <div className="level_component">모음</div>
+//                     </button>
+//                 </div>
                 
-            </div>
+//             </div>
 
-            <div className="level">
-                <h3>중급</h3>
+//             <div className="level">
+//                 <h3>중급</h3>
 
-                <div className="flex_container">
-                    <div className="level_component">인삿말</div>
-                </div>
-            </div>
+//                 <div className="flex_container">
+//                     <div className="level_component">인삿말</div>
+//                 </div>
+//             </div>
 
-            <div className="level">
-                <h3>고급</h3>
+//             <div className="level">
+//                 <h3>고급</h3>
 
-                <div className="flex_container">
-                    <div className="level_component">일상 생활 단어</div>
-                </div>
-            </div>
+//                 <div className="flex_container">
+//                     <div className="level_component">일상 생활 단어</div>
+//                 </div>
+//             </div>
         
-        </div>
-    );
-}
+//         </div>
+//     );
+// }
+
+// const choosePage=()=>{
+    //     switch(level){
+    //         case 0:
+    //             return <Study_level1/>
+    //         case 1:
+    //             return <Study_level2/>
+    //         case 2: 
+    //             return <Study_level3/>
+    //         default:
+    //             return <Study_level1/>
+    //     }
+    // }
+
+    {/* {choosePage()}
+            <button onClick={()=>{setLevel((level+1)%3)}} className='next_btn'>+</button> */}
