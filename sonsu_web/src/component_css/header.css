@@ -5,7 +5,7 @@
     width: 100%;
     background-color: white;
     /* background-color: rgba(211,211,211,0.2); */
-    padding : 10px;
+    /* padding : 5px; */
 }
 
 .nav {
@@ -27,6 +27,7 @@
 }
 
 .login_bt {
+    display: flex;
     color: white;
     background-color: #FF7A00;
     border: none;

@@ -23,7 +23,7 @@ function App() {
       // </Layout>
     <div className="App"> 
       <BrowserRouter>
-        <a><Header /></a>
+        <Header />
         <div className="section">
         <Routes>
           {/* 홈 */}

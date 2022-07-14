@@ -4,12 +4,12 @@ import { Grid } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 
-class TestPopup extends React.Component{
+class Test extends React.Component{
 
     render(){
         return (
-            <div className='TestPopup'>
-                <Grid container spacing={3}>
+            <div className='Test'>
+                <Grid container>
                     <Grid item xs={12}>
                         <Testheader />
                     </Grid>
@@ -20,7 +20,6 @@ class TestPopup extends React.Component{
                         <Testsidebar />
                     </Grid>
                 </Grid>
-                {/* <Testsidebar /> */}
             </div>
         );
     }
@@ -28,7 +27,7 @@ class TestPopup extends React.Component{
 
 function Testheader(){
     return(
-        <div style={{marginLeft: 20}} className="Testheader" align="left" >
+        <div style={{marginLeft: 20, marginBottom: 30}} className="Testheader" align="left" >
             <Link to={"/test_home"}>
                 <button className='back'>&lt; &nbsp; 돌아가기</button>
             </Link>
@@ -45,7 +44,7 @@ function Testdetail(){
                 mirrored={true}
                 // height={720}
                 // width={1280}
-                height={600}
+                height={500}
                 width={700}
                 // padding={100}
             ></Webcam>
@@ -81,4 +80,4 @@ function Testsidebar(){
     );
 }
 
-export default TestPopup;
+export default Test;
