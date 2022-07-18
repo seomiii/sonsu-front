@@ -7,11 +7,10 @@ import imgjung from './images/jung.png';
 import imggo from './images/go.png';
 
 
-class TestHome extends React.Component{
+function TestHome() {
 
-    render(){
         return (
-            <div>
+            <>
                 <Grid container spacing={3} alignItems="center" justifyContent="center">
                     <Grid item xs={2}>
                         <img src={imgcho} width={200} height={200} alt="cho"/> <br/>
@@ -46,9 +45,8 @@ class TestHome extends React.Component{
                         </Link>
                     </Grid>
                 </Grid>
-            </div>
+            </>
         );
-    }
 }
 
 export default TestHome;
