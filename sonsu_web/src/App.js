@@ -24,7 +24,6 @@ function App() {
     <div className="App"> 
       <BrowserRouter>
         <Header />
-        <div className="section">
         <Routes>
           {/* 홈 */}
           <Route exact path="/" element={<Home />}/>
@@ -54,7 +53,6 @@ function App() {
           {/* 테스트 영상나오는 페이지 */}
           <Route path="test_home/test" element={<Test/>} />
         </Routes>
-        </div>
         {/* <a><Footer /></a> */}
       </BrowserRouter> 
     </div>
