@@ -52,7 +52,7 @@ function App() {
           {/* 테스트하기 */}
           <Route path="test_home" element={<TestHome/>} />
           {/* 테스트 영상나오는 페이지 */}
-          <Route path="test" element={<Test/>} />
+          <Route path="test_home/test" element={<Test/>} />
         </Routes>
         </div>
         {/* <a><Footer /></a> */}

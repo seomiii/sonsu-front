@@ -18,7 +18,7 @@ class TestHome extends React.Component{
                         <h3>초급</h3>
                         {/* <label>초급에서 배운 수어의 지문자를 테스트 해봅시다.</label> */}
                         <br/> <br/>
-                        <Link to={"/test"}
+                        <Link to={"/test_home/test"}
                             state={{grade : 'cho'}}>
                             <button className="start">시작하기</button>
                         </Link>
@@ -29,7 +29,7 @@ class TestHome extends React.Component{
                         <h3>중급</h3>
                         {/* <label>중급에서 배운 일상생활에서 자주 쓰이는 표현들을 테스트 해봅시다.</label> */}
                         <br/> <br/>
-                        <Link to={"/test"}
+                        <Link to={"/test_home/test"}
                             state={{grade : 'jung'}}>
                             <button className="start">시작하기</button>
                         </Link>
@@ -40,7 +40,7 @@ class TestHome extends React.Component{
                         <h3>고급</h3>
                         {/* <label>고급에서 배운 다양한 단어들을 테스트 해봅시다.</label> */}
                         <br/> <br/>
-                        <Link to={"/test"}
+                        <Link to={"/test_home/test"}
                             state={{grade : 'go'}}>
                             <button className="start">시작하기</button>
                         </Link>
