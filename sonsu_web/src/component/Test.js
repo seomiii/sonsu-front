@@ -5,39 +5,53 @@ import { useLocation, Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 import axios from 'axios';
 
+const Levels=[
+    {
+        level : 1,
+        level_name : '초급'
+    }
+    ,
+    {
+        level : 2,
+        level_name : '중급'
+    }
+    ,
+    {
+        level : 3,
+        level_name : '고급'
+    }    
+]
+
 function Test() {
+    const level = useLocation().state.level;
     return (
         <div className='Test'>
             <Grid container>
                 <Grid item xs={12}>
-                    <Testheader />
+                    <Testheader level = {level}/>
                 </Grid>
                 <Grid item xs={9}>
                     <Testdetail />
                 </Grid>
                 <Grid item xs={3}>
-                    <Testsidebar />
+                    <Testsidebar level = {level}/>
                 </Grid>
             </Grid>
         </div>
     );
 }
 
-function Testheader(){
-    const chapter = useLocation().state.grade;
+function Testheader(props){
+    const level=props.level;
+    const level_name=Levels[(level-1)].level_name;
+
     return(
         <div style={{marginLeft: 20, marginBottom: 30}} className="Testheader" align="left" >
             <Link to={"/test_home"}>
                 <button className='back'>&lt; &nbsp; 돌아가기</button>
             </Link>
             &emsp;
-            {
-                {
-                    cho : <h3 style={{display: 'inline'}}>초급</h3>,
-                    jung : <h3 style={{display: 'inline'}}>중급</h3>,
-                    go : <h3 style={{display: 'inline'}}>고급</h3>,
-                }[chapter]
-            }
+            <h3 style={{display: 'inline'}}>{level_name}</h3>
         </div>
     )
 }
@@ -87,33 +101,20 @@ function Testdetail(){
                 let fd=new FormData();
                 fd.append('file',file);
           
-                for (let key of fd.keys()) {
-                  console.log(key);
-                }
-          
-                console.log('*');
-                
-                // FormData의 value 확인
-                for (let value of fd.values()) {
-                  console.log(value);
-                }
-          
                 axios.post('/model',fd)
-                  .then((res)=>{
-                    alert("결과 : " + res.data);
-                    console.log(res);})
-                  .catch((err)=>{
-                  alert("error");
-                  console.log(err)
+                    .then((res)=>{
+                        alert("결과 : " + res.data);
+                    })
+                    .catch((err)=>{
+                    alert("error");
+                    console.log(err)
                 },[recordedChunks]);
               }
           
               else{
-                console.log("녹화를 해주세요");
+                alert("녹화를 해주세요");
               }
-        }, [recordedChunks]);
-
-        
+        }, [recordedChunks.length]);
     }
 
     return(
@@ -129,6 +130,7 @@ function Testdetail(){
             <br/>
 
             {capturing ? (
+                // <button className='webcam' onClick={Send}>촬영 멈춤</button>
                 <button className='webcam' onClick={Send}>촬영 멈춤</button>
             ) : (
                 <button className='webcam' onClick={handleStartCaptureClick}>촬영 시작</button>
@@ -137,22 +139,18 @@ function Testdetail(){
     );
 }
 
-function Testsidebar(){
-    const chapter = useLocation().state.grade;
+function Testsidebar(props){
+    const level=props.level;
+    const level_name=Levels[(level-1)].level_name;
+
     return(
         <div className="Testsidebar">
-            {
-                {
-                    cho : <h3 className='title_'>초급</h3>,
-                    jung : <h3 className='title_'>중급</h3>,
-                    go : <h3 className='title_'>고급</h3>,
-                }[chapter]
-            }
-                <button className='question_'>1번 문제</button>
-                <li className='question'>2번 문제</li>
-                <li className='question'>3번 문제</li>
+            <h3 className='title_'>{level_name}</h3>
+            
+            <button className='question_'>1번 문제</button>
+            <li className='question'>2번 문제</li>
+            <li className='question'>3번 문제</li>
             <br/>
-
             <button className='webcam'>이전 문제로</button><button className='webcam'>다음 문제로</button>
         </div>
     );
