@@ -23,26 +23,25 @@ const Levels=[
 ]
 
 function Test() {
-    const level = useLocation().state.level;
     return (
         <div className='Test'>
             <Grid container>
                 <Grid item xs={12}>
-                    <Testheader level = {level}/>
+                    <Testheader />
                 </Grid>
                 <Grid item xs={9}>
                     <Testdetail />
                 </Grid>
                 <Grid item xs={3}>
-                    <Testsidebar level = {level}/>
+                    <Testsidebar />
                 </Grid>
             </Grid>
         </div>
     );
 }
 
-function Testheader(props){
-    const level=props.level;
+function Testheader(){
+    const level = useLocation().state.level;
     const level_name=Levels[(level-1)].level_name;
 
     return(
@@ -139,8 +138,8 @@ function Testdetail(){
     );
 }
 
-function Testsidebar(props){
-    const level=props.level;
+function Testsidebar(){
+    const level = useLocation().state.level;
     const level_name=Levels[(level-1)].level_name;
 
     return(
