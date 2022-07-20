@@ -1,5 +1,5 @@
 import '../component_css/Test.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 import Webcam from "react-webcam";
@@ -21,6 +21,8 @@ const Levels=[
         level_name : '고급'
     }    
 ]
+
+
 
 function Test() {
     return (
@@ -88,33 +90,35 @@ function Testdetail(){
     }, [mediaRecorderRef, webcamRef, setCapturing]); 
 
     const Send=()=>{
-        handleStopCaptureClick();
+        if(recordedChunks.length){
+            const blob=new Blob(recordedChunks,{type:'video/webm'});
+            
+            let filename=new Date().toString()+'.avi';
+            const file=new File([blob],filename);
         
-        useEffect(() => {
-            if(recordedChunks.length){
-                const blob=new Blob(recordedChunks,{type:'video/webm'});
-                
-                let filename=new Date().toString()+'.avi';
-                const file=new File([blob],filename);
-          
-                let fd=new FormData();
-                fd.append('file',file);
-          
-                axios.post('/model',fd)
-                    .then((res)=>{
-                        alert("결과 : " + res.data);
-                    })
-                    .catch((err)=>{
-                    alert("error");
-                    console.log(err)
-                },[recordedChunks]);
-              }
-          
-              else{
-                alert("녹화를 해주세요");
-              }
-        }, [recordedChunks.length]);
+            let fd=new FormData();
+            fd.append('file',file);
+        
+            axios.post('/model',fd)
+                .then((res)=>{
+                    alert("결과 : " + res.data);
+                })
+                .catch((err)=>{
+                alert("error");
+                console.log(err)
+            },[recordedChunks]);
+        }
+    
+        // else{
+        //     alert("녹화를 해주세요");
+        // }
     }
+
+    // 완벽하지 않은 useEffect : 처음 render될 때도 Send()함수가 실행됨
+    useEffect(() => {
+        Send();
+    }, [recordedChunks.length]);
+
 
     return(
         <div className="Testdetail" align="center">
@@ -129,8 +133,8 @@ function Testdetail(){
             <br/>
 
             {capturing ? (
-                // <button className='webcam' onClick={Send}>촬영 멈춤</button>
-                <button className='webcam' onClick={Send}>촬영 멈춤</button>
+                // <button className='webcam' onClick={() => {handleStopCaptureClick(); Send();}}>촬영 멈춤</button>
+                <button className='webcam' onClick={handleStopCaptureClick}>촬영 멈춤</button>
             ) : (
                 <button className='webcam' onClick={handleStartCaptureClick}>촬영 시작</button>
             )}
@@ -139,18 +143,41 @@ function Testdetail(){
 }
 
 function Testsidebar(){
+    let [currentnumber, setNumber] = useState(1);
     const level = useLocation().state.level;
     const level_name=Levels[(level-1)].level_name;
+    // 서버에서 테스트하기 문제를 받아오는 코드로 추후 변경해야함
+    const problems = ['ㄴ', 'ㄱ', 'ㅓ'] // 서버에서 받아온 테스트하기 문제들
+    
+    function moveProblem(idx) {
+        setNumber(currentnumber = idx);
+        console.log(problems[idx-1]);
+        // console.log(currentnumber)
+    }
+    function nextProblem() {
+        if ( 0 < currentnumber && currentnumber < 3) {
+            setNumber(currentnumber + 1);
+        }
+    }
+    function prevProblem() {
+        if ( 1 < currentnumber && currentnumber < 4) {
+            setNumber(currentnumber - 1);
+        }
+    }
+
+    const problemList = problems.map((problem, index)=> <div key={problem}><button onClick={() => {moveProblem(index+1);}} className='problem'>{ index+1 + "번 문제"}</button> <br/> </div>)
 
     return(
         <div className="Testsidebar">
             <h3 className='title_'>{level_name}</h3>
-            
-            <button className='question_'>1번 문제</button>
-            <li className='question'>2번 문제</li>
-            <li className='question'>3번 문제</li>
+            <ol>
+                {problemList}
+            </ol>
+
             <br/>
-            <button className='webcam'>이전 문제로</button><button className='webcam'>다음 문제로</button>
+            <p> {currentnumber} / {problems.length} </p>
+
+            <button onClick={prevProblem} className='webcam'>이전 문제로</button><button onClick={nextProblem} className='webcam'>다음 문제로</button>
         </div>
     );
 }

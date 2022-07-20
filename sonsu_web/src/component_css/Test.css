@@ -18,15 +18,17 @@
     /* float:left; */
 }
 
-.question_{
+.problem{
     background-color: white;
-    border-bottom : lightgrey solid 1px;
+    /* border-bottom : lightgrey solid 1px; */
+    border : 0;
     padding : 10px;
 }
 
-.question{
-    background-color: #D9D9D9;
-    border-bottom : rgb(151, 151, 151) solid 1px;
+.curproblem{
+    background-color: rgb(151, 151, 151);
+    /* border-bottom : rgb(151, 151, 151) solid 1px; */
+    border : 0;
     padding : 10px;
 }
 
