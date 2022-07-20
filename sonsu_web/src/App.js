@@ -25,7 +25,7 @@ function App() {
       <BrowserRouter>
         <a><Header /></a>
         <div className="section">
-        <Routes>
+          <Routes>
           {/* 홈 */}
           <Route exact path="/" element={<Home />}/>
           {/* 홈 */}
@@ -40,9 +40,11 @@ function App() {
           <Route exact path="wrong" element={<Wrong />} />
           {/* 성적표 */}
           <Route exact path="grade" element={<Grade />} />
+
+
           {/* 수강하기 */}
           <Route exact path="study" element={<Study />}/>
-          {/* 수강하기 중간 페이지 */}
+          {/* 수강하기 커리큘럼 페이지 */}
           <Route path="study/study_class" element={<Study_class/>} />
           {/* 수강 영상나오는 페이지 */}
           <Route path="study/study_class/study_play" element={<Study_play/>} />

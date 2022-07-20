@@ -1,26 +1,34 @@
-import React,{useState} from 'react';
+import React,{useCallback, useState} from 'react';
 import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link } from 'react-router-dom';
+import Study_play from './Study_play';
+import axios from 'axios';
 
 //예상되는 서버에서 오는 데이터
 //초급 선택시, 자음 선택시 오는 데이터
 const Curris=[
     {
         curri : '자음',
+        word_number: 1001,
         word : 'ㄱ (기역)',
-        word_info : '한글 자모의 첫째 글자'
+        word_info : '한글 자모의 첫째 글자',
+        image : 'urlrul'
     }
     ,
     {
         curri : '자음',
+        word_number: 1002,
         word : 'ㄴ (니은)',
-        word_info : '한글 자모의 둘째 글자'
+        word_info : '한글 자모의 둘째 글자',
+        image : 'urlrul'
     }
     ,
     {
         curri : '자음',
+        word_number: 1003,
         word : 'ㄷ (디귿)',
-        word_info : '한글 자모의 셋째 글자'
+        word_info : '한글 자모의 셋째 글자',
+        image : 'urlrul'
     }
 ]
 
@@ -42,195 +50,66 @@ const Curri_Arr=[
         curri_arr: ["단어"],
     }
 ]
-
-// const video_name_ja=['/videos/ㄱ.mp4','/videos/ㄴ.mp4'];
-// const video_name_mo=['/videos/ㅏ.mp4'];
-
 // -----------------------리소스------------------------------------
 
 function Study_class(props){
-    const chapter=useLocation().state.level;
-    console.log(chapter);
 
-    return(
-        <>
-            <Class_menubar level={chapter}></Class_menubar>
-            <Word/>      
-        
-        </>
-    );
-}
-
-// 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음)
-function Class_menubar(props){
-    const level=props.level;
+    const level=useLocation().state.level;
 
     const level_name=Curri_Arr[(level-1)].level_name;
     const curri_arr=Curri_Arr[(level-1)].curri_arr;
 
-    console.log(curri_arr);
+    const [cur_curri,setCurri] = useState(curri_arr[0]);
+    console.log(level, cur_curri);   
+    
+    //서버에게서 데이터 받아오기
+    // useEffect(()=>{
+    //     axios.get('',{
+    //         level: {level},
+    //         curri: {cur_curri},
+    //     })
+    //     .then((response)=>{
+    //      console.log(response);
+    //     })
+
+    // }, [cur_curri])
 
     return(
-        <>
-            <h2>{level_name}</h2>
+        <>  
+            {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
+            <div>
+                <h2>{level_name}</h2>
 
-            {curri_arr.map(i=> (
-                <>
-                    <div>{i}</div>                
-                </>
-            )
-            )}
+                {curri_arr.map(i=> (
+                    <>
+                        <Button onClick={()=> {setCurri({i})}}>{i}</Button>                
+                    </>
+                )
+                )}
+            </div>
+
+            {/* 각 영상 하나 섹션별 */}
+
+            <div>
+                {Curris.map(obj=>(
+                    <>
+                        <br/>
+                        <div>이미지 이미지</div>
+                        <div>{obj.word}</div>
+                        <div>{obj.word_info}</div>
+
+                        <Link to = "study_play" state={{level : (level), word: (obj.word)}} >
+                            <button>강의 수강하기</button>
+                        </Link>
+                    </>
+                )
+                )}
+
+            </div>     
+        
         </>
     );
 }
-
-// 각 영상 하나 섹션별
-function Word(props){
-
-    return(
-        <>
-            
-            {Curris.map(obj=>(
-                <>
-                    <br/>
-                    <video src="/videos/ㄱ.mp4" width='268' height='164' controls="controls"/>
-                    <div>{obj.word}</div>
-                    <div>{obj.word_info}</div>
-                </>
-            )
-            )}
-
-            
-        </>
-    );
-}
-
-
-
-// function Study_class(props) {
-//     const chapter = useLocation().state.level;
-//     console.log(chapter);
-
-//     return(
-//         <>
-//             {
-//                 {
-//                     1 : <Class_hole title={"초급"} curriArr={["자음","모음"]}/>,
-//                     2 : <Class_hole title={"중급"} curriArr={["짧은 인삿말"]}/>,
-//                     3 : <Class_hole title={"고급"} curriArr={["단어"]}/>,
-//                 }[chapter]
-//             }                    
-//         </>
-//     );
-// }
-
-
-// function Class_hole(props) {
-
-//     const video_title_ja=[
-//         ['ㄱ','ㄱ을 배워봅시다'],
-//         ['ㄴ','ㄴ을 배워봅시다']];
-
-//     const video_title_mo=[['ㅏ','ㅏ을 배워봅시다']];
-
-//     let [cur_curri, setCurri]=useState(0);
-
-//     const chooseCurri=()=>{
-//         switch(cur_curri){
-//             case '자음':
-//                 return <>{videoArr_ja}</>
-//             case '모음':
-//                 return <>{videoArr_mo}</>
-//             default:
-//                 return <>{videoArr_ja}</>
-//         }
-//     }
-    
-//     // 자음 영상 리스트
-//     const videoArr_ja = video_name_ja.map((i,index)=>(     
-//     <>  
-//         <Paper>
-//             <video key={i} src={i} width='268' height='164' controls="controls"/>
-//             <h2>{video_title_ja[index][0]}</h2>
-//             <div>{video_title_ja[index][1]}</div>
-
-//             <Link to={"study_play"} state={ {level: 1, curri : '자음', video_src : {i}, video_index:{index}} }>
-//                 <Button>이 강좌 수강하기</Button> 
-//             </Link>
-//         </Paper>
-//     </>    
-//     ))
-
-//     // 모음 영상 리스트
-//     const videoArr_mo = video_name_mo.map((i,index)=>(     
-//         <>  
-//             <Paper>
-//                 <video key={i} src={i} width='268' height='164' controls="controls"/>
-//                 <h2>{video_title_mo[index][0]}</h2>
-//                 <div>{video_title_mo[index][1]}</div>
-
-                
-//                 <Button>이 강좌 수강하기</Button> 
-                
-
-//             </Paper>
-//         </>    
-//         ))
-    
-    
-//     // curri 리스트
-//     const curriArr= props.curriArr.map((curri,index)=> (
-//         <>
-//             <Button onClick= {()=> setCurri(curri)}>
-//                 <li key={index}>{curri}</li>
-//             </Button>           
-//         </>          
-//     ))
-
-//     return(
-//         <div>
-//             <h2>{props.title}</h2>            
-//             {curriArr}
-//             {chooseCurri()}                         
-//         </div>
-//     );
-// }
-
-
-
-
-
-// function Class_list(props){
-//     const video_name=['/videos/ㄱ.mp4','videos/ㄴ.mp4'];
-
-//     // let curri=this.props.cur_curri;
-
-//     return(
-//         <>
-//             <h1>{props.curri}</h1>
-
-//             {video_name.map(i=> (
-//             <>
-//                 <video key={i} src={i} width='268' height='164' controls="controls"/>
-//                 <div>hi</div>
-//             </>
-//             )
-//             )}
-            
-            
-//         </>
-
-//     );
-// }
-
-
-{/* {
-                {
-                    1: <><Class_menubar level={chapter}/> <Word/></> ,
-                    2: <Word level_name={"초급"}/>,
-                    3: <Word level_name={"초급"}/>, 
-                }[chapter]
-            } */}
 
 
 export default Study_class;

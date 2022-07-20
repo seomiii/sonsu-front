@@ -5,6 +5,7 @@ import axios from 'axios';
 const WebcamStreamCapture = () => {
   const webcamRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
+  
   const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
       
