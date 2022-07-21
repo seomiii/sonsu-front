@@ -3,11 +3,6 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
 
-// 나중에 이미지 받아오는게 해결되면 지울 부분
-import imgcho from './images/cho.png';
-import imgjung from './images/jung.png';
-import imggo from './images/go.png';
-
 const Levels=[
     {
         level : 1,
@@ -38,15 +33,15 @@ const Levels=[
 // 나중에 이미지 받아오는게 해결되면 지울 부분
 const Images=[
     {
-        image_src : imgcho
+        image_src : 'img/level1.png'
     }
     ,
     {
-        image_src : imgjung,
+        image_src : 'img/level2.png'
     }
     ,
     {
-        image_src : imggo,
+        image_src : 'img/level3.png'
     }  
 ]
 
@@ -72,7 +67,7 @@ function TestHome() {
 function Test_level(level) {
     return(
         <>
-            <img src={Images[(level-1)].image_src} width={200} height={200} alt="cho"/> <br/>
+            <img src={Images[(level-1)].image_src} width={200} height={200} alt="image"/> <br/>
             <h3>{Levels[(level-1)].level_name}</h3>
             <br/> <br/>
             <Link to={"/test_home/test"}
