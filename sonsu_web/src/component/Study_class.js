@@ -4,31 +4,32 @@ import { useLocation,Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
 
+
 //예상되는 서버에서 오는 데이터
 //초급 선택시, 자음 선택시 오는 데이터
 const Curris=[
-    {
-        curri : '자음',
-        word_number: 1001,
-        word : 'ㄱ (기역)',
+    {   
+        word_id : 1,
+        word_number : 11001, 
+        word_name : 'ㄱ (기역)',
         word_info : '한글 자모의 첫째 글자',
-        image : 'urlrul'
+        word_thumbnamil : 'urlrul'
     }
     ,
     {
-        curri : '자음',
-        word_number: 1002,
-        word : 'ㄴ (니은)',
+        word_id : 2,
+        word_number : 11002, 
+        word_name : 'ㄴ (니은)',
         word_info : '한글 자모의 둘째 글자',
-        image : 'urlrul'
+        word_thumbnamil : 'urlrul'
     }
     ,
     {
-        curri : '자음',
-        word_number: 1003,
-        word : 'ㄷ (디귿)',
+        word_id : 3,
+        word_number : 11003, 
+        word_name : 'ㄷ (디귿)',
         word_info : '한글 자모의 셋째 글자',
-        image : 'urlrul'
+        word_thumbnamil : 'urlrul'
     }
 ]
 
@@ -50,6 +51,10 @@ const Curri_Arr=[
         curri_arr: ["단어"],
     }
 ]
+
+const Images=['../img/word1.png','../img/word2.png','../img/word3.png'];
+
+
 // -----------------------리소스------------------------------------
 
 function Study_class(props){
@@ -64,9 +69,9 @@ function Study_class(props){
     
     //서버에게서 데이터 받아오기
     // useEffect(()=>{
-    //     axios.get('',{
+    //     axios.get('000/{level}/{cur_curri}',{
     //         level: {level},
-    //         curri: {cur_curri},
+    //         curri_name : {cur_curri},
     //     })
     //     .then((response)=>{
     //      console.log(response);
@@ -81,9 +86,9 @@ function Study_class(props){
                 <h2>{level_name}</h2>
 
                 {curri_arr.map(i=> (
-                    <>
+                    <div key={i.level}>
                         <Button onClick={()=> {setCurri({i})}}>{i}</Button>                
-                    </>
+                    </div>
                 )
                 )}
             </div>
@@ -91,17 +96,22 @@ function Study_class(props){
             {/* 각 영상 하나 섹션별 */}
 
             <div>
-                {Curris.map(obj=>(
-                    <>
+                {Curris.map((obj,index)=>(
+                    <div key={obj.word_id}>
                         <br/>
-                        <div>이미지 이미지</div>
-                        <div>{obj.word}</div>
+                        <img alt={obj.word_name} src={Images[index]} width="100" height="100"/>
+                        <div>{obj.word_name}</div>
                         <div>{obj.word_info}</div>
 
-                        <Link to = "study_play" state={{level : (level), word: (obj.word)}} >
+                        <Link to = "study_play" state={{
+                            level : (level), 
+                            word_name: (obj.word_name), 
+                            word_id: (obj.word_id), 
+                            }} >
+
                             <button>강의 수강하기</button>
                         </Link>
-                    </>
+                    </div>
                 )
                 )}
 

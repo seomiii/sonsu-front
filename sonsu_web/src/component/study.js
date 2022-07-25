@@ -29,9 +29,11 @@ const Levels=[
     }    
 ]
 
+const Images=['img/level1.png','img/level2.png','img/level3.png'];
+
 // 서버에서 이미지 받아오기
 // useEffect(()=>{
-//     axios.get('')
+//     axios.get(' ')
 //     .then((response)=>{
 //     console.log(response);
 //     })
@@ -64,7 +66,7 @@ function Study_level(level){
     return(
         <>
             <div>
-                <p>이미지</p>
+                <img alt="level" src={Images[level-1]} width="100" height="100"/>
             </div>
 
             <div>
@@ -73,7 +75,6 @@ function Study_level(level){
             </div>
 
             <div>
-                {/* <Link to = {"study_class"} level={(level)}> */}
                 <Link to = {"study_class"} state={{level : (level)}}>
                     <button>수강하기</button>
                 </Link>
