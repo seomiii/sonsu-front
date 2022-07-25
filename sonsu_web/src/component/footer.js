@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="contents">
+            <div className="ft_contents">
                 {/* <h2 className='title'>이것은 푸터다.</h2> */}
                 {/* <Button variant="outlined" color="disabled"><InstagramIcon /></Button> */}
                 <div class="today">
