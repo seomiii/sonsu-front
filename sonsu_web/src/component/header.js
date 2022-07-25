@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className='nav'>
+            <div className="nav">
                 {/* <h2>이것은 헤더다.</h2> */}
                 <div className="nav_menu">
                     <Link to={"/study"}>

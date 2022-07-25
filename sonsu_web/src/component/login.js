@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 const Login = () => {
     return (
         <section className="login">
-            <div className="contents">
-                <div className="title">
+            <div className="log_contents">
+                <div className="log_title">
                     <h3>
                     어서오세요 <br/>
                     여기는 <br/>
@@ -18,8 +18,8 @@ const Login = () => {
                 <button className="kakao_bt">
                     카카오로 로그인하기 <img className="kakao_img" alt="hand" src="img/kakao_logo.jpg" width="100" height="100"/>
                 </button><br/>
-                <button className="start">회원가입</button><br/><br/>
-                <div className="search">
+                <button className="log_start">회원가입</button><br/><br/>
+                <div className="log_search">
                     비밀번호를 잊어버리셨나요?
                 </div>
             </div>
