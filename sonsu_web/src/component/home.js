@@ -13,10 +13,10 @@ const Home = () => {
 
     return (
         <section className="home">
-             <div className="contents"> {/* style={containerStyle}*/}
-                <h2 className='title'>서비스소개</h2>
+             <div className="hm_contents"> {/* style={containerStyle}*/}
+                <h2 className='hm_title'>서비스소개</h2>
                 <Link to={"/service_intro"}>
-                <button className='start'>시작하기</button>
+                <button className="hm_start">시작하기</button>
                 </Link>
                 {/* <img src='C:/web/sonsu_web/src/component/layout/images/hand.png'></img> */}
                 {/* <background><img className="handImage" alt="hand" src="img/hand.png" /></background> */}

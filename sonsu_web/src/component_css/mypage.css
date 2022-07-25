@@ -5,7 +5,7 @@
     /* background-color: antiquewhite; */
 }
 
-.layout {
+.my_layout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
     /* background-color: aqua; */
 }
 
-.contents {
+.my_contents {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -21,7 +21,7 @@
     /* background-color: aquamarine; */
 }
 
-.side {
+.my_side {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -47,14 +47,14 @@
     
 }
 
-.profile_content {
+.prof_contain {
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     margin: 3px;
 }
 
-.content {
+.prof_content {
     margin: 3px;
 }
 
@@ -65,16 +65,16 @@
     margin: 3px;
 }
 
-.body {
+.my_body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-bottom: 10px;
-    padding: 100px;
-    margin: 20px;
-    width: 500px;
+    padding: 50px;
+    margin: 50px;
+    width: 600px;
     height: 300px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .side_menu_bt {
@@ -85,14 +85,14 @@
     background-color: white;
 }
 
-.edit {
+.my_edit {
     margin: 3px;
 }
 
-.grade {
+.my_grade {
     margin: 3px;
 }
 
-.wrong {
+.my_wrong {
     margin: 3px;
 }

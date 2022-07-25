@@ -9,7 +9,7 @@ import Wrong from "./component/wrong";
 import Grade from "./component/grade";
 import TestHome from './component/TestHome';
 import Test from './component/Test';
-import Study from './component/study';
+import Study from './component/Study';
 import Study_play from './component/Study_play';
 import Study_class from './component/Study_class';
 import Login from './component/login';
@@ -23,9 +23,8 @@ function App() {
       // </Layout>
     <div className="App"> 
       <BrowserRouter>
-        <a><Header /></a>
-        <div className="section">
-          <Routes>
+        <Header />
+        <Routes>
           {/* 홈 */}
           <Route exact path="/" element={<Home />}/>
           {/* 홈 */}
@@ -40,11 +39,9 @@ function App() {
           <Route exact path="wrong" element={<Wrong />} />
           {/* 성적표 */}
           <Route exact path="grade" element={<Grade />} />
-
-
           {/* 수강하기 */}
           <Route exact path="study" element={<Study />}/>
-          {/* 수강하기 커리큘럼 페이지 */}
+          {/* 수강하기 중간 페이지 */}
           <Route path="study/study_class" element={<Study_class/>} />
           {/* 수강 영상나오는 페이지 */}
           <Route path="study/study_class/study_play" element={<Study_play/>} />
@@ -54,9 +51,8 @@ function App() {
           {/* 테스트하기 */}
           <Route path="test_home" element={<TestHome/>} />
           {/* 테스트 영상나오는 페이지 */}
-          <Route path="test" element={<Test/>} />
+          <Route path="test_home/test" element={<Test/>} />
         </Routes>
-        </div>
         {/* <a><Footer /></a> */}
       </BrowserRouter> 
     </div>
