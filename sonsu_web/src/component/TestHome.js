@@ -1,50 +1,81 @@
+import '../component_css/Test.css';
 import React from 'react';
-import { Paper, Grid, Button } from "@material-ui/core";
+import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
 
-class TestHome extends React.Component{
+const Levels=[
+    {
+        level : 1,
+        level_name : '초급'
+    }
+    ,
+    {
+        level : 2,
+        level_name : '중급'
+    }
+    ,
+    {
+        level : 3,
+        level_name : '고급'
+    }    
+]
 
-    render(){
+// 이미지 받아오는거는 나중에 생각해보자
+// const getLevelImage=()=>{
+//     axios.get("")
+//     .then(
+//         (response) => {
+            
+//         }
+//     )
+// }
+
+// 나중에 이미지 받아오는게 해결되면 지울 부분
+const Images=[
+    {
+        image_src : 'img/level1.png'
+    }
+    ,
+    {
+        image_src : 'img/level2.png'
+    }
+    ,
+    {
+        image_src : 'img/level3.png'
+    }  
+]
+
+function TestHome() {
+
         return (
-            <Paper style={{ margin: 16, padding: 16 }}>
-                <Grid container>
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Link to={"/test"}
-                            state={{grade : 'cho'}}>
-                            <Button 
-                                color="secondary"
-                                variant="contained">
-                                초급
-                            </Button>
-                        </Link>
+            <>
+                <Grid container spacing={3} alignItems="center" justifyContent="center">
+                    <Grid item xs={2}>
+                        {Test_level(1)}
                     </Grid>
-                    
-
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Link to={"/test"}
-                            state={{grade : 'jung'}}>
-                            <Button 
-                                color="secondary"
-                                variant="contained">
-                                중급
-                            </Button>
-                        </Link>
+                    <Grid item xs={2}>
+                        {Test_level(2)}
                     </Grid>
-
-                    <Grid xs={10} md={10} item style={{ paddingRight: 16 }}>
-                        <Link to={"/test"}
-                            state={{grade : 'go'}}>
-                            <Button 
-                                color="secondary"
-                                variant="contained">
-                                고급
-                            </Button>
-                        </Link>
+                    <Grid item xs={2}>
+                        {Test_level(3)}
                     </Grid>
                 </Grid>
-            </Paper>
+            </>
         );
-    }
+}
+
+function Test_level(level) {
+    return(
+        <>
+            <img src={Images[(level-1)].image_src} width={200} height={200} alt="image"/> <br/>
+            <h3>{Levels[(level-1)].level_name}</h3>
+            <br/> <br/>
+            <Link to={"/test_home/test"}
+                state={{level : (level)}}>
+                <button className="start">시작하기</button>
+            </Link>
+        </>
+    );
 }
 
 export default TestHome;
