@@ -9,10 +9,7 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.35.3",
-<<<<<<< HEAD
-=======
     "axios": "^0.27.2",
->>>>>>> 339406a02e570110c1de7b8a54ad5cfaab65d144
     "chart.js": "^3.8.0",
     "react": "^18.1.0",
     "react-chartjs-2": "^4.2.0",
@@ -20,10 +17,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-webcam": "^7.0.1",
-<<<<<<< HEAD
-=======
     "recharts": "^2.1.12",
->>>>>>> 339406a02e570110c1de7b8a54ad5cfaab65d144
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,12 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-  }, 
-  "proxy": "http://localhost:5000"
-}
-=======
   },
   "proxy": "http://localhost:5000"
 }
->>>>>>> 339406a02e570110c1de7b8a54ad5cfaab65d144
