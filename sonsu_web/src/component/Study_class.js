@@ -3,6 +3,8 @@ import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
+import { LevelDiv, TitleDiv, CurriDiv, Curri, WordsDiv,WordDiv
+, WordThumb } from './../component_css/Study_style';
 
 
 //예상되는 서버에서 오는 데이터
@@ -82,24 +84,25 @@ function Study_class(props){
     return(
         <>  
             {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
-            <div>
-                <h2>{level_name}</h2>
+            <TitleDiv>
+                <LevelDiv>{level_name}</LevelDiv>
 
-                {curri_arr.map(i=> (
-                    <div key={i.level}>
-                        <Button onClick={()=> {setCurri({i})}}>{i}</Button>                
-                    </div>
+                <CurriDiv>
+                {curri_arr.map(i=> (                    
+                        <Curri onClick={()=> {setCurri({i})}}>{i}</Curri>                
                 )
                 )}
-            </div>
+                </CurriDiv>
+
+            </TitleDiv>
 
             {/* 각 영상 하나 섹션별 */}
 
-            <div>
+            <WordsDiv>
                 {Curris.map((obj,index)=>(
-                    <div key={obj.word_id}>
-                        <br/>
-                        <img alt={obj.word_name} src={Images[index]} width="100" height="100"/>
+                    <WordDiv key={obj.word_id}>
+
+                        <WordThumb alt={obj.word_name} src={Images[index]} width="100" height="100"/>
                         <div>{obj.word_name}</div>
                         <div>{obj.word_info}</div>
 
@@ -111,11 +114,11 @@ function Study_class(props){
 
                             <button>강의 수강하기</button>
                         </Link>
-                    </div>
+                    </WordDiv>
                 )
                 )}
 
-            </div>     
+            </WordsDiv>     
         
         </>
     );

@@ -3,34 +3,43 @@ import { Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
 
+import { HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv } from './../component_css/Header_style';
+
 
 const Header = () => {
 
     return (
-        <header className="header">
-            <div className="nav">
-                {/* <h2>이것은 헤더다.</h2> */}
-                <div className="nav_menu">
-                    <Link to={"/study"}>
-                    <div className='menu_content'>수강하기</div>
-                    </Link>
-                    <Link to={"/test_home"}>
-                    <div className='menu_content'>테스트하기</div>
-                    </Link>
-                    <Link to={"/service_intro"}>
-                    <div className='menu_content'>서비스소개</div>
-                    </Link>
-                    <Link to={"/mypage"}>
-                    <div className='menu_content'>마이페이지</div>
-                    </Link>
-                    <Link to={"/login"}>
-                    <div className='menu_content'><button href='#' className='login_bt'>로그인 </button></div>
-                    </Link>
-                    {/* <li><input type="text"></input></li>
-                    <li><button href='#'>검색 </button></li> */}
-                </div>
-            </div>
-        </header>
+        
+        <HeaderDiv>            
+                <NavDiv>
+                    <Logo>
+                        <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
+                    </Logo>
+
+                    <ContentDiv>
+                        <Link to={"/study"} style={{ textDecoration: 'none' }}>
+                            <NavContent>수강하기</NavContent>
+                        </Link>
+
+                        <Link to={"/test_home"} style={{ textDecoration: 'none' }}>
+                            <NavContent>테스트하기</NavContent>
+                        </Link>
+
+                        <Link to={"/service_intro"} style={{ textDecoration: 'none' }}>
+                            <NavContent>서비스소개</NavContent>
+                        </Link>
+
+                        <Link to={"/mypage"} style={{ textDecoration: 'none' }}>
+                            <NavContent>마이페이지</NavContent>
+                        </Link>
+
+                        <Link to={"/login"} style={{ textDecoration: 'none' }}>
+                            <NavLoginBtn>로그인</NavLoginBtn>
+                        </Link>   
+                    </ContentDiv>  
+
+                </NavDiv>            
+        </HeaderDiv>
     )
 }
 
