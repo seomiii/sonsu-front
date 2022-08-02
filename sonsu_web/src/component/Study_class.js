@@ -3,8 +3,15 @@ import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
-import { LevelDiv, TitleDiv, CurriDiv, Curri, WordsDiv,WordDiv
-, WordThumb, 
+import Header from './header'
+import { MediaDiv,
+LevelDiv, 
+TitleDiv, 
+CurriDiv,
+ Curri, 
+ WordsDiv,
+ WordDiv, 
+ WordThumb, 
 WordName,
 WordDesDiv,
  WordDes,
@@ -109,7 +116,8 @@ function Study_class(props){
 
 
     return(
-        <>  
+        <MediaDiv>  
+            <Header/>
             {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
             <TitleDiv>
                 <LevelDiv>{level_name}</LevelDiv>
@@ -157,7 +165,7 @@ function Study_class(props){
                 </StyledSlider>            
             {/* </WordsDiv>      */}
         
-        </>
+        </MediaDiv>
     );
 }
 

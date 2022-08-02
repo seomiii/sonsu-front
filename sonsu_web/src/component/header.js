@@ -3,43 +3,43 @@ import { Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
 
-import { HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv } from './../component_css/Header_style';
+import {HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv } from './../component_css/Header_style';
+import { MediaDiv } from '../component_css/Study_style';
 
 
 const Header = () => {
-
     return (
+            <HeaderDiv>            
+                    <NavDiv>
+                        <Logo>
+                            <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
+                        </Logo>
+
+                        <ContentDiv>
+                            <Link to={"/study"} style={{ textDecoration: 'none' }}>
+                                <NavContent>수강하기</NavContent>
+                            </Link>
+
+                            <Link to={"/test_home"} style={{ textDecoration: 'none' }}>
+                                <NavContent>테스트하기</NavContent>
+                            </Link>
+
+                            <Link to={"/service_intro"} style={{ textDecoration: 'none' }}>
+                                <NavContent>서비스소개</NavContent>
+                            </Link>
+
+                            <Link to={"/mypage"} style={{ textDecoration: 'none' }}>
+                                <NavContent>마이페이지</NavContent>
+                            </Link>
+
+                            <Link to={"/login"} style={{ textDecoration: 'none' }}>
+                                <NavLoginBtn>로그인</NavLoginBtn>
+                            </Link>   
+                        </ContentDiv>  
+
+                    </NavDiv>            
+            </HeaderDiv>
         
-        <HeaderDiv>            
-                <NavDiv>
-                    <Logo>
-                        <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
-                    </Logo>
-
-                    <ContentDiv>
-                        <Link to={"/study"} style={{ textDecoration: 'none' }}>
-                            <NavContent>수강하기</NavContent>
-                        </Link>
-
-                        <Link to={"/test_home"} style={{ textDecoration: 'none' }}>
-                            <NavContent>테스트하기</NavContent>
-                        </Link>
-
-                        <Link to={"/service_intro"} style={{ textDecoration: 'none' }}>
-                            <NavContent>서비스소개</NavContent>
-                        </Link>
-
-                        <Link to={"/mypage"} style={{ textDecoration: 'none' }}>
-                            <NavContent>마이페이지</NavContent>
-                        </Link>
-
-                        <Link to={"/login"} style={{ textDecoration: 'none' }}>
-                            <NavLoginBtn>로그인</NavLoginBtn>
-                        </Link>   
-                    </ContentDiv>  
-
-                </NavDiv>            
-        </HeaderDiv>
     )
 }
 

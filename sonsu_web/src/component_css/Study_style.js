@@ -121,4 +121,133 @@ export const ClassBtn=styled.button`
     margin-top: 57px;
 `
 
+// -------------------------------study_play------------------------------
+
+export const PlayTitleDiv=styled.div`
+    width: 100%;
+    background-color: #F9F9F9; 
+    height:100px;   
+    display:flex; 
+    border-bottom: 0.8px solid #F47A20; 
+`
+
+export const Logo=styled.img`
+    height:50px;
+    margin-top:25px; 
+    margin-left:50px;
+    //background-color:lightyellow;
+    padding-right: 40px;
+    border-right:1px solid #B5B5B5;
+`
+
+export const PlayLevel=styled.div`
+    //background-color: blue;
+    font-size: 32px;
+    margin-top:25px;
+    margin-bottom:25px;
+    line-height:50px;
+    margin-left:40px;
+`
+
+export const PlayVideos=styled.div`
+    margin: 0px auto;
+    //background-color: lightblue;
+    min-height:100vh;
+    width: 1440px;
+    display:flex;
+    @media screen and (max-width: 1440px) {
+        width: 100%;
+    }   
+`
+export const VideoDiv=styled.div`
+    width:982px;
+    height:553px;
+    margin-top:30px;    
+`
+export const Video=styled.video`
+    width:982px;
+    height:553px;
+    border-radius: 21px;
+    margin:0;
+`
+export const MenuBar=styled.div`
+    //background-color: beige;
+    margin-left:30px;
+`
+export const MenuDiv=styled.div`
+    border-bottom: 1px solid #FF7A00;
+    
+`
+export const MenuCurriDiv=styled.div`
+    width:344px;
+    background-color:#FF7A00;
+    border-radius: 12px;
+    height: 108px; 
+    margin-top:30px; 
+    
+`
+export const MenuCurri=styled.div`
+    font-size: 20px;
+    color:white;
+    text-align:left;
+    line-height: 108px;
+    margin-left: 30px;
+`
+export const PlayWords=styled.div`
+    background-color: white;  
+    height: 248px;
+    overflow: auto;
+    &::-webkit-scrollbar{
+        width:4px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: #D9D9D9;
+    }
+    
+`
+export const PlayWord=styled.div`
+    font-size: 16px;
+    height: 62px;
+    line-height:62px;
+    text-align:left;
+    text-indent: 23px;
+    border-bottom: 1px solid #D9D9D9;    
+`
+
+export const BackNextDiv=styled.div`
+ margin-top:30px;
+    width: 344px;
+    background-color:rgba( 0, 0, 0, 0.7 );
+    height: 83px;
+    border-radius: 12px;
+    text-align:center;
+`
+
+export const BackNextBtn=styled.button`
+    color:white;
+    font-size:16px; 
+    border:none;
+    outline:none;
+    background-color:rgba( 0, 0, 0, 0.0 );
+    margin: 30px 35px 30px 35px;
+`
+export const FollowDiv=styled.div`
+    margin-top:20px;
+    background-color: skyblue;
+    background-color:#FF7A00;
+    border-radius: 12px;
+    height:60px;
+    line-height:60px;
+`
+
+export const FollowBtn=styled.button`
+    border:none;
+    outline:none;
+    background-color:#FF7A00;
+    color:white;
+    font-size: 16px;
+    
+
+`
 

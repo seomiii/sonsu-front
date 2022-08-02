@@ -26,9 +26,8 @@ function App() {
       // </Layout>
     <div className="App"> 
       <BrowserRouter>
-        <GlobalStyles/>
-          <MediaDiv>
-          <Header />
+        <GlobalStyles/>          
+          {/* <Header /> */}
             <Routes>
               {/* 홈 */}
               <Route exact path="/" element={<Home />}/>
@@ -59,7 +58,7 @@ function App() {
               <Route path="test_home/test" element={<Test/>} />
             </Routes>
             {/* <a><Footer /></a> */}
-          </MediaDiv>
+         
       </BrowserRouter> 
     </div>
   );

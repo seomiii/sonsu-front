@@ -4,6 +4,26 @@ import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link} from 'react-router-dom';
 import webcam from './WebcamStreamCapture';
 import axios from 'axios';
+import { 
+PlayTitleDiv,
+Logo,
+PlayLevel,
+PlayVideos,
+Video,
+VideoDiv,
+MenuBar,
+MenuCurriDiv,
+MenuCurri,
+PlayWords,
+PlayWord,
+BackNextDiv,
+MenuDiv,
+BackNextBtn,
+FollowBtn,
+FollowDiv,
+
+ } from './../component_css/Study_style';
+
 
 // 프론트 고정
 const Levelname=['초급','중급','고급'];
@@ -15,7 +35,7 @@ const data={
 	word_number : 11001,
 	word_gesture: 'ㄱ은 손가락을 요렇게 저렇게 해보세요',
 	video: 'urlurl',
-    words : { 1 : 'ㄱ (기역)', 2 : 'ㄴ (니은)', 3 : 'ㄷ (디귿)'}
+    words : { 1 : 'ㄱ (기역)', 2 : 'ㄴ (니은)', 3 : 'ㄷ (디귿)',4:'ㄹ (ㄹㄹ)', 5:'안녕 (hi)', 6: '호호 (아아)'}
 }
 
 const words_arr=Object.values(data.words);
@@ -51,31 +71,56 @@ function Study_play(props){
 
     return(
         <div> 
-            <div>{Levelname[(level-1)]}</div>
+            <PlayTitleDiv>
+                <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+                <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+            </PlayTitleDiv>
 
-            <div>
-                <video src="../../videos/word1.mp4" width='268' height='164' controls="controls"/> 
-
-                <Link to ="../webcam" state={{
-                    level : (level),
-                    word_name : (word_name),
-                    word_id : (word_id)
-                    }}>
-                    <button>따라하기</button>  
-                </Link>
+            <PlayVideos>
+                <VideoDiv>
+                    <Video src="../../videos/word1.mp4" controls="controls"/> 
+                </VideoDiv>
                 
-                {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
-                <button onClick={()=>{setWord(words_arr[(word_loc-1)])}}>이전으로</button>
-                <button onClick={()=>{setWord(words_arr[(word_loc+1)])}}>다음으로</button>
+                <MenuBar>
+                    <MenuDiv>
+                        <MenuCurriDiv>
+                            <MenuCurri>
+                                {data.curri_name}
+                            </MenuCurri>                        
+                        </MenuCurriDiv>
 
-                {/* 메뉴바 */}
-                <div>{data.curri_name}</div>
+                        <PlayWords>
+                            {words_arr.map(i=>(
+                                <PlayWord onClick={()=> setWord(i)}>{i}</PlayWord>
+                            ))}
+                        </PlayWords>
+                    </MenuDiv>      
 
-                {words_arr.map(i=>(
-                    <div onClick={()=> setWord(i)}>{i}</div>
-                ))}
+                    <FollowDiv>
+                        <Link to ="../webcam" state={{
+                            level : (level),
+                            word_name : (word_name),
+                            word_id : (word_id)
+                            }}>
+                            <FollowBtn>따라하기</FollowBtn>  
+                        </Link>
+                    </FollowDiv>      
+            
+                    <BackNextDiv>
+                        {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
+                        <BackNextBtn onClick={()=>{setWord(words_arr[(word_loc-1)])}}>◀️ 이전으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{setWord(words_arr[(word_loc+1)])}}>다음으로 ▶️</BackNextBtn>
+                    </BackNextDiv>
+                    
                 
-            </div>
+
+                </MenuBar>
+            </PlayVideos>    
+                
+
+                
+                
+            
 
             <div>
                 <p>{data.word_name}</p>

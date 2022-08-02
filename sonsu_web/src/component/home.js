@@ -1,5 +1,6 @@
 import '../component_css/home.css'
 import {Link} from 'react-router-dom';
+import Header from './header'
 
 const Home = () => {
     // const containerStyle = {
@@ -13,6 +14,7 @@ const Home = () => {
 
     return (
         <section className="home">
+             <Header/>
              <div className="hm_contents"> {/* style={containerStyle}*/}
                 <h2 className='hm_title'>서비스소개</h2>
                 <Link to={"/service_intro"}>
