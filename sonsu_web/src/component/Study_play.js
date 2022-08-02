@@ -49,7 +49,6 @@ function Study_play(props){
 
     // }, [cur_word])
 
-
     return(
         <div> 
             <div>{Levelname[(level-1)]}</div>
