@@ -1,11 +1,9 @@
 import '../component_css/Study.css';
 import React,{useState,useEffect} from 'react';
-import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link} from 'react-router-dom';
 import webcam from './WebcamStreamCapture';
 import axios from 'axios';
-import { 
-
+import {
 PlayTitleDiv,
 Logo,
 PlayLevel,
@@ -25,8 +23,7 @@ FollowDiv,
 MotionDiv,
 Motion,
 MotionTitle,
-
- } from './../component_css/Study_style';
+} from './../component_css/Study_style';
 
 
 // 프론트 고정
@@ -39,6 +36,17 @@ const data={
 	word_number : 11001,
 	word_gesture: '오른 주먹의 1·5지를 펴서 1지 끝이 아래로 손등이 밖으로 향하게 세운다.',
 	video: 'urlurl',
+    // words:[
+    //     {
+    //         word_id:1,
+    //         word_name:'ㄱ(기역)'
+    //     },
+    //     {
+    //         word_id:2,
+    //         word_name: '문희'
+    //     }
+    
+    // ]
     words : { 1 : 'ㄱ (기역)', 2 : 'ㄴ (니은)', 3 : 'ㄷ (디귿)',4:'ㄹ (ㄹㄹ)', 5:'안녕 (hi)', 6: '호호 (아아)'}
 }
 
@@ -76,7 +84,9 @@ function Study_play(props){
     return(
         <div> 
             <PlayTitleDiv>
-                <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+                <Link to='/'>
+                    <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>  
+                </Link>              
                 <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
             </PlayTitleDiv>
 

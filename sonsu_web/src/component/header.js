@@ -1,11 +1,5 @@
-import '../component_css/header.css'
-import { Button } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
-
 import {HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv } from './../component_css/Header_style';
-import { MediaDiv } from '../component_css/Study_style';
-
 
 const Header = () => {
     return (

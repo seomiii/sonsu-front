@@ -11,7 +11,7 @@ export const NavDiv = styled.div`
     display: flex;
     flex-direction: row;
     height:70px;    
-    justify-content: space-between;    
+    justify-content: space-between;   
     
 `
 
@@ -34,6 +34,10 @@ export const NavContent=styled.div`
     color: black;
     font-size:20px; 
     text-decoration: none;
+    transition: 0.3s;
+    &:hover{
+        color: #FF7A00;
+    }
 `
 
 export const NavLoginBtn=styled.button`
@@ -47,4 +51,10 @@ export const NavLoginBtn=styled.button`
     height: 36px;
     font-size:14px;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
 `
