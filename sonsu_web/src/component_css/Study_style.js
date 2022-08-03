@@ -3,7 +3,7 @@ import reset from 'styled-reset';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import Webcam from "react-webcam";
 
 export const GlobalStyles=createGlobalStyle`
     ${reset}
@@ -29,8 +29,7 @@ export const TitleDiv=styled.div`
 export const LevelDiv=styled.div`
     //background-color: lightyellow;
     font-size : 32px;
-    display: flex;
-      
+    display: flex;     
   
 `
 
@@ -152,17 +151,18 @@ export const PlayLevel=styled.div`
 export const PlayVideos=styled.div`
     margin: 0px auto;
     //background-color: lightblue;
-    min-height:100vh;
-    width: 1440px;
+    //min-height:100vh;
+    width: 1340px;
     display:flex;
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1340px) {
         width: 100%;
     }   
 `
 export const VideoDiv=styled.div`
     width:982px;
     height:553px;
-    margin-top:30px;    
+    margin-top:30px; 
+    //background-color: lightgrey;   
 `
 export const Video=styled.video`
     width:982px;
@@ -173,13 +173,12 @@ export const Video=styled.video`
 export const MenuBar=styled.div`
     //background-color: beige;
     margin-left:30px;
+    width:329px;
 `
 export const MenuDiv=styled.div`
-    border-bottom: 1px solid #FF7A00;
-    
+    border-bottom: 1px solid #FF7A00;    
 `
 export const MenuCurriDiv=styled.div`
-    width:344px;
     background-color:#FF7A00;
     border-radius: 12px;
     height: 108px; 
@@ -203,8 +202,7 @@ export const PlayWords=styled.div`
     &::-webkit-scrollbar-thumb {
         border-radius: 2px;
         background: #D9D9D9;
-    }
-    
+    }    
 `
 export const PlayWord=styled.div`
     font-size: 16px;
@@ -216,8 +214,8 @@ export const PlayWord=styled.div`
 `
 
 export const BackNextDiv=styled.div`
- margin-top:30px;
-    width: 344px;
+    margin-top:30px;
+    width:329px;
     background-color:rgba( 0, 0, 0, 0.7 );
     height: 83px;
     border-radius: 12px;
@@ -230,11 +228,11 @@ export const BackNextBtn=styled.button`
     border:none;
     outline:none;
     background-color:rgba( 0, 0, 0, 0.0 );
-    margin: 30px 35px 30px 35px;
+    margin:30px 5px 30px 5px;
 `
 export const FollowDiv=styled.div`
     margin-top:20px;
-    background-color: skyblue;
+    //background-color: skyblue;
     background-color:#FF7A00;
     border-radius: 12px;
     height:60px;
@@ -246,8 +244,30 @@ export const FollowBtn=styled.button`
     outline:none;
     background-color:#FF7A00;
     color:white;
-    font-size: 16px;
-    
-
+    font-size: 16px;   
 `
-
+export const MotionDiv=styled.div`
+    width: 1340px;
+    margin: 0px auto;
+    // background-color: beige;
+    text-align: left;
+`
+export const MotionTitle=styled.p`
+    font-size: 20px;
+    margin: 20px;
+    border-left:2px solid #FF7A00;
+    padding-left: 20px;
+`
+export const Motion=styled.p`
+    font-size: 16px;
+    margin: 20px;
+    padding-left: 20px;
+`
+// ------------------------------WebcamStreamCapture------------------
+export const CamDiv=styled.div`
+    width:982px;
+    height:553px;
+    margin-top:30px; 
+    background-color:black; 
+    border-radius: 21px;
+`

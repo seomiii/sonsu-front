@@ -5,6 +5,7 @@ import { useLocation,Link} from 'react-router-dom';
 import webcam from './WebcamStreamCapture';
 import axios from 'axios';
 import { 
+
 PlayTitleDiv,
 Logo,
 PlayLevel,
@@ -21,6 +22,9 @@ MenuDiv,
 BackNextBtn,
 FollowBtn,
 FollowDiv,
+MotionDiv,
+Motion,
+MotionTitle,
 
  } from './../component_css/Study_style';
 
@@ -33,7 +37,7 @@ const data={
 	curri_name : '자음',	
 	word_name: 'ㄱ (기역)',
 	word_number : 11001,
-	word_gesture: 'ㄱ은 손가락을 요렇게 저렇게 해보세요',
+	word_gesture: '오른 주먹의 1·5지를 펴서 1지 끝이 아래로 손등이 밖으로 향하게 세운다.',
 	video: 'urlurl',
     words : { 1 : 'ㄱ (기역)', 2 : 'ㄴ (니은)', 3 : 'ㄷ (디귿)',4:'ㄹ (ㄹㄹ)', 5:'안녕 (hi)', 6: '호호 (아아)'}
 }
@@ -110,22 +114,16 @@ function Study_play(props){
                         {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
                         <BackNextBtn onClick={()=>{setWord(words_arr[(word_loc-1)])}}>◀️ 이전으로</BackNextBtn>
                         <BackNextBtn onClick={()=>{setWord(words_arr[(word_loc+1)])}}>다음으로 ▶️</BackNextBtn>
-                    </BackNextDiv>
-                    
-                
+                    </BackNextDiv>                   
 
                 </MenuBar>
-            </PlayVideos>    
-                
+            </PlayVideos>                  
 
-                
-                
+            <MotionDiv>
+                <MotionTitle>{data.word_name}</MotionTitle>
+                <Motion>{data.word_gesture}</Motion>
+            </MotionDiv>
             
-
-            <div>
-                <p>{data.word_name}</p>
-                <p>{data.word_gesture}</p>
-            </div>
             
         </div>
     );

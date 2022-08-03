@@ -11,9 +11,11 @@ const Header = () => {
     return (
             <HeaderDiv>            
                     <NavDiv>
-                        <Logo>
-                            <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
-                        </Logo>
+                        <Link to={"/"} style={{ textDecoration: 'none' }}>
+                            <Logo>
+                                <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
+                            </Logo>
+                        </Link>
 
                         <ContentDiv>
                             <Link to={"/study"} style={{ textDecoration: 'none' }}>

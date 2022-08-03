@@ -4,7 +4,7 @@ export const HeaderDiv=styled.div`
     margin-top: 30px;
     width: 100%;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    background-color: lightblue;
+    //background-color: lightblue;
 `
 
 export const NavDiv = styled.div`
