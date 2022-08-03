@@ -2,6 +2,20 @@ import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Webcam from "react-webcam";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { 
+PlayTitleDiv,
+Logo,
+PlayLevel,
+PlayVideos,
+CamDiv,
+
+
+ } from './../component_css/Study_style';
+
+// 프론트 고정 소스
+const Levelname=['초급','중급','고급'];
+
+
 
 const WebcamStreamCapture = () => {
 
@@ -104,18 +118,29 @@ const WebcamStreamCapture = () => {
 
   return (
     <>
-      <Webcam audio={false} mirrored={true} ref={webcamRef} />
+      <PlayTitleDiv>
+          <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+          <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+      </PlayTitleDiv>
 
-      {capturing ? (
-        <button onClick={handleStopCaptureClick}>Stop Capture</button>
-      ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
-      )}
+      <PlayVideos>
 
-      {recordedChunks.length > 0 && (
-        //
-        <button onClick={SendToServer}>결과 보기</button>
-      )}
+        <CamDiv>
+          <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
+        </CamDiv>
+
+        {capturing ? (
+          <button onClick={handleStopCaptureClick}>Stop Capture</button>
+        ) : (
+          <button onClick={handleStartCaptureClick}>Start Capture</button>
+        )}
+
+        {recordedChunks.length > 0 && (
+          //
+          <button onClick={SendToServer}>결과 보기</button>
+        )}
+
+    </PlayVideos>
 
     </>
   );

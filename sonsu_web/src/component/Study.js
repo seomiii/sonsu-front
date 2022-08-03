@@ -7,6 +7,8 @@ import Service_intro from './Service_intro';
 import study_play from './Study_play';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Header from './header'
+import { MediaDiv } from '../component_css/Study_style';
 
 //프론트 고정 리소스
 const Levels=[
@@ -46,7 +48,8 @@ const Images=['img/level1.png','img/level2.png','img/level3.png'];
 function Study(){       
 
     return (
-        <div className='study'>            
+        <MediaDiv>
+            <Header/>            
             {Study_level(1)}
             {Study_level(2)}
             {Study_level(3)} 
@@ -56,7 +59,7 @@ function Study(){
                     <p>수어의 학습 과정에 대해 더 알아보고 싶다면?</p>
                 </Link>
             </div> 
-        </div>
+        </MediaDiv>
     );    
 }
 
