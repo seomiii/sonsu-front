@@ -5,6 +5,7 @@ HomeDiv,
 HeaderDiv,
 StartBtn,
 HomeDesTitle,
+FadeHome,
 
 } from './../component_css/Home_style';
 
@@ -14,7 +15,7 @@ const Home = () => {
             <HeaderDiv>        
                 <Header/>
             </HeaderDiv>
-
+        <FadeHome>
             <HomeDiv>
                 <HomeDesTitle>손으로 세상과 소통하는 수어교실, 여기는 손수입니다.</HomeDesTitle>
 
@@ -23,6 +24,7 @@ const Home = () => {
                     <StartBtn>시작하기</StartBtn>
                 </Link>           
             </HomeDiv>        
+        </FadeHome>
         </>
     )
 }

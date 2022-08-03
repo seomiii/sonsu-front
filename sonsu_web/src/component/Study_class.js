@@ -1,22 +1,24 @@
 import React,{useCallback, useState} from 'react';
-import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
 import Header from './header'
-import { MediaDiv,
+import { 
+MediaDiv,
 LevelDiv, 
 TitleDiv, 
 CurriDiv,
- Curri, 
- WordsDiv,
- WordDiv, 
- WordThumb, 
+Curri, 
+WordDiv, 
+WordThumb, 
 WordName,
 WordDesDiv,
- WordDes,
- ClassBtn,
- StyledSlider} from './../component_css/Study_style';
+WordDes,
+ClassBtn,
+StyledSlider,
+} from './../component_css/Study_style';
+
+import { FadeHome } from '../component_css/Home_style';
 
 
 //예상되는 서버에서 오는 데이터
@@ -116,8 +118,11 @@ function Study_class(props){
 
 
     return(
+        
         <MediaDiv>  
             <Header/>
+
+            
             {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
             <TitleDiv>
                 <LevelDiv>{level_name}</LevelDiv>
@@ -134,7 +139,7 @@ function Study_class(props){
             {/* 각 영상 하나 섹션별 */}
         
             
-            {/* <WordsDiv> */}
+            <FadeHome>
 
                 <StyledSlider {...settings}>
                     {Curris.map((obj,index)=>(
@@ -163,9 +168,10 @@ function Study_class(props){
                     )}
                 
                 </StyledSlider>            
-            {/* </WordsDiv>      */}
+            </FadeHome>
         
         </MediaDiv>
+        
     );
 }
 

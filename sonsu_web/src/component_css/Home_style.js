@@ -1,5 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
+const Fade=keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
+export const FadeHome=styled.div`
+    animation: ${Fade} 1s;
+`
 export const HeaderDiv=styled.div`
     margin: 0px auto;
     width: 1024px;
