@@ -1,27 +1,51 @@
-import React from 'react';
+import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Webcam from "react-webcam";
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { 
+PlayTitleDiv,
+Logo,
+PlayLevel,
+PlayVideos,
+CamDiv,
+
+
+ } from './../component_css/Study_style';
+
+// 프론트 고정 소스
+const Levelname=['초급','중급','고급'];
+
+
 
 const WebcamStreamCapture = () => {
-  const webcamRef = React.useRef(null);
-  const mediaRecorderRef = React.useRef(null);
+
+  const word_id = useLocation().state.word_id;
+  const level=useLocation().state.level;
+
+  const [flaskResult,setFlaskResult]=useState(false);  
+
+  const webcamRef = useRef(null);
+  const mediaRecorderRef = useRef(null);
   
-  const [capturing, setCapturing] = React.useState(false);
-  const [recordedChunks, setRecordedChunks] = React.useState([]);
+  const [capturing, setCapturing] = useState(false);
+  const [recordedChunks, setRecordedChunks] = useState([]);
       
-  const handleStartCaptureClick = React.useCallback(() => {
+  const handleStartCaptureClick = useCallback(() => {
       setCapturing(true);
       mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: "video/webm"
     });
+
     mediaRecorderRef.current.addEventListener(
       "dataavailable",
       handleDataAvailable
     );
+
       mediaRecorderRef.current.start();
   }, [webcamRef, setCapturing, mediaRecorderRef]);
+
       
-  const handleDataAvailable = React.useCallback(
+  const handleDataAvailable = useCallback(
     ({ data }) => {
       if (data.size > 0) {
         setRecordedChunks((prev) => prev.concat(data));
@@ -30,19 +54,21 @@ const WebcamStreamCapture = () => {
     [setRecordedChunks]
   );
       
-  const handleStopCaptureClick = React.useCallback(() => {
+  const handleStopCaptureClick = useCallback(() => {
     mediaRecorderRef.current.stop();
-          setCapturing(false);
+    setCapturing(false);
   }, [mediaRecorderRef, webcamRef, setCapturing]); 
 
+
+  // 영상을 모델서버에게 전달
   const Send=()=>{
+    
     if(recordedChunks.length){
-      //const blob=new Blob(recordedChunks,{type:'video/webm'});
       const blob=new Blob(recordedChunks,{type:'video/webm'});
       
-      //Sat Sep 01 2018 14:53:26 GMT+0900 (KST)
-      let filename=new Date().toString()+'.avi';
-      //const file=new File(blob2,filename);
+      let filename=new Date().getTime().toString(36)+'.avi';
+      //let filename= word_id.toString()+'avi';
+      
       const file=new File([blob],filename);
       //const file=new File([blob],filename,{lastModified:new Date().getTime(),type:blob.type});
       //console.log(file);
@@ -50,51 +76,21 @@ const WebcamStreamCapture = () => {
       let fd=new FormData();
       // fd.append('fname',filename);
       // fd.append('test','hi');
-      fd.append('file',file);
-
-      for (let key of fd.keys()) {
-        console.log(key);
-      }
-
-      console.log('*');
-      
-      // FormData의 value 확인
-      for (let value of fd.values()) {
-        console.log(value);
-      }
+      fd.append('file',file);    
 
       axios.post('/model',fd)
         .then((res)=>{
+          setFlaskResult(res.data);
           alert("결과 : " + res.data);
-          console.log(res);})
+          console.log(res);
+        })
+
         .catch((err)=>{
         alert("error");
-        console.log(err)
-      },[recordedChunks]);
+        console.log(err);
 
-      // fetch('/model',{
-      //   method:'POST',
-      //   body: fd,
-      // })
-      // // .then((fd)=>{console.log('success',fd)})
-      // .then((res)=>{console.log(res);})
-      // .catch((error)=>{console.log('Error:',error);}
-      // );
+      },[recordedChunks]);  
 
-      // var request=new XMLHttpRequest();
-      // request.open('POST','/model');
-      // request.send(fd);
-
-
-      // var formData = new FormData();
-      // var content = '<a id="a"><b id="b">hey!</b></a>';
-      // var blob2 = new Blob([content], { type: "text/xml"});
-
-      // formData.append("webmasterfile", blob2);
-
-      // var request = new XMLHttpRequest();
-      // request.open("POST", "/model");
-      // request.send(formData);
     }
 
     else{
@@ -102,41 +98,70 @@ const WebcamStreamCapture = () => {
     }
   }
 
-  const handleDownload = React.useCallback(() => {
-    if (recordedChunks.length) {
-      const blob = new Blob(recordedChunks, {
-        type: "video/webm"
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style = "display: none";
-      a.href = url;
-      a.download = "react-webcam-stream-capture.webm";
-      a.click();
-      window.URL.revokeObjectURL(url);
-      setRecordedChunks([]);
-    }
-  }, [recordedChunks]);
+  useEffect(()=>{
+    Send();
+  },[recordedChunks.length]);
+
+
+  // 모델 서버에서 온 결과를 서버에게 전달
+  const SendToServer = () => {
+    axios.post('study/{level}/{word_id}/{user_id}/{flaskResult}',{
+      user_id:'miseomiseo',
+      level: (level),
+      result: flaskResult
+    })
+    .then((res)=>{
+      console.log(res);
+    })
+  }
+
 
   return (
     <>
-      <Webcam audio={false} mirrored={true} ref={webcamRef} />
-      {capturing ? (
-        <button onClick={handleStopCaptureClick}>Stop Capture</button>
-      ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
-      )}
+      <PlayTitleDiv>
+          <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+          <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+      </PlayTitleDiv>
 
-      {/* <button onClick={Send}>결과 보기</button>
-      <button onClick={handleDownload}>Download</button> */}
+      <PlayVideos>
 
-      {recordedChunks.length > 0 && (
-        <button onClick={Send}>결과 보기</button>
-      )}
+        <CamDiv>
+          <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
+        </CamDiv>
+
+        {capturing ? (
+          <button onClick={handleStopCaptureClick}>Stop Capture</button>
+        ) : (
+          <button onClick={handleStartCaptureClick}>Start Capture</button>
+        )}
+
+        {recordedChunks.length > 0 && (
+          //
+          <button onClick={SendToServer}>결과 보기</button>
+        )}
+
+    </PlayVideos>
 
     </>
   );
 };
 
 export default WebcamStreamCapture;
+
+
+// const handleDownload = useCallback(() => {
+//   if (recordedChunks.length) {
+//     const blob = new Blob(recordedChunks, {
+//       type: "video/webm"
+//     });
+//     const url = URL.createObjectURL(blob);
+//     const a = document.createElement("a");
+//     document.body.appendChild(a);
+//     a.style = "display: none";
+//     a.href = url;
+//     a.download = "react-webcam-stream-capture.webm";
+//     a.click();
+//     window.URL.revokeObjectURL(url);
+//     setRecordedChunks([]);
+//   }
+// }, [recordedChunks]);

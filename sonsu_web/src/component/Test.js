@@ -93,7 +93,8 @@ function Testdetail(){
         if(recordedChunks.length){
             const blob=new Blob(recordedChunks,{type:'video/webm'});
             
-            let filename=new Date().toString()+'.avi';
+            //let filename=new Date().toString()+'.avi';
+            let filename=new Date().getTime().toString(36)+'.avi';
             const file=new File([blob],filename);
         
             let fd=new FormData();
