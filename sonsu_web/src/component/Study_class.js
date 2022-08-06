@@ -1,8 +1,24 @@
 import React,{useCallback, useState} from 'react';
-import {Button,Paper} from '@material-ui/core'
 import { useLocation,Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
+import Header from './header'
+import { 
+MediaDiv,
+LevelDiv, 
+TitleDiv, 
+CurriDiv,
+Curri, 
+WordDiv, 
+WordThumb, 
+WordName,
+WordDesDiv,
+WordDes,
+ClassBtn,
+StyledSlider,
+} from './../component_css/Study_style';
+
+import { FadeHome } from '../component_css/Home_style';
 
 
 //예상되는 서버에서 오는 데이터
@@ -30,7 +46,16 @@ const Curris=[
         word_name : 'ㄷ (디귿)',
         word_info : '한글 자모의 셋째 글자',
         word_thumbnamil : 'urlrul'
-    }
+    },
+
+    {
+        word_id : 4,
+        word_number : 11004, 
+        word_name : 'ㄹ (ㄹㄹ)',
+        word_info : '한글 자모의 셋째 글자',
+        word_thumbnamil : 'urlrul'
+    },
+
 ]
 
 //프론트 고정 리소스
@@ -49,10 +74,10 @@ const Curri_Arr=[
         level: 3,
         level_name:"고급",
         curri_arr: ["단어"],
-    }
+    },
 ]
 
-const Images=['../img/word1.png','../img/word2.png','../img/word3.png'];
+const Images=['../img/word1.png','../img/word2.png','../img/word3.png','../img/word3.png'];
 
 
 // -----------------------리소스------------------------------------
@@ -79,45 +104,74 @@ function Study_class(props){
 
     // }, [cur_curri])
 
-    return(
-        <>  
-            {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
-            <div>
-                <h2>{level_name}</h2>
 
-                {curri_arr.map(i=> (
-                    <div key={i.level}>
-                        <Button onClick={()=> {setCurri({i})}}>{i}</Button>                
-                    </div>
+    // 슬라이드 구현
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,  //한번에 몇개보여줄지
+        slidesToScroll: 1, //한번 스크롤시 몇개 넘길지
+        arrows: true,
+        centerMode: false,
+    };
+
+
+    return(
+        
+        <MediaDiv>  
+            <Header/>
+
+            
+            {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
+            <TitleDiv>
+                <LevelDiv>{level_name}</LevelDiv>
+
+                <CurriDiv>
+                {curri_arr.map(i=> (                    
+                        <Curri onClick={()=> {setCurri({i})}}>{i}</Curri>                
                 )
                 )}
-            </div>
+                </CurriDiv>
+
+            </TitleDiv>
 
             {/* 각 영상 하나 섹션별 */}
-
-            <div>
-                {Curris.map((obj,index)=>(
-                    <div key={obj.word_id}>
-                        <br/>
-                        <img alt={obj.word_name} src={Images[index]} width="100" height="100"/>
-                        <div>{obj.word_name}</div>
-                        <div>{obj.word_info}</div>
-
-                        <Link to = "study_play" state={{
-                            level : (level), 
-                            word_name: (obj.word_name), 
-                            word_id: (obj.word_id), 
-                            }} >
-
-                            <button>강의 수강하기</button>
-                        </Link>
-                    </div>
-                )
-                )}
-
-            </div>     
         
-        </>
+            
+            <FadeHome>
+
+                <StyledSlider {...settings}>
+                    {Curris.map((obj,index)=>(
+                        
+                        <WordDiv key={obj.word_id}>
+                            
+                            <WordThumb alt={obj.word_name} src={Images[index]}/>
+
+                            <WordDesDiv>
+                                <WordName>{obj.word_name}</WordName>
+                                <WordDes>{obj.word_info}</WordDes>
+                            </WordDesDiv>
+
+                            <Link to = "study_play" state={{
+                                level : (level), 
+                                word_name: (obj.word_name), 
+                                word_id: (obj.word_id), 
+                                }} >
+
+                                <ClassBtn>강의 수강하기</ClassBtn>
+                            </Link>
+                            
+                        </WordDiv>
+                        
+                    )
+                    )}
+                
+                </StyledSlider>            
+            </FadeHome>
+        
+        </MediaDiv>
+        
     );
 }
 
