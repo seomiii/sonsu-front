@@ -34,20 +34,19 @@ const Levels=[
 
 const Images=['img/level1.png','img/level2.png','img/level3.png'];
 
-// 서버에서 이미지 받아오기
-// useEffect(()=>{
-//     axios.get(' ')
-//     .then((response)=>{
-//     console.log(response);
-//     })
-// },[])
-
-
-
 //---------------------------리소스-------------------------------
 
-function Study(){       
+function Study(){    
 
+    // 서버에서 이미지 받아오기 -> 일단은 프론트에서 하기로
+
+    // useEffect(()=>{
+    //     axios.get('/study')
+    //     .then((response)=>{
+    //     console.log(response);
+    //     })
+    // },[])
+   
     return (
         <MediaDiv>
             <Header/>           

@@ -56,20 +56,19 @@ export const Curri=styled.button`
 // `
 
 export const StyledSlider = styled(Slider)`
-
     .slick-list{ //크기조정
     	width: 1024px; 
         height: 520px;
-        //margin: 0 auto;
-        //background-color: #f0f9ff;
-        
+        margin: 0 -15px;
+        //background-color: #f0f9ff;        
     }
-
-    .slick-slide{
+    .slick-slide > div{
         margin:0 15px;
+        //background-color: yellow;
     }    
 
-    .slick-next:before{ //얘는 양옆 버튼. 커스텀 해줘야 보임
+    .slick-next:before{ 
+        background-color: yellow;
     	//font-family: 'slick';
         font-size: 40px;
         line-height: 1;
@@ -78,17 +77,19 @@ export const StyledSlider = styled(Slider)`
         -webkit-font-smoothing: antialiased;
     }
 `
+//얘는 양옆 버튼. 커스텀 해줘야 보임
 
 export const WordDiv=styled.div`
     width: 320px;
     height: 432px;
     background-color: white;
     border-radius: 25px;
-    margin: 40px 20px 40px 20px;
+    //padding:0 15px;
+    //margin: 40px 20px 40px 20px;
     border: 1px solid #D9D9D9;
 `
 export const WordThumb=styled.img`
-    width: 290px;
+    width: 260px;
     height: 164px;
     margin: 25px;
 `
@@ -97,8 +98,7 @@ export const WordDesDiv=styled.div`
     margin:0 25px; //양옆만
 
 `
-export const WordName=styled.div`
-    
+export const WordName=styled.div`    
     font-size: 24px;
     text-align:left;
     margin-bottom: 24px;
