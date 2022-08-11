@@ -13,13 +13,90 @@ export const GlobalStyles=createGlobalStyle`
 `
 export const MediaDiv=styled.div`
     margin: 0px auto;
-    // background-color: lightblue;
+    //background-color: lightblue;
     min-height:100vh;
     width: 1024px;
     @media screen and (max-width: 1024px) {
         width: 100%;
     }   
 `
+// ---------------------study.js-----------------
+export const Header_Div=styled.div`
+    width: 1024px;
+    margin: 0px auto;
+`
+
+export const ImgDiv=styled.img`
+    width: 250px;
+    height: 250px;
+    object-fit:cover;
+    //background-color:yellow;
+    padding: 15px 0 ;
+`
+
+export const ImgBox=styled.img`
+    width:100%;
+    height: 250px;
+    object-fit:contain;
+    text-align:center;   
+    background-color: #F37A1F;
+`
+export const FullBox=styled.div`
+    display:flex;
+
+`
+export const LevelBox=styled.div`
+    width: 360px;
+    height: 519px; 
+    border-radius : 35px;
+    background-color: #FAFAFA;
+    margin:23px;
+`
+export const StudyLevelDiv=styled.div`
+    //background-color:beige;
+    margin:0 35px;
+    height:150px;
+`
+
+export const LevelName=styled.p`
+    //background-color:yellow;
+    font-size: 24px;
+`
+export const LevelDisc=styled.p`
+    //background-color:lightblue;
+    font-size:17px;
+    //text-align:left;
+    line-height:25px;
+    padding-top:20px;
+    text-indent:5px
+`
+export const StudyBtn=styled.button`
+    border:none;
+    background: #FF7A00;
+    border-radius: 24px;
+    color:white;
+    width: 167px;
+    height: 35px;
+    font-size: 16px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    margin-top: 20px;
+
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
+`
+export const StudyIntro=styled.p`
+    // background-color:yellow;
+    text-decoration: none; 
+    color: black;
+    font-size:15px;
+    margin-top:30px;
+`
+
+// -----------------------study_class.js--------------
 export const TitleDiv=styled.div`
     //background-color:skyblue;
     margin-top: 37px;
@@ -67,15 +144,26 @@ export const StyledSlider = styled(Slider)`
         //background-color: yellow;
     }    
 
-    .slick-next:before{ 
-        background-color: yellow;
-    	//font-family: 'slick';
-        font-size: 40px;
-        line-height: 1;
-        opacity: .75;
-        color: #D9D9D9;
-        -webkit-font-smoothing: antialiased;
-    }
+    // .slick-next:before{ 
+    //     // background-color: yellow;
+    // 	//font-family: 'slick';
+    //     font-size: 40px;
+    //     line-height: 1;
+    //     opacity: .75;
+    //     color: #D9D9D9;
+    //     -webkit-font-smoothing: antialiased;
+    // }
+
+    // .slick-prev:before{ 
+    //     background-color: yellow;
+    // 	//font-family: 'slick';
+    //     //margin-right:50px;
+    //     font-size: 40px;
+    //     line-height: 1;
+    //     opacity: .75;
+    //     color: #D9D9D9;
+    //     -webkit-font-smoothing: antialiased;
+    // }
 `
 //얘는 양옆 버튼. 커스텀 해줘야 보임
 
@@ -96,6 +184,8 @@ export const WordThumb=styled.img`
 
 export const WordDesDiv=styled.div`
     margin:0 25px; //양옆만
+   // background-color: yellow;
+    height:140px;
 
 `
 export const WordName=styled.div`    
@@ -117,7 +207,14 @@ export const ClassBtn=styled.button`
     height: 35px;
     font-size: 16px;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin-top: 57px;
+    margin-top: 17px;
+
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
 `
 
 // -------------------------------study_play------------------------------

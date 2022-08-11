@@ -19,6 +19,7 @@ StyledSlider,
 } from './../component_css/Study_style';
 
 import { FadeHome } from '../component_css/Home_style';
+import { colors } from '@material-ui/core';
 
 //프론트 고정 리소스
 const Curri_Arr=[
@@ -30,7 +31,7 @@ const Curri_Arr=[
     {
         level: 2,
         level_name:"중급",
-        curri_arr: ["간단한 인사말"],
+        curri_arr: ["짧은 문장"],
     },
     {
         level: 3,
@@ -42,6 +43,27 @@ const Curri_Arr=[
 const Images=['../img/word1.png','../img/word2.png','../img/word3.png','../img/word3.png'];
 
 // -----------------------리소스------------------------------------
+const SampleNextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{display: "block", border: '3px solid red', color:'black'}}
+        onClick={onClick}
+      />
+    );
+  };
+
+const SamplePrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{...style, display: "block",background: "black"  }}
+        onClick={onClick}
+      />
+    );
+  };
 
 function Study_class(props){
 
@@ -60,6 +82,7 @@ function Study_class(props){
     useEffect(()=>{
         axios.get(`/study/${level}/${encodeURIComponent(cur_curri)}`)
         .then((response)=>{
+         //console.log(response.data.data);
          setCurris(response.data.data);
         })
 
@@ -71,9 +94,9 @@ function Study_class(props){
       infinite: false,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 1,
-      dots: true,        
-    //arrows: true,
+      slidesToScroll: 1,      
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
     //centerMode: false,
     };
 

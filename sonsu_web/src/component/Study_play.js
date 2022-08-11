@@ -41,7 +41,6 @@ function Study_play(props){
 
     const [cur_word,setWord]=useState({word_name});
     const [cur_wordIdx, setWordIdx]=useState(word_idx);
-
     
 
     const [data,setData]=useState();

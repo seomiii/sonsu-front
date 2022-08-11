@@ -18,7 +18,13 @@ export const NavDiv = styled.div`
 export const Logo=styled.div`
     height:50px;
     //width:50px;
-    margin-top:10px;   
+    margin-top:10px;  
+    //background-color:yellow; 
+`
+export const Logoimg=styled.img`
+    height:50px;
+    width:250px;
+    object-fit:cover;
 `
 
 export const ContentDiv=styled.div`
