@@ -57,7 +57,7 @@ function Study(){
             <Header/> 
         </Header_Div>
         {/* <img src='img/test_box.jpg'/> */}
-        <ImgBox src='img/test_box.jpg'/>          
+        <ImgBox src='img/study_box.jpg'/>          
         
         <MediaDiv>
             <FadeHome>

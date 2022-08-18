@@ -72,7 +72,7 @@ export const LevelDisc=styled.p`
 `
 export const StudyBtn=styled.button`
     border:none;
-    background: #FF7A00;
+    background: #F37A1F;
     border-radius: 24px;
     color:white;
     width: 167px;
@@ -83,9 +83,9 @@ export const StudyBtn=styled.button`
 
     transition: 0.4s;
     &:hover{
-        color:#FF7A00;
+        color:#F37A1F;
         background-color:white;
-        border:1px solid #FF7A00;
+        border:1px solid #F37A1F;
     }
 `
 export const StudyIntro=styled.p`
@@ -119,7 +119,7 @@ export const Curri=styled.button`
     background-color: white;
     font-size: 24px;  
     border:none;  
-    border-left : 1px solid #FF7A00;  
+    border-left : 1px solid #F37A1F;  
     margin-right: 50px;   
 `
 
@@ -136,7 +136,7 @@ export const StyledSlider = styled(Slider)`
     .slick-list{ //크기조정
     	width: 1024px; 
         height: 520px;
-        margin: 0 -15px;
+        margin: 0 0px;
         //background-color: #f0f9ff;        
     }
     .slick-slide > div{
@@ -144,26 +144,26 @@ export const StyledSlider = styled(Slider)`
         //background-color: yellow;
     }    
 
-    // .slick-next:before{ 
-    //     // background-color: yellow;
-    // 	//font-family: 'slick';
-    //     font-size: 40px;
-    //     line-height: 1;
-    //     opacity: .75;
-    //     color: #D9D9D9;
-    //     -webkit-font-smoothing: antialiased;
-    // }
+    .slick-next:before{ 
+        // background-color: yellow;
+    	//font-family: 'slick';
+        font-size: 40px;
+        line-height: 1;
+        opacity: .75;
+        color: #D9D9D9;
+        -webkit-font-smoothing: antialiased;
+    }
 
-    // .slick-prev:before{ 
-    //     background-color: yellow;
-    // 	//font-family: 'slick';
-    //     //margin-right:50px;
-    //     font-size: 40px;
-    //     line-height: 1;
-    //     opacity: .75;
-    //     color: #D9D9D9;
-    //     -webkit-font-smoothing: antialiased;
-    // }
+    .slick-prev:before{
+    	//font-family: 'slick';
+        //margin-right:50px;
+        font-size: 40px;
+        line-height: 1;
+        opacity: .75;
+        color: #D9D9D9;
+        margin:-45px;
+        -webkit-font-smoothing: antialiased;
+    }
 `
 //얘는 양옆 버튼. 커스텀 해줘야 보임
 
@@ -200,7 +200,7 @@ export const WordDes=styled.div`
 
 export const ClassBtn=styled.button`
     border:none;
-    background: #FF7A00;
+    background: #F37A1F;
     border-radius: 24px;
     color:white;
     width: 167px;
@@ -211,9 +211,9 @@ export const ClassBtn=styled.button`
 
     transition: 0.4s;
     &:hover{
-        color:#FF7A00;
+        color:#F37A1F;
         background-color:white;
-        border:1px solid #FF7A00;
+        border:1px solid #F37A1F;
     }
 `
 
@@ -224,15 +224,17 @@ export const PlayTitleDiv=styled.div`
     background-color: #F9F9F9; 
     height:100px;   
     display:flex; 
-    border-bottom: 0.8px solid #F47A20; 
+    border-bottom: 0.8px solid #F37A1F; 
 `
 
 export const Logo=styled.img`
     height:50px;
+    width:250px;
+    object-fit:cover;    
     margin-top:25px; 
     margin-left:50px;
     //background-color:lightyellow;
-    padding-right: 40px;
+    padding-right: 25px;
     border-right:1px solid #B5B5B5;
 `
 
@@ -273,10 +275,10 @@ export const MenuBar=styled.div`
     width:329px;
 `
 export const MenuDiv=styled.div`
-    border-bottom: 1px solid #FF7A00;    
+    //border-bottom: 1px solid #FF7A00;    
 `
 export const MenuCurriDiv=styled.div`
-    background-color:#FF7A00;
+    background-color:#F37A1F;
     border-radius: 12px;
     height: 108px; 
     margin-top:30px; 
@@ -329,8 +331,7 @@ export const BackNextBtn=styled.button`
 `
 export const FollowDiv=styled.div`
     margin-top:20px;
-    //background-color: skyblue;
-    background-color:#FF7A00;
+    background-color:#F37A1F;
     border-radius: 12px;
     height:60px;
     line-height:60px;
@@ -339,7 +340,7 @@ export const FollowDiv=styled.div`
 export const FollowBtn=styled.button`
     border:none;
     outline:none;
-    background-color:#FF7A00;
+    background-color:#F37A1F;
     color:white;
     font-size: 16px;   
 `
@@ -352,7 +353,7 @@ export const MotionDiv=styled.div`
 export const MotionTitle=styled.p`
     font-size: 20px;
     margin: 20px;
-    border-left:2px solid #FF7A00;
+    border-left:2px solid #F37A1F;
     padding-left: 20px;
 `
 export const Motion=styled.p`

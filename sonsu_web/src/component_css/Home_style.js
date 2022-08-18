@@ -32,7 +32,7 @@ export const HomeDesTitle=styled.div`
 export const StartBtn=styled.button`
     border:none;
     outline:none;
-    background-color: #FF7A00;
+    background-color: #F37A1F;
     color:white;
     border-radius: 83px;
     width: 140px;

@@ -43,27 +43,6 @@ const Curri_Arr=[
 const Images=['../img/word1.png','../img/word2.png','../img/word3.png','../img/word3.png'];
 
 // -----------------------리소스------------------------------------
-const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{display: "block", border: '3px solid red', color:'black'}}
-        onClick={onClick}
-      />
-    );
-  };
-
-const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{...style, display: "block",background: "black"  }}
-        onClick={onClick}
-      />
-    );
-  };
 
 function Study_class(props){
 
@@ -95,8 +74,8 @@ function Study_class(props){
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,      
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+    //   nextArrow: <SampleNextArrow />,
+    //   prevArrow: <SamplePrevArrow />
     //centerMode: false,
     };
 

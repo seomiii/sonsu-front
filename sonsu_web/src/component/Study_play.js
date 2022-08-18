@@ -61,7 +61,7 @@ function Study_play(props){
         <div> 
             <PlayTitleDiv>
                 <Link to='/'>
-                    <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>  
+                    <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
                 </Link>              
                 <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
             </PlayTitleDiv>

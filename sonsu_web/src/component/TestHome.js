@@ -2,6 +2,10 @@ import '../component_css/Test.css';
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
+import Header from './header';
+import { FadeHome } from '../component_css/Home_style';
+import {Header_Div,ImgBox,MediaDiv,ImgDiv,LevelName
+,TestBtn,LevelBox,FullBox} from './../component_css/Test_style';
 
 const Levels=[
     {
@@ -33,15 +37,15 @@ const Levels=[
 // 나중에 이미지 받아오는게 해결되면 지울 부분
 const Images=[
     {
-        image_src : 'img/level1.png'
+        image_src : '/img/level1-1.png'
     }
     ,
     {
-        image_src : 'img/level2.png'
+        image_src : '/img/level2-2.png'
     }
     ,
     {
-        image_src : 'img/level3.png'
+        image_src : '/img/level3-3.png'
     }  
 ]
 
@@ -49,32 +53,38 @@ function TestHome() {
 
         return (
             <>
-                <Grid container spacing={3} alignItems="center" justifyContent="center">
-                    <Grid item xs={2}>
-                        {Test_level(1)}
-                    </Grid>
-                    <Grid item xs={2}>
+                <Header_Div>
+                    <Header/> 
+                </Header_Div>
+
+                <ImgBox src='/img/test_box.jpg'/>
+
+                <MediaDiv>  
+                <FadeHome> 
+                    <FullBox>                 
+                        {Test_level(1)}                      
                         {Test_level(2)}
-                    </Grid>
-                    <Grid item xs={2}>
-                        {Test_level(3)}
-                    </Grid>
-                </Grid>
+                        {Test_level(3)}  
+                    </FullBox> 
+
+                </FadeHome>                    
+                </MediaDiv>
             </>
         );
 }
 
 function Test_level(level) {
     return(
-        <>
-            <img src={Images[(level-1)].image_src} width={200} height={200} alt="image"/> <br/>
-            <h3>{Levels[(level-1)].level_name}</h3>
-            <br/> <br/>
+        <LevelBox>
+            <ImgDiv src={Images[(level-1)].image_src} alt="image"/>
+            
+            <LevelName>{Levels[(level-1)].level_name}</LevelName>
+
             <Link to={"/test_home/test"}
                 state={{level : (level)}}>
-                <button className="start">시작하기</button>
+                <TestBtn>시작하기</TestBtn>
             </Link>
-        </>
+        </LevelBox>
     );
 }
 
