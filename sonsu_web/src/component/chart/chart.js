@@ -1,25 +1,37 @@
-import '../../component_css/footer.css'
 import React from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
 const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
+  { name: "process", value: 400 },
+  { name: "n process", value: 300 },
 ];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+// const dataA = [
+//   { name: "process", value: 400 },
+//   { name: "n process", value: 300 },
+// ];
+// const dataB = [
+//   { name: "process", value: 600 },
+//   { name: "n process", value: 300 },
+// ];
+// const dataC = [
+//   { name: "process", value: 100 },
+//   { name: "n process", value: 800 },
+// ];
+// const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#FF7A00", "#ffffff"];
 
 export default function App() {
   return (
-    <PieChart width={800} height={400}>
+    <PieChart width={800} height={250}>
       <Pie
         data={data}
-        cx={120}
-        cy={200}
-        innerRadius={60}
-        outerRadius={80}
+        cx={90}
+        cy={150}
+        innerRadius={40}
+        outerRadius={90}
         fill="#8884d8"
+        stroke="#FF7A00"
+        strokeWidth={1}
         paddingAngle={5}
         dataKey="value"
       >
@@ -29,11 +41,13 @@ export default function App() {
       </Pie>
       <Pie
         data={data}
-        cx={420}
-        cy={200}
-        innerRadius={60}
-        outerRadius={80}
+        cx={350}
+        cy={150}
+        innerRadius={40}
+        outerRadius={90}
         fill="#8884d8"
+        stroke="#FF7A00"
+        strokeWidth={1}
         paddingAngle={5}
         dataKey="value"
       >
@@ -43,11 +57,13 @@ export default function App() {
       </Pie>
       <Pie
         data={data}
-        cx={720}
-        cy={200}
-        innerRadius={60}
-        outerRadius={80}
+        cx={620}
+        cy={150}
+        innerRadius={40}
+        outerRadius={90}
         fill="#8884d8"
+        stroke="#FF7A00"
+        strokeWidth={1}
         paddingAngle={5}
         dataKey="value"
       >

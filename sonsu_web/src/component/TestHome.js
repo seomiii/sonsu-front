@@ -1,7 +1,8 @@
-import '../component_css/Test.css';
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
+import Header from './header'
+import {HeaderDiv} from './../component_css/Home_style';
 
 const Levels=[
     {
@@ -49,6 +50,9 @@ function TestHome() {
 
         return (
             <>
+                <HeaderDiv>
+                    <Header/>
+                </HeaderDiv>
                 <Grid container spacing={3} alignItems="center" justifyContent="center">
                     <Grid item xs={2}>
                         {Test_level(1)}

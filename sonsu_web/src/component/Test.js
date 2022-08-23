@@ -1,4 +1,3 @@
-import '../component_css/Test.css';
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
