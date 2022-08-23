@@ -1,47 +1,87 @@
 import Chart from "./chart/chart";
-import {Link} from 'react-router-dom';
+import {useLocation,Link} from 'react-router-dom';
+import Header from './header'
+import { FadeHome } from '../component_css/Home_style';
 // import Chart from 'react-apexcharts';
+import {
+    MypageDiv,
+    Profilecontain,
+    PCA,
+    PCB,
+    Profile,
+    Profileimg,
+    Profilename,
+    Profileemail,
+    MyBtn,
+    Process,
+    Circle,
+    Chartcontain,
+    PCAcontent,
+    PCAprofile,
+    } from './../component_css/Mypage_style';
+
+import { HeaderDiv } from '../component_css/Home_style';
+import userEvent from '@testing-library/user-event';
+
+// 예상되는 서버에서 오는 유저정보
+const user={   
+    // user.profileimg : 'urlurl',
+    // user.nickname : 홍길동,
+    // user.email : abcd@gmail.com
+    profileimg : 'urlurl',
+    nickname : '홍길동',
+    email : 'abcd@gmail.com',
+}
+
+// 수강하기의 모든 문항에 대해서 해당 데이터 필요
+const word={
+    // word.level : 1,
+    // word.counts : 6,
+    // word.number : 1002
+    // word.follow : True,
+    level : 1,
+    counts : 6,
+    number : 1002,
+    follow : 'True',
+}
 
 const Mypage = (props) => {
     return (
-        <section className="mypage">
-            <div className="my_layout">
-                <div className="my_contents">
-                    <div className='my_side'>
-                        <div className='side_title'><h3>프로필</h3></div>
-                        <div className='side_profile'>
-                            <div className='profile_img'>
-                                이미지
-                            </div>
-                            <div className='prof_contain'>
-                                <div className='prof_content'> 최정윤 </div>
-                                <div className='prof_content'> chjy1819@naver.com </div>
-                                <div className='prof_content'> 수강 시작 12일째 </div>
-                            </div>
-                        </div>
-                        <div className='side_menu'>
-                            <div className='my_edit'><button className='side_menu_bt'> 개인정보수정 </button></div>
+        <>
+            <HeaderDiv>
+                <Header/>
+            </HeaderDiv>
+            <FadeHome>
+                <MypageDiv>
+                    <Profilecontain>
+                        <PCA>
+                            <Profile>프로필</Profile>
+                            <PCAprofile>
+                                <Profileimg></Profileimg>
+                                <PCAcontent>
+                                    <Profilename>{user.nickname}</Profilename>
+                                    <Profileemail>{user.email}</Profileemail>
+                                </PCAcontent>
+                            </PCAprofile>
+                        </PCA>
+                        <PCB>
+                            <MyBtn><Circle></Circle> 개인정보수정</MyBtn>
                             <Link to={"/grade"}>
-                                <div className='my_grade'><button className='side_menu_bt'> 성적표 </button></div>
+                                <MyBtn><Circle></Circle> 성적표 </MyBtn>
                             </Link>
                             <Link to={"/wrong"}>
-                                <div className='my_wrong'><button className='side_menu_bt'>오답노트</button></div>
+                                <MyBtn><Circle></Circle> 오답노트 </MyBtn>
                             </Link>
-                        </div>
-                    </div>
-                    <div className='my_body'>
-                        <div className='my_body_study'>
-                            <h3>수강 진행 상황</h3>
-                            <Chart/>
-                        </div>
-                        {/* <div className='body_test'>
-                            테스트 진행상황
-                        </div> */}
-                    </div>
-                </div>
-            </div>
+                        </PCB>
+                    </Profilecontain>
+                    <Chartcontain>
+                        <Process>수강 진행 상황</Process>
+                        <Chart/>
+                    </Chartcontain>
+                </MypageDiv>
+            </FadeHome>
             {/* <Chart options={options} series={series} type="radialBar" height="50" /> */}
-        </section>
+        </>       
     )
 
 }

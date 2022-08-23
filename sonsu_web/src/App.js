@@ -18,7 +18,6 @@ import WebcamStreamCapture from './component/WebcamStreamCapture';
 import { GlobalStyles } from './component_css/Study_style';
 import { MediaDiv } from './component_css/Study_style';
 
-
 function App() {
   return (
       // <Layout>
@@ -50,14 +49,12 @@ function App() {
               <Route path="study/study_class/study_play" element={<Study_play/>} />
               {/* 사용자 웹캠 페이지 */}
               <Route path="webcam" element={<WebcamStreamCapture/>}/>
-
               {/* 테스트하기 */}
               <Route path="test_home" element={<TestHome/>} />
               {/* 테스트 영상나오는 페이지 */}
               <Route path="test_home/test" element={<Test/>} />
             </Routes>
             {/* <a><Footer /></a> */}
-         
       </BrowserRouter> 
     </div>
   );

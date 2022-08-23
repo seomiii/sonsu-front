@@ -4,18 +4,18 @@ import Study_play from './Study_play';
 import axios from 'axios';
 import Header from './header'
 import { 
-MediaDiv,
-LevelDiv, 
-TitleDiv, 
-CurriDiv,
-Curri, 
-WordDiv, 
-WordThumb, 
-WordName,
-WordDesDiv,
-WordDes,
-ClassBtn,
-StyledSlider,
+    MediaDiv,
+    LevelDiv, 
+    TitleDiv, 
+    CurriDiv,
+    Curri, 
+    WordDiv, 
+    WordThumb, 
+    WordName,
+    WordDesDiv,
+    WordDes,
+    ClassBtn,
+    StyledSlider,
 } from './../component_css/Study_style';
 
 import { FadeHome } from '../component_css/Home_style';

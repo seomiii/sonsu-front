@@ -8,6 +8,7 @@ const Fade=keyframes`
         opacity: 1;
     }
 `
+
 export const FadeHome=styled.div`
     animation: ${Fade} 1s;
 `
@@ -17,19 +18,47 @@ export const HeaderDiv=styled.div`
     @media screen and (max-width: 1024px) {
         width: 100%;
     }   
+    //background-color:skyblue;
 `
 
 export const HomeDiv=styled.div`
-    min-height:100vh;
-    background-color: rgba(243,122,32,0.07);
+    margin-top: 25px;
+    // min-height:100vh;
+    width: 2010px;
+    height: 900px;
+    background-image: url( "img/hand2.png" );
+    background-size: 2010px;
+    background-color: rgba(255, 122, 0, 0.1);
+    // background-image: url('../img/hand_sign.png'});
+    // background-color: rgba(243,122,32,0.07);
 `
+
+export const HomeText=styled.div`
+    position: absolute;
+    top: 400px;
+    left: 1150px;
+
+`
+
 export const HomeDesTitle=styled.div`
     font-size:32px;
     font-weight:bold;
+    text-align: left;
+    // margin-top: 100px;
+
+`
+
+export const HomeContent=styled.div`
+    margin-top:20px;
+    font-size:20px;
+    line-height: 30px;
+    text-align: left;
+    // margin-top: 100px;
 
 `
 
 export const StartBtn=styled.button`
+    margin-top: 20px;
     border:none;
     outline:none;
     background-color: #F37A1F;
@@ -38,4 +67,5 @@ export const StartBtn=styled.button`
     width: 140px;
     height: 36px;
     font-size:14px;
+    float: left;
 `
