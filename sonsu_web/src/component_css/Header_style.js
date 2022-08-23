@@ -18,7 +18,13 @@ export const NavDiv = styled.div`
 export const Logo=styled.div`
     height:50px;
     //width:50px;
-    margin-top:10px;   
+    margin-top:10px;  
+    //background-color:yellow; 
+`
+export const Logoimg=styled.img`
+    height:50px;
+    width:250px;
+    object-fit:cover;
 `
 
 export const ContentDiv=styled.div`
@@ -36,7 +42,7 @@ export const NavContent=styled.div`
     text-decoration: none;
     transition: 0.3s;
     &:hover{
-        color: #FF7A00;
+        color: #F37A1F;
     }
 `
 
@@ -44,7 +50,7 @@ export const NavLoginBtn=styled.button`
     margin-left: 53px;
     class: my-5;
     color: white;
-    background-color: #FF7A00;
+    background-color: #F37A1F;
     border: none;
     border-radius: 83px;
     width: 140px;
@@ -53,8 +59,8 @@ export const NavLoginBtn=styled.button`
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     transition: 0.4s;
     &:hover{
-        color:#FF7A00;
+        color:#F37A1F;
         background-color:white;
-        border:1px solid #FF7A00;
+        border:1px solid #F37A1F;
     }
 `

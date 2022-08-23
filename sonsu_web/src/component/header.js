@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv } from './../component_css/Header_style';
+import {HeaderDiv, NavDiv, NavContent,NavLoginBtn, Logo, ContentDiv,Logoimg } from './../component_css/Header_style';
 
 const Header = () => {
     return (
@@ -7,7 +7,7 @@ const Header = () => {
                     <NavDiv>
                         <Link to={"/"} style={{ textDecoration: 'none' }}>
                             <Logo>
-                                <img src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>
+                                <Logoimg src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>
                             </Logo>
                         </Link>
 
