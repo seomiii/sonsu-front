@@ -1,9 +1,14 @@
-import '../component_css/Test.css';
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 import axios from 'axios';
+import { PlayTitleDiv,PlayLevel,Logo,PlayVideos,MenuBar,MenuDiv,MenuCurriDiv, MenuCurri,
+PlayWords,PlayWord } from '../component_css/Study_style';
+import {TestNumberDiv,TestDiv,TestNumber,CamDiv,FollowDiv,FollowBtn
+,ShowResultBtn,NextBtn,TestWord} from '../component_css/Test_style'
+
+
 
 const Levels=[
     {
@@ -22,42 +27,56 @@ const Levels=[
     }    
 ]
 
+//서버에서 오는 예상 데이터
+const data={
+	testIdx : 1,
 
+	wordsDTO : [
+		{
+				testNo : 1,
+				wordName : "ㄱ(기역)",
+				wordNum : "11001",
+				testlistIdx : 1
+		},
+		{
+				testNo : 2,
+				wordName : "ㄷ(디귿)",
+				wordNum : "11003",
+				testlistIdx : 2
+		},
+		{
+				testNo : 3,
+				wordName : "ㄴ(니은)",
+				wordNum : "11002",
+				testlistIdx : 3
+        },			
+		]
+    }
+
+// ---------------------- 리소스 --------------------------------
 
 function Test() {
-    return (
-        <div className='Test'>
-            <Grid container>
-                <Grid item xs={12}>
-                    <Testheader />
-                </Grid>
-                <Grid item xs={9}>
-                    <Testdetail />
-                </Grid>
-                <Grid item xs={3}>
-                    <Testsidebar />
-                </Grid>
-            </Grid>
-        </div>
-    );
-}
+    const levelIdx=useLocation().state.level;
+    // console.log(levelIdx);
 
-function Testheader(){
-    const level = useLocation().state.level;
-    const level_name=Levels[(level-1)].level_name;
+    //현재 문제 번호
+    let [currentnumber, setNumber] = useState(1);
+    const [flaskResult,setFlaskResult]=useState(false);    
+    let [isLast,setIsLast]=useState(false);
 
-    return(
-        <div style={{marginLeft: 20, marginBottom: 30}} className="Testheader" align="left" >
-            <Link to={"/test_home"}>
-                <button className='back'>&lt; &nbsp; 돌아가기</button>
-            </Link>
-            &emsp;
-            <h3 style={{display: 'inline'}}>{level_name}</h3>
-        </div>
-    )
-}
+    useEffect(()=>{
+        if (currentnumber==data.wordsDTO.length){
+            setIsLast(true);
+        }
+        else{
+            setIsLast(false);
+        }
+    },[currentnumber]);
+    
 
-function Testdetail(){
+    //console.log(isLast);
+
+
     const webcamRef = React.useRef(null);
     const mediaRecorderRef = React.useRef(null);
     const [capturing, setCapturing] = React.useState(false);
@@ -99,9 +118,11 @@ function Testdetail(){
         
             let fd=new FormData();
             fd.append('file',file);
+            fd.append('wname', data.wordsDTO[currentnumber-1].wordNum)
         
-            axios.post('/model',fd)
+            axios.post('/model/study',fd)
                 .then((res)=>{
+                    // setFlaskResult(res.data);
                     alert("결과 : " + res.data);
                 })
                 .catch((err)=>{
@@ -121,66 +142,81 @@ function Testdetail(){
     }, [recordedChunks.length]);
 
 
-    return(
-        <div className="Testdetail" align="center">
-            <Webcam
-                audio={false}
-                mirrored={true}
-                height={500}
-                width={700}
-                ref={webcamRef}
-                // padding={100}
-            ></Webcam>
-            <br/>
+    // axios.post(`/test/${levelIdx}`)
+    // .then((response)=>{
+    //     console.log(response.data.data);
+    // })
 
-            {capturing ? (
-                // <button className='webcam' onClick={() => {handleStopCaptureClick(); Send();}}>촬영 멈춤</button>
-                <button className='webcam' onClick={handleStopCaptureClick}>촬영 멈춤</button>
-            ) : (
-                <button className='webcam' onClick={handleStartCaptureClick}>촬영 시작</button>
-            )}
-        </div>
+    const SumbitTest=()=>{
+        // axios.patch(`/test/${levelIdx}`)
+        // .catch((err)=>alert("error"));
+    }
+
+    return (
+        <>
+            <PlayTitleDiv>
+                <Link to='/'>
+                    <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
+                </Link>              
+                <PlayLevel>테스트 하기</PlayLevel>
+            </PlayTitleDiv>
+
+        <PlayVideos>
+
+            <TestDiv>
+                <TestNumberDiv>
+                    <TestNumber>
+                    {/* {currentnumber} / {data.wordsDTO.length}  */}
+                    {currentnumber} .
+                    </TestNumber> 
+                    <TestWord>
+                    {data.wordsDTO[currentnumber-1].wordName}
+                    </TestWord>                 
+                </TestNumberDiv>
+                <CamDiv>
+                    <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
+                </CamDiv>  
+            </TestDiv> 
+
+            <MenuBar>
+                <MenuDiv>
+                    <MenuCurriDiv>
+                        <MenuCurri>
+                            {Levels[levelIdx-1].level_name}
+                        </MenuCurri>
+                    </MenuCurriDiv>
+                </MenuDiv>
+
+                <PlayWords>
+                    {data.wordsDTO.map(i=>(                                
+                        <PlayWord onClick={()=>setNumber(i.testNo)}>{i.testNo}번</PlayWord>
+                    ))}
+                </PlayWords>          
+
+                <FollowDiv>     
+                {capturing ? (
+                    <FollowBtn onClick={handleStopCaptureClick}>따라하기 종료</FollowBtn>
+                ) : (
+                    <FollowBtn onClick={handleStartCaptureClick}>따라하기</FollowBtn>
+                )}
+                </FollowDiv>  
+
+                <FollowDiv isLast={isLast}>
+                    <NextBtn isLast={isLast} onClick={()=>setNumber(currentnumber+1)}>다음 문제로 넘어가기</NextBtn>
+                    <ShowResultBtn isLast={isLast} onClick={SumbitTest}>결과 보기</ShowResultBtn>
+                </FollowDiv>
+
+
+            </MenuBar>
+                
+
+                
+            
+        </PlayVideos>
+
+        </>
     );
 }
 
-function Testsidebar(){
-    let [currentnumber, setNumber] = useState(1);
-    const level = useLocation().state.level;
-    const level_name=Levels[(level-1)].level_name;
-    // 서버에서 테스트하기 문제를 받아오는 코드로 추후 변경해야함
-    const problems = ['ㄴ', 'ㄱ', 'ㅓ'] // 서버에서 받아온 테스트하기 문제들
-    
-    function moveProblem(idx) {
-        setNumber(currentnumber = idx);
-        console.log(problems[idx-1]);
-        // console.log(currentnumber)
-    }
-    function nextProblem() {
-        if ( 0 < currentnumber && currentnumber < 3) {
-            setNumber(currentnumber + 1);
-        }
-    }
-    function prevProblem() {
-        if ( 1 < currentnumber && currentnumber < 4) {
-            setNumber(currentnumber - 1);
-        }
-    }
-
-    const problemList = problems.map((problem, index)=> <div key={problem}><button onClick={() => {moveProblem(index+1);}} className='problem'>{ index+1 + "번 문제"}</button> <br/> </div>)
-
-    return(
-        <div className="Testsidebar">
-            <h3 className='title_'>{level_name}</h3>
-            <ol>
-                {problemList}
-            </ol>
-
-            <br/>
-            <p> {currentnumber} / {problems.length} </p>
-
-            <button onClick={prevProblem} className='webcam'>이전 문제로</button><button onClick={nextProblem} className='webcam'>다음 문제로</button>
-        </div>
-    );
-}
 
 export default Test;

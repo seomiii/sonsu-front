@@ -1,4 +1,3 @@
-import '../component_css/wrong.css'
 import {Link} from 'react-router-dom';
 
 const Wrong = () => {

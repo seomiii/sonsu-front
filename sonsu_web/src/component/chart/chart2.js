@@ -1,4 +1,3 @@
-import '../../component_css/footer.css'
 import React from "react";
 import {
   BarChart,
