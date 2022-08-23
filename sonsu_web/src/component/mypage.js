@@ -1,4 +1,3 @@
-import '../component_css/mypage.css'
 import Chart from "./chart/chart";
 import {Link} from 'react-router-dom';
 // import Chart from 'react-apexcharts';

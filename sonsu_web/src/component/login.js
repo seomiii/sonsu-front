@@ -1,4 +1,3 @@
-import '../component_css/login.css'
 import {Link} from 'react-router-dom';
 
 const Login = () => {

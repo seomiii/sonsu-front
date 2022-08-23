@@ -1,4 +1,3 @@
-import '../component_css/Service_intro.css'
 import {Link} from 'react-router-dom';
 
 const Service_intro = () => {

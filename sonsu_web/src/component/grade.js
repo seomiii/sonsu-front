@@ -1,4 +1,3 @@
-import '../component_css/grade.css'
 import Chart from "./chart/chart2";
 import {Link} from 'react-router-dom';
 
