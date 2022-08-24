@@ -9,7 +9,6 @@ import {TestNumberDiv,TestDiv,TestNumber,CamDiv,FollowDiv,FollowBtn
 ,ShowResultBtn,NextBtn,TestWord} from '../component_css/Test_style'
 
 
-
 const Levels=[
     {
         level : 1,
@@ -28,30 +27,30 @@ const Levels=[
 ]
 
 //서버에서 오는 예상 데이터
-const data={
-	testIdx : 1,
+// const data={
+// 	testIdx : 1,
 
-	wordsDTO : [
-		{
-				testNo : 1,
-				wordName : "ㄱ(기역)",
-				wordNum : "11001",
-				testlistIdx : 1
-		},
-		{
-				testNo : 2,
-				wordName : "ㄷ(디귿)",
-				wordNum : "11003",
-				testlistIdx : 2
-		},
-		{
-				testNo : 3,
-				wordName : "ㄴ(니은)",
-				wordNum : "11002",
-				testlistIdx : 3
-        },			
-		]
-    }
+// 	wordsDTO : [
+// 		{
+// 				testNo : 1,
+// 				wordName : "ㄱ(기역)",
+// 				wordNum : "11001",
+// 				testlistIdx : 1
+// 		},
+// 		{
+// 				testNo : 2,
+// 				wordName : "ㄷ(디귿)",
+// 				wordNum : "11003",
+// 				testlistIdx : 2
+// 		},
+// 		{
+// 				testNo : 3,
+// 				wordName : "ㄴ(니은)",
+// 				wordNum : "11002",
+// 				testlistIdx : 3
+//         },			
+// 		]
+//     }
 
 // ---------------------- 리소스 --------------------------------
 
@@ -63,19 +62,31 @@ function Test() {
     let [currentnumber, setNumber] = useState(1);
     const [flaskResult,setFlaskResult]=useState(false);    
     let [isLast,setIsLast]=useState(false);
+    const [data,setData]=useState();
 
+    // 문제 요청
     useEffect(()=>{
-        if (currentnumber==data.wordsDTO.length){
+        axios.post(`/test/${levelIdx}`,{
+        userIdx:'1'
+    })
+     .then((response)=>{
+         setData(response.data.data);
+         console.log(response.data.data);
+    })
+    },[]);
+
+    //결과 보기 버튼 활성화
+    let wordslength=data&& data.wordsDto.length;
+    useEffect(()=>{
+        if (currentnumber == wordslength){
             setIsLast(true);
         }
         else{
             setIsLast(false);
-        }
+        }     
     },[currentnumber]);
+
     
-
-    //console.log(isLast);
-
 
     const webcamRef = React.useRef(null);
     const mediaRecorderRef = React.useRef(null);
@@ -118,7 +129,7 @@ function Test() {
         
             let fd=new FormData();
             fd.append('file',file);
-            fd.append('wname', data.wordsDTO[currentnumber-1].wordNum)
+            fd.append('wname', data&& data.wordsDto[currentnumber-1].wordNum)
         
             axios.post('/model/study',fd)
                 .then((res)=>{
@@ -141,15 +152,15 @@ function Test() {
         Send();
     }, [recordedChunks.length]);
 
-
-    // axios.post(`/test/${levelIdx}`)
-    // .then((response)=>{
-    //     console.log(response.data.data);
-    // })
-
+    let testIdx=data&& data.testIdx;
     const SumbitTest=()=>{
-        // axios.patch(`/test/${levelIdx}`)
-        // .catch((err)=>alert("error"));
+        axios.patch(`/test/${levelIdx}`,{
+            testIdx:testIdx
+        })
+        .then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>alert("error"));
     }
 
     return (
@@ -166,11 +177,11 @@ function Test() {
             <TestDiv>
                 <TestNumberDiv>
                     <TestNumber>
-                    {/* {currentnumber} / {data.wordsDTO.length}  */}
+                    {/* {currentnumber} / {data.wordsDto.length}  */}
                     {currentnumber} .
                     </TestNumber> 
                     <TestWord>
-                    {data.wordsDTO[currentnumber-1].wordName}
+                    {data&& data.wordsDto[currentnumber-1].wordName}
                     </TestWord>                 
                 </TestNumberDiv>
                 <CamDiv>
@@ -188,7 +199,7 @@ function Test() {
                 </MenuDiv>
 
                 <PlayWords>
-                    {data.wordsDTO.map(i=>(                                
+                    {data&& data.wordsDto.map(i=>(                                
                         <PlayWord onClick={()=>setNumber(i.testNo)}>{i.testNo}번</PlayWord>
                     ))}
                 </PlayWords>          
@@ -207,16 +218,12 @@ function Test() {
                 </FollowDiv>
 
 
-            </MenuBar>
-                
+            </MenuBar>              
 
-                
-            
         </PlayVideos>
 
         </>
     );
 }
-
 
 export default Test;
