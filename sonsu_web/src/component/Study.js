@@ -8,8 +8,12 @@ import study_play from './Study_play';
 import axios from 'axios';
 import { useEffect } from 'react';
 import Header from './header'
-import { MediaDiv } from '../component_css/Study_style';
+import { MediaDiv, ImgDiv,
+    ImgBox,Header_Div,LevelBox,
+    FullBox,LevelName,StudyLevelDiv,
+    StudyBtn, StudyIntro } from '../component_css/Study_style';
 import { FadeHome } from '../component_css/Home_style';
+import { LevelDisc } from './../component_css/Study_style';
 
 //프론트 고정 리소스
 const Levels=[
@@ -32,40 +36,46 @@ const Levels=[
     }    
 ]
 
-const Images=['img/level1.png','img/level2.png','img/level3.png'];
-
-// 서버에서 이미지 받아오기
-// useEffect(()=>{
-//     axios.get(' ')
-//     .then((response)=>{
-//     console.log(response);
-//     })
-// },[])
-
-
+const Images=['img/level1-1.png','img/level2-2.png','img/level3-3.png'];
 
 //---------------------------리소스-------------------------------
 
-function Study(){       
+function Study(){    
 
+    // 서버에서 이미지 받아오기 -> 일단은 프론트에서 하기로
+
+    // useEffect(()=>{
+    //     axios.get('/study')
+    //     .then((response)=>{
+    //     console.log(response);
+    //     })
+    // },[])
+   
     return (
-        <MediaDiv>
-            <Header/>           
+        <>
+        <Header_Div>
+            <Header/> 
+        </Header_Div>
+        {/* <img src='img/test_box.jpg'/> */}
+        <ImgBox src='img/study_box.jpg'/>          
         
+        <MediaDiv>
             <FadeHome>
-
-                {Study_level(1)}
-                {Study_level(2)}
-                {Study_level(3)} 
+                <FullBox>
+                    {Study_level(1)}
+                    {Study_level(2)}
+                    {Study_level(3)} 
+                </FullBox>
                 
                 <div>
-                    <Link to={"../Service_intro"}>
-                        <p>수어의 학습 과정에 대해 더 알아보고 싶다면?</p>
+                    <Link to={"../Service_intro"} style={{ textDecoration: 'none' }}>
+                        <StudyIntro>수어의 학습 과정에 대해 더 알아보고 싶다면?</StudyIntro>
                     </Link>
                 </div> 
 
             </FadeHome>
         </MediaDiv>
+        </>
     );    
 }
 
@@ -73,22 +83,24 @@ function Study(){
 function Study_level(level){
 
     return(
-        <>
-            <div>
-                <img alt="level" src={Images[level-1]} width="100" height="100"/>
-            </div>
+        <LevelBox>
 
             <div>
-                <p>{Levels[(level-1)].level_name}</p>
-                <p>{Levels[(level-1)].level_info}</p>
+                <ImgDiv alt="level" src={Images[level-1]}/>
             </div>
+
+            <StudyLevelDiv>
+                <LevelName>{Levels[(level-1)].level_name}</LevelName>
+                <LevelDisc>{Levels[(level-1)].level_info}</LevelDisc>
+            </StudyLevelDiv>
 
             <div>
                 <Link to = {"study_class"} state={{level : (level)}}>
-                    <button>수강하기</button>
+                    <StudyBtn>수강하기</StudyBtn>
                 </Link>
-            </div>                
-        </>
+            </div> 
+
+        </LevelBox>
     );
 }
 
