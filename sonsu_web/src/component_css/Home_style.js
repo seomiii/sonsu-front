@@ -22,12 +22,15 @@ export const HeaderDiv=styled.div`
 `
 
 export const HomeDiv=styled.div`
-    margin-top: 25px;
+    position: absolute;
+    margin : 0px auto;
+    // margin-top: 25px;
     // min-height:100vh;
-    width: 2010px;
-    height: 900px;
-    background-image: url( "img/hand2.png" );
-    background-size: 2010px;
+    width: 100%;
+    height: 100%;
+    background-image: url( "img/hand_sign.png" );
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: rgba(255, 122, 0, 0.1);
     // background-image: url('../img/hand_sign.png'});
     // background-color: rgba(243,122,32,0.07);
