@@ -76,9 +76,11 @@ const WebcamStreamCapture = () => {
       let fd=new FormData();
       // fd.append('fname',filename);
       // fd.append('test','hi');
-      fd.append('file',file);    
+      fd.append('file',file); 
+      // fd.append('word_id', word_id)   
+      fd.append('word_id', "11001")
 
-      axios.post('/model',fd)
+      axios.post('/model/study',fd)
         .then((res)=>{
           setFlaskResult(res.data);
           alert("결과 : " + res.data);
