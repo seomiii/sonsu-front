@@ -76,9 +76,8 @@ const WebcamStreamCapture = () => {
       let fd=new FormData();
       // fd.append('fname',filename);
       // fd.append('test','hi');
-      fd.append('file',file); 
-      // fd.append('word_id', word_id)   
-      fd.append('word_id', "11001")
+      fd.append('file',file);    
+      fd.append('word_id', word_id)
 
       axios.post('/model/study',fd)
         .then((res)=>{
@@ -121,7 +120,7 @@ const WebcamStreamCapture = () => {
   return (
     <>
       <PlayTitleDiv>
-          <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>                
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
