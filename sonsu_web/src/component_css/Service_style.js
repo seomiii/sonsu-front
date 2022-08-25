@@ -26,10 +26,18 @@ export const FrontDiv=styled.div`
 
 export const MSDiv=styled.div`
     background-color: skyblue;
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+
 `
 
 export const JYDiv=styled.div`
-
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
 `
 
 export const AppDiv=styled.div`
@@ -37,7 +45,10 @@ export const AppDiv=styled.div`
 `
 
 export const JHDiv=styled.div`
-
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
 `
 
 export const BackDiv=styled.div`
@@ -45,7 +56,10 @@ export const BackDiv=styled.div`
 `
 
 export const MNDiv=styled.div`
-
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
 `
 
 export const DesignDiv=styled.div`
@@ -53,5 +67,8 @@ export const DesignDiv=styled.div`
 `
 
 export const JEDiv=styled.div`
-
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
 `

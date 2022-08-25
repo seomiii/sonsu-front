@@ -2,6 +2,7 @@ import Chart from "./chart/chart";
 import {useLocation,Link} from 'react-router-dom';
 import Header from './header'
 import { FadeHome } from '../component_css/Home_style';
+import { MediaDiv,} from '../component_css/Study_style';
 // import Chart from 'react-apexcharts';
 import {
     MypageDiv,
@@ -18,6 +19,10 @@ import {
     Chartcontain,
     PCAcontent,
     PCAprofile,
+    ChartName,
+    PieName,
+    GoDiv,
+    GoBtn
     } from './../component_css/Mypage_style';
 
 import { HeaderDiv } from '../component_css/Home_style';
@@ -31,6 +36,7 @@ const user={
     profileimg : 'urlurl',
     nickname : '홍길동',
     email : 'abcd@gmail.com',
+    date : 10,
 }
 
 // 수강하기의 모든 문항에 대해서 해당 데이터 필요
@@ -51,35 +57,47 @@ const Mypage = (props) => {
             <HeaderDiv>
                 <Header/>
             </HeaderDiv>
-            <FadeHome>
-                <MypageDiv>
-                    <Profilecontain>
-                        <PCA>
-                            <Profile>프로필</Profile>
-                            <PCAprofile>
-                                <Profileimg></Profileimg>
-                                <PCAcontent>
-                                    <Profilename>{user.nickname}</Profilename>
-                                    <Profileemail>{user.email}</Profileemail>
-                                </PCAcontent>
-                            </PCAprofile>
-                        </PCA>
-                        <PCB>
-                            <MyBtn><Circle></Circle> 개인정보수정</MyBtn>
-                            <Link to={"/grade"}>
-                                <MyBtn><Circle></Circle> 성적표 </MyBtn>
-                            </Link>
-                            <Link to={"/wrong"}>
-                                <MyBtn><Circle></Circle> 오답노트 </MyBtn>
-                            </Link>
-                        </PCB>
-                    </Profilecontain>
-                    <Chartcontain>
-                        <Process>수강 진행 상황</Process>
-                        <Chart/>
-                    </Chartcontain>
-                </MypageDiv>
-            </FadeHome>
+            <MediaDiv>
+                <FadeHome>
+                    <MypageDiv>
+                        <Profilecontain>
+                            <PCA>
+                                <Profile>프로필</Profile>
+                                <PCAprofile>
+                                    <Profileimg></Profileimg>
+                                    <PCAcontent>
+                                        <Profilename>{user.nickname}</Profilename>
+                                        <Profileemail>{user.email}</Profileemail>
+                                        <Profileemail>수강한지 {user.date}일째</Profileemail>
+                                    </PCAcontent>
+                                </PCAprofile>
+                            </PCA>
+                            <PCB>
+                                <Link to={"/grade"}>
+                                    <MyBtn><Circle></Circle> 성적표 </MyBtn>
+                                </Link>
+                                <Link to={"/wrong"}>
+                                    <MyBtn><Circle></Circle> 오답노트 </MyBtn>
+                                </Link>
+                            </PCB>
+                        </Profilecontain>
+                        <Chartcontain>
+                            <Process>수강 진행 상황</Process>
+                            <Chart/>
+                            <ChartName>
+                                <PieName> 70% </PieName>
+                                <PieName> 20% </PieName>
+                                <PieName> 30% </PieName>
+                            </ChartName>
+                            <GoDiv>
+                                <GoBtn> 초급 바로가기 </GoBtn>
+                                <GoBtn> 중급 바로가기 </GoBtn>
+                                <GoBtn> 고급 바로가기 </GoBtn>
+                            </GoDiv>
+                        </Chartcontain>
+                    </MypageDiv>
+                </FadeHome>
+            </MediaDiv>
             {/* <Chart options={options} series={series} type="radialBar" height="50" /> */}
         </>       
     )
