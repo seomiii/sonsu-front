@@ -70,9 +70,9 @@ function Study_class(props){
     const curri_arr=Curri_Arr[(level-1)].curri_arr;
 
     const [cur_curri,setCurri] = useState(curri_arr[0]);
-    console.log(level, cur_curri);  
+     
     
-    console.log(Images[Images.findIndex((element)=>element.curri === cur_curri)].urls);
+    // console.log(Images[Images.findIndex((element)=>element.curri === cur_curri)].urls);
 
     //서버
     const [Curris,setCurris] = useState();
@@ -81,7 +81,7 @@ function Study_class(props){
     useEffect(()=>{
         axios.get(`/study/${level}/${encodeURIComponent(cur_curri)}`)
         .then((response)=>{
-         //console.log(response.data.data);
+         console.log(response.data.data);
          setCurris(response.data.data);
         })
 

@@ -34,6 +34,8 @@ function Study_play(props){
     const level=useLocation().state.level;
     const word_name=useLocation().state.word_name;    
     const word_idx=useLocation().state.word_idx;    
+
+    console.log(word_idx);
     
     //const word_loc= words_arr.indexOf(word_name);
     // console.log('word_loc', word_loc);   
