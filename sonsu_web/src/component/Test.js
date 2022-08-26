@@ -130,8 +130,9 @@ function Test() {
             let fd=new FormData();
             fd.append('file',file);
             fd.append('wname', data&& data.wordsDto[currentnumber-1].wordNum)
+            fd.append('testindex', testIdx)
         
-            axios.post('/model/study',fd)
+            axios.post('/model/test',fd)
                 .then((res)=>{
                     // setFlaskResult(res.data);
                     alert("결과 : " + res.data);

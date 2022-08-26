@@ -77,8 +77,9 @@ const WebcamStreamCapture = () => {
       // fd.append('fname',filename);
       // fd.append('test','hi');
       fd.append('file',file);    
+      fd.append('word_id', word_id)
 
-      axios.post('/model',fd)
+      axios.post('/model/study',fd)
         .then((res)=>{
           setFlaskResult(res.data);
           alert("결과 : " + res.data);
@@ -119,7 +120,7 @@ const WebcamStreamCapture = () => {
   return (
     <>
       <PlayTitleDiv>
-          <Logo src={`${process.env.PUBLIC_URL}/img/sonsulogo.png`}/>                
+          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>                
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
