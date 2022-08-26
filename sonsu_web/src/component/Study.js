@@ -11,7 +11,7 @@ import Header from './header'
 import { MediaDiv, ImgDiv,
     ImgBox,Header_Div,LevelBox,
     FullBox,LevelName,StudyLevelDiv,
-    StudyBtn, StudyIntro } from '../component_css/Study_style';
+    StudyBtn, StudyIntro,StudyMediaDiv } from '../component_css/Study_style';
 import { FadeHome } from '../component_css/Home_style';
 import { LevelDisc } from './../component_css/Study_style';
 
@@ -56,10 +56,10 @@ function Study(){
         <Header_Div>
             <Header/> 
         </Header_Div>
-        {/* <img src='img/test_box.jpg'/> */}
-        <ImgBox src='img/study_box.jpg'/>          
+    
+        <ImgBox src='img/study_box.png'/>          
         
-        <MediaDiv>
+        <StudyMediaDiv>
             <FadeHome>
                 <FullBox>
                     {Study_level(1)}
@@ -74,7 +74,7 @@ function Study(){
                 </div> 
 
             </FadeHome>
-        </MediaDiv>
+        </StudyMediaDiv>
         </>
     );    
 }

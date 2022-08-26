@@ -13,154 +13,150 @@ export const GlobalStyles=createGlobalStyle`
 `
 export const MediaDiv=styled.div`
     margin: 0px auto;
-    //background-color: lightblue;
+    // background-color: lightblue;
     min-height:100vh;
-    width: 1024px;
-    @media screen and (max-width: 1024px) {
+    width: 1026px;
+    @media screen and (max-width: 1026px) {
         width: 100%;
     }   
 `
 // ---------------------study.js-----------------
+
+// 리팩토링 시 크기 작아지면 컴포넌트들 세로로 가게만들기!
+export const StudyMediaDiv=styled.div`
+    margin: 0px auto;
+    // background-color: lightblue;
+    min-height:100vh;
+    width: 1026px;
+    @media screen and (max-width: 350px) {
+        width: 100%;
+    }   
+`
+
 export const Header_Div=styled.div`
-    width: 1024px;
+    width: 1026px;
     margin: 0px auto;
 `
 
 export const ImgDiv=styled.img`
-    width: 250px;
-    height: 250px;
+    width: 235px;
+    height: 240px;
     object-fit:cover;
-    //background-color:yellow;
-    padding: 15px 0 ;
+    margin-top:40px;
 `
 
 export const ImgBox=styled.img`
     width:100%;
-    height: 250px;
+    height: 270px;
     object-fit:contain;
     text-align:center;   
     background-color: #F37A1F;
 `
 export const FullBox=styled.div`
     display:flex;
-
+    justify-content: space-between;
+    margin-top:34px;
 `
 export const LevelBox=styled.div`
-    width: 360px;
-    height: 519px; 
-    border-radius : 35px;
-    background-color: #FAFAFA;
-    margin:23px;
+    width:322px;
+    height:560px; 
+    border-radius : 20px;
+    background-color: #F9F9F9;
 `
 export const StudyLevelDiv=styled.div`
-    //background-color:beige;
-    margin:0 35px;
-    height:150px;
+    // background-color:beige;
+    margin:25px 44px;
+    height:133px;
+    color:#2E2E2E;
 `
-
 export const LevelName=styled.p`
-    //background-color:yellow;
-    font-size: 24px;
+    font-size: 22px;
 `
 export const LevelDisc=styled.p`
-    //background-color:lightblue;
     font-size:17px;
-    //text-align:left;
-    line-height:25px;
+    line-height:21.28px;
     padding-top:20px;
-    text-indent:5px
+    // text-indent:5px
 `
 export const StudyBtn=styled.button`
     border:none;
-    background: #F37A1F;
-    border-radius: 24px;
+    background: #FF7A00;
+    border-radius: 50px;
     color:white;
-    width: 167px;
-    height: 35px;
-    font-size: 16px;
+    width: 199px;
+    height: 47px;
+    font-size: 18px;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin-top: 20px;
+    margin-top: 9px;
 
     transition: 0.4s;
     &:hover{
-        color:#F37A1F;
+        color:#FF7A00;
         background-color:white;
-        border:1px solid #F37A1F;
+        border:1px solid #FF7A00;
     }
 `
 export const StudyIntro=styled.p`
     // background-color:yellow;
     text-decoration: none; 
-    color: black;
+    color:#2E2E2E;
     font-size:15px;
     margin-top:30px;
 `
 
 // -----------------------study_class.js--------------
 export const TitleDiv=styled.div`
-    //background-color:skyblue;
-    margin-top: 37px;
-    margin-bottom: 37px;
+    // background-color:skyblue;
+    margin-top: 47px;
+    margin-bottom: 62px;
 `
 
 export const LevelDiv=styled.div`
     //background-color: lightyellow;
     font-size : 32px;
-    display: flex;     
-  
+    display: flex;   
+    color:#2E2E2E;  
 `
 
 export const CurriDiv=styled.div`
-    margin-top: 15px;
+    margin-top: 33px;
     display: flex;
     flex-direction: row;  
 `
 export const Curri=styled.button`
     background-color: white;
+    color:#2E2E2E;
     font-size: 24px;  
     border:none;  
-    border-left : 1px solid #F37A1F;  
-    margin-right: 50px;   
+    margin-right:43px;
+    padding-left:15px;
+    border-left : 2px solid #FF7A00;    
 `
-
-// export const WordsDiv=styled.div`
-//     background-color: beige;
-//     display: flex;
-//     flex-direction: row;  
-
-//     //overflow:hidden;
-//     //display: inline-block;
-// `
 
 export const StyledSlider = styled(Slider)`
     .slick-list{ //크기조정
-    	width: 1024px; 
-        height: 520px;
-        margin: 0 0px;
-        //background-color: #f0f9ff;        
+    	width: 1026px; 
+        height: 610px;     
     }
     .slick-slide > div{
-        margin:0 15px;
-        //background-color: yellow;
+        margin:15px;
     }    
 
     .slick-next:before{ 
-        // background-color: yellow;
-    	//font-family: 'slick';
         font-size: 40px;
         line-height: 1;
         opacity: .75;
-        color: #D9D9D9;
+        color: rgba(255, 122, 0, 0.4);
         -webkit-font-smoothing: antialiased;
     }
 
     .slick-prev:before{
     	//font-family: 'slick';
-        //margin-right:50px;
+        // margin-right:50px;
         font-size: 40px;
         line-height: 1;
         opacity: .75;
-        color: #D9D9D9;
+        color: rgba(255, 122, 0, 0.4);        
         margin:-45px;
         -webkit-font-smoothing: antialiased;
     }
@@ -169,51 +165,49 @@ export const StyledSlider = styled(Slider)`
 
 export const WordDiv=styled.div`
     width: 320px;
-    height: 432px;
+    height: 524px;
     background-color: white;
     border-radius: 25px;
-    //padding:0 15px;
-    //margin: 40px 20px 40px 20px;
-    border: 1px solid #D9D9D9;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.05);
 `
 export const WordThumb=styled.img`
-    width: 260px;
-    height: 164px;
-    margin: 25px;
+    width: 265px;
+    height: 176px;
+    margin: 45px 27px 33px 27px;
 `
 
 export const WordDesDiv=styled.div`
-    margin:0 25px; //양옆만
-   // background-color: yellow;
+    margin:0 34px; //양옆만
     height:140px;
-
+    color: #2E2E2E;
 `
 export const WordName=styled.div`    
-    font-size: 24px;
+    font-size: 22px;
     text-align:left;
-    margin-bottom: 24px;
+    margin-bottom: 21px;
 `
 export const WordDes=styled.div`    
-    font-size:20px;
+    font-size:16px;
     text-align:left;
+    line-height: 23px;
 `
 
 export const ClassBtn=styled.button`
     border:none;
-    background: #F37A1F;
-    border-radius: 24px;
+    background: #FF7A00;
+    border-radius: 50px;
     color:white;
-    width: 167px;
-    height: 35px;
-    font-size: 16px;
+    width: 199px;
+    height: 47px;
+    font-size: 18px;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin-top: 17px;
+    margin-top: 37px;
 
     transition: 0.4s;
     &:hover{
-        color:#F37A1F;
+        color:#FF7A00;
         background-color:white;
-        border:1px solid #F37A1F;
+        border:1px solid #FF7A00;
     }
 `
 
