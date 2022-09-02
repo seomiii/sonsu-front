@@ -8,6 +8,10 @@ Logo,
 PlayLevel,
 PlayVideos,
 CamDiv,
+WebcamDiv,
+BtnDiv,
+StartBtn,
+ResultBtn,
 
 
  } from './../component_css/Study_style';
@@ -124,24 +128,24 @@ const WebcamStreamCapture = () => {
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
-      <PlayVideos>
-
+      <WebcamDiv>
         <CamDiv>
-          <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
-        </CamDiv>
+          <Webcam audio={false} mirrored={true} ref={webcamRef} width={1115} height={652} />          
+        </CamDiv>    
+      </WebcamDiv>
 
-        {capturing ? (
-          <button onClick={handleStopCaptureClick}>Stop Capture</button>
+
+    <BtnDiv>
+      {capturing ? (
+          <StartBtn onClick={handleStopCaptureClick}>촬영 끝내기</StartBtn>
         ) : (
-          <button onClick={handleStartCaptureClick}>Start Capture</button>
+          <StartBtn onClick={handleStartCaptureClick}>촬영 시작하기</StartBtn>
         )}
 
         {recordedChunks.length > 0 && (
-          //
-          <button onClick={SendToServer}>결과 보기</button>
+          <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
         )}
-
-    </PlayVideos>
+    </BtnDiv>
 
     </>
   );

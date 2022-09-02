@@ -27,10 +27,13 @@ export const ContentDiv=styled.div`
     text-decoration: none;    
 `
 export const NavContent=styled.div` 
+    width:92px;
     margin-left: 44px;
     margin-top:10px;
     color: #2E2E2E;
     font-size:20px; 
+    font-weight:500;
+    line-height:25.04px;
     text-decoration: none;
     transition: 0.3s;
     &:hover{

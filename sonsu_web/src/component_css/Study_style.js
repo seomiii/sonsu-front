@@ -71,11 +71,15 @@ export const StudyLevelDiv=styled.div`
 `
 export const LevelName=styled.p`
     font-size: 22px;
+    font-weight:500;
+    line-height:27.54px;
 `
 export const LevelDisc=styled.p`
     font-size:17px;
     line-height:21.28px;
     padding-top:20px;
+    font-weight:400;
+    line-height:21.28px;
     // text-indent:5px
 `
 export const StudyBtn=styled.button`
@@ -86,6 +90,7 @@ export const StudyBtn=styled.button`
     width: 199px;
     height: 47px;
     font-size: 18px;
+    font-weight:500;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     margin-top: 9px;
 
@@ -114,6 +119,8 @@ export const TitleDiv=styled.div`
 export const LevelDiv=styled.div`
     //background-color: lightyellow;
     font-size : 32px;
+    font-weight: 700;
+    line-height:40.06px;
     display: flex;   
     color:#2E2E2E;  
 `
@@ -122,6 +129,9 @@ export const CurriDiv=styled.div`
     margin-top: 33px;
     display: flex;
     flex-direction: row;  
+    font-weight: 500;
+    line-height:30.05px;
+    color:#2E2E2E;
 `
 export const Curri=styled.button`
     background-color: white;
@@ -185,11 +195,15 @@ export const WordName=styled.div`
     font-size: 22px;
     text-align:left;
     margin-bottom: 21px;
+    font-weight:500;
+    line-height:27.54px;
 `
 export const WordDes=styled.div`    
     font-size:16px;
     text-align:left;
     line-height: 23px;
+    font-weight:300;
+    line-height:23px;
 `
 
 export const ClassBtn=styled.button`
@@ -200,6 +214,7 @@ export const ClassBtn=styled.button`
     width: 199px;
     height: 47px;
     font-size: 18px;
+    font-weight:500;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     margin-top: 37px;
 
@@ -216,76 +231,82 @@ export const ClassBtn=styled.button`
 export const PlayTitleDiv=styled.div`
     width: 100%;
     background-color: #F9F9F9; 
-    height:100px;   
+    height:116px;   
     display:flex; 
-    border-bottom: 0.8px solid #F37A1F; 
+    color:#2E2E2E;
 `
 
 export const Logo=styled.img`
-    height:50px;
-    width:250px;
-    object-fit:cover;    
-    margin-top:25px; 
-    margin-left:50px;
-    //background-color:lightyellow;
-    padding-right: 25px;
-    border-right:1px solid #B5B5B5;
+    height:46px;
+    width:232px;
+    object-fit:cover;  
+
+    margin-top:35px; 
+    margin-left:100px;
+    // background-color:lightyellow;
+    padding-right: 48px;
+    border-right:3px solid #D9D9D9;
 `
 
 export const PlayLevel=styled.div`
-    //background-color: blue;
+    // background-color: skyblue;
     font-size: 32px;
-    margin-top:25px;
-    margin-bottom:25px;
-    line-height:50px;
-    margin-left:40px;
+    font-weight:500;
+    margin-top:38px;
+    margin-bottom:38px;
+    line-height:40.06px;
+    margin-left:50px;
 `
 
 export const PlayVideos=styled.div`
     margin: 0px auto;
-    //background-color: lightblue;
-    //min-height:100vh;
-    width: 1340px;
+    // background-color:beige;
+    // padding-left:137px;
+    // padding-right:127px;
+    margin-top:47px;
+    // min-height:100vh;
+    width: 1654px;
     display:flex;
-    @media screen and (max-width: 1340px) {
+    justify-content: space-between;
+    @media screen and (max-width: 1654px) {
         width: 100%;
     }   
 `
 export const VideoDiv=styled.div`
-    width:982px;
-    height:553px;
+    width:1115px;
+    height:652px;
     margin-top:30px; 
-    //background-color: lightgrey;   
+    background-color: lightgrey;   
 `
 export const Video=styled.video`
-    width:982px;
-    height:553px;
-    border-radius: 21px;
-    margin:0;
+    width:1115px;
+    height:652px;
+    object-fit:cover;
+    border-radius: 22px;
+    background-color: lightgrey;
 `
 export const MenuBar=styled.div`
-    //background-color: beige;
-    margin-left:30px;
-    width:329px;
+    // background-color: beige;
+    width:400px;
 `
 export const MenuDiv=styled.div`
     //border-bottom: 1px solid #FF7A00;    
 `
 export const MenuCurriDiv=styled.div`
-    background-color:#F37A1F;
+    background-color:#FF7A00;
     border-radius: 12px;
-    height: 108px; 
-    margin-top:30px; 
-    
+    height: 108px;     
 `
 export const MenuCurri=styled.div`
     font-size: 20px;
     color:white;
     text-align:left;
     line-height: 108px;
-    margin-left: 30px;
+    margin-left: 35px;
+    font-weight:500;
 `
 export const PlayWords=styled.div`
+    color:#2E2E2E;
     background-color: white;  
     height: 248px;
     overflow: auto;
@@ -298,68 +319,137 @@ export const PlayWords=styled.div`
     }    
 `
 export const PlayWord=styled.div`
-    font-size: 16px;
+    font-size: 17px;
+    font-weight:400;
     height: 62px;
     line-height:62px;
     text-align:left;
-    text-indent: 23px;
+    text-indent: 35px;
     border-bottom: 1px solid #D9D9D9;    
 `
 
 export const BackNextDiv=styled.div`
-    margin-top:30px;
-    width:329px;
-    background-color:rgba( 0, 0, 0, 0.7 );
-    height: 83px;
+    margin-top:20px;
+    width:400px;
+    background-color:#4A4A4A;
+    display:flex;
+    justify-content:space-around;
+    height: 60px;
     border-radius: 12px;
     text-align:center;
 `
 
 export const BackNextBtn=styled.button`
     color:white;
-    font-size:16px; 
+    font-size:18px; 
+    font-weight:400;
     border:none;
     outline:none;
     background-color:rgba( 0, 0, 0, 0.0 );
-    margin:30px 5px 30px 5px;
+    line-height:60px;
+    margin:0 40px;
+`
+export const Bar=styled.div`
+    border-right:0.8px solid #D9D9D9;
+    margin:10.12px 0;
 `
 export const FollowDiv=styled.div`
-    margin-top:20px;
-    background-color:#F37A1F;
+    margin-top:135px;
+    background-color:#FF7A00;
     border-radius: 12px;
-    height:60px;
-    line-height:60px;
+    height:82px;
+    line-height:82px;
 `
-
 export const FollowBtn=styled.button`
     border:none;
     outline:none;
-    background-color:#F37A1F;
+    background-color:#FF7A00;
     color:white;
-    font-size: 16px;   
+    font-size: 20px; 
+    font-weight:500;  
 `
 export const MotionDiv=styled.div`
-    width: 1340px;
+    color:#2E2E2E;
+    width: 1654px;
     margin: 0px auto;
+    margin-top:35px;
     // background-color: beige;
     text-align: left;
+    @media screen and (max-width: 1654px) {
+        width: 100%;
+    } 
 `
 export const MotionTitle=styled.p`
-    font-size: 20px;
-    margin: 20px;
-    border-left:2px solid #F37A1F;
-    padding-left: 20px;
+    font-size: 22px;
+    font-weight:500;
+    display:inline;
+    border-bottom:2px solid #FF7A00;
+    margin-left:20px;
+    padding: 0 5px 7px 5px;
 `
 export const Motion=styled.p`
-    font-size: 16px;
-    margin: 20px;
-    padding-left: 20px;
+    font-size: 17px;
+    font-weight:400;
+    margin: 30px;
+    // background-color:skyblue;
 `
 // ------------------------------WebcamStreamCapture------------------
+export const WebcamDiv=styled.div`
+    display:flex;
+    justify-content:center;
+    // background-color:beige;
+    margin:0px auto;
+    width: 1654px;
+    
+    @media screen and (max-width: 1654px) {
+        width: 100%;
+    }   
+`
 export const CamDiv=styled.div`
-    width:982px;
-    height:553px;
-    margin-top:30px; 
+    width:1115px;
+    height:652px;
+    margin-top:67px; 
     background-color:black; 
-    border-radius: 21px;
+    border-radius: 22px;
+
+    @media screen and (max-width: 1115px) {
+        width: 100%;
+    } 
+`
+export const BtnDiv=styled.div`
+    margin:42px auto;
+    width: 1654px;
+    display:flex;
+    justify-content:center;
+    //background:skyblue;
+        
+    @media screen and (max-width: 1654px) {
+        width: 100%;
+    }   
+
+`
+export const StartBtn=styled.button`
+    border:none;
+    background: #FF7A00;
+    border-radius: 12px;
+    color:white;
+    width: 272px;
+    height: 60px;
+    font-size: 18px;
+    font-weight:500;
+    margin:0 30px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+`
+
+export const ResultBtn=styled.button`
+    border:none;
+    width: 272px;
+    height: 60px;
+    background: white;
+    border-radius: 12px;
+    border:1px solid #FF7A00;
+    font-size: 18px;
+    font-weight:500;
+    color:#FF7A00;
+    margin:0 30px;
 `

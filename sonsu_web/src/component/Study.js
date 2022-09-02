@@ -96,7 +96,7 @@ function Study_level(level){
 
             <div>
                 <Link to = {"study_class"} state={{level : (level)}}>
-                    <StudyBtn>수강하기</StudyBtn>
+                    <StudyBtn>시작하기</StudyBtn>
                 </Link>
             </div> 
 
