@@ -22,6 +22,7 @@ import {
     MotionDiv,
     Motion,
     MotionTitle,
+    Bar,
 } from './../component_css/Study_style';
 
 
@@ -68,10 +69,10 @@ function Study_play(props){
             </PlayTitleDiv>
 
             <PlayVideos>
-                <VideoDiv>
+                {/* <VideoDiv> */}
                     {/* <Video src="{data.videoUrl}" controls="controls"/> */}
                     <Video src="../../videos/word1.mp4" controls="controls"/> 
-                </VideoDiv>
+                {/* </VideoDiv> */}
                 
                 <MenuBar>
                     <MenuDiv>
@@ -90,7 +91,14 @@ function Study_play(props){
                                 <PlayWord onClick={()=> setWord(i)}>{i}</PlayWord>
                             ))} */}
                         </PlayWords>
-                    </MenuDiv>      
+                    </MenuDiv>  
+
+                    <BackNextDiv>
+                        {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
+                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx)}}>이전으로</BackNextBtn>
+                        <Bar></Bar>
+                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx)}}>다음으로</BackNextBtn>
+                    </BackNextDiv>       
 
                     <FollowDiv>
                         <Link to ="../webcam" state={{
@@ -102,17 +110,13 @@ function Study_play(props){
                         </Link>
                     </FollowDiv>      
             
-                    <BackNextDiv>
-                        {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx)}}>◀️ 이전으로</BackNextBtn>
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx)}}>다음으로 ▶️</BackNextBtn>
-                    </BackNextDiv>                   
+                                    
 
                 </MenuBar>
             </PlayVideos>                  
 
             <MotionDiv>
-                <MotionTitle>{data && data.wordName}</MotionTitle>
+                <MotionTitle>수형 설명</MotionTitle>
                 <Motion>{data && data.wordGesture}</Motion>
             </MotionDiv>
             
