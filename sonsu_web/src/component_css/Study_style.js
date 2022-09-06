@@ -26,7 +26,7 @@ export const MediaDiv=styled.div`
 export const StudyMediaDiv=styled.div`
     margin: 0px auto;
     // background-color: lightblue;
-    min-height:100vh;
+    min-height:60vh;
     width: 1026px;
     @media screen and (max-width: 350px) {
         width: 100%;
