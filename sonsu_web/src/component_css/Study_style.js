@@ -409,7 +409,7 @@ export const CamDiv=styled.div`
     width:1115px;
     height:652px;
     margin-top:67px; 
-    background-color:black; 
+    background-color:black;
     border-radius: 22px;
 
     @media screen and (max-width: 1115px) {
@@ -452,4 +452,15 @@ export const ResultBtn=styled.button`
     font-weight:500;
     color:#FF7A00;
     margin:0 30px;
+`
+
+// ------------------StudyResult.js --------------------------
+export const ResultDiv=styled.div`
+    background : #F5F5F5;
+    min-height:100vh;
+`
+export const ResultDisplayDiv=styled.div`
+    display : flex;
+    justify-content : center;
+
 `

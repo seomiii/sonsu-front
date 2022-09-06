@@ -1,7 +1,7 @@
 import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Webcam from "react-webcam";
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 import { 
 PlayTitleDiv,
 Logo,
@@ -143,7 +143,13 @@ const WebcamStreamCapture = () => {
         )}
 
         {recordedChunks.length > 0 && (
-          <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
+          <Link to='/studyresult' state={{
+            level : (level),
+            word_idx : (word_id),
+            result : (flaskResult)
+          }}>
+            <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
+          </Link>
         )}
     </BtnDiv>
 
