@@ -19,14 +19,29 @@ ResultBtn,
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
 
+// flask 예상 데이터
+const rank = [
+  {
+    wordName : 'ㄱ(기역)',
+    wordRatio : 30
+},
+{
+    wordName : 'ㄴ(니은)',
+    wordRatio : 10
+},
+{
+    wordName : 'ㄷ(디귿)',
+    wordRatio : 5
+},
+]
 
-
+// --------------------------------리소스-----------------------
 const WebcamStreamCapture = () => {
 
   const word_id = useLocation().state.word_id;
   const level=useLocation().state.level;
 
-  const [flaskResult,setFlaskResult]=useState(false);  
+  const [flaskResult,setFlaskResult]=useState(1);  
 
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -85,7 +100,7 @@ const WebcamStreamCapture = () => {
 
       axios.post('/model/study',fd)
         .then((res)=>{
-          setFlaskResult(res.data);
+          // setFlaskResult(res.data);
           alert("결과 : " + res.data);
           console.log(res);
         })
@@ -108,12 +123,12 @@ const WebcamStreamCapture = () => {
   },[recordedChunks.length]);
 
 
-  // 모델 서버에서 온 결과를 서버에게 전달
+  // 모델 서버에서 온 결과를 서버에게 전달 
+  // 수강현황 업데이트
   const SendToServer = () => {
-    axios.post('study/{level}/{word_id}/{user_id}/{flaskResult}',{
-      user_id:'miseomiseo',
-      level: (level),
-      result: flaskResult
+    axios.post(`/study/word/${word_id}`,{
+      levelIdx: (level),
+      userIdx : 1
     })
     .then((res)=>{
       console.log(res);
@@ -146,7 +161,8 @@ const WebcamStreamCapture = () => {
           <Link to='/studyresult' state={{
             level : (level),
             word_idx : (word_id),
-            result : (flaskResult)
+            result : (flaskResult),
+            rank : (rank),
           }}>
             <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
           </Link>

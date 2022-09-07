@@ -26,7 +26,7 @@ export const MediaDiv=styled.div`
 export const StudyMediaDiv=styled.div`
     margin: 0px auto;
     // background-color: lightblue;
-    min-height:100vh;
+    min-height:60vh;
     width: 1026px;
     @media screen and (max-width: 350px) {
         width: 100%;
@@ -256,6 +256,7 @@ export const PlayLevel=styled.div`
     margin-bottom:38px;
     line-height:40.06px;
     margin-left:50px;
+    width: 60px;
 `
 
 export const PlayVideos=styled.div`
@@ -458,9 +459,84 @@ export const ResultBtn=styled.button`
 export const ResultDiv=styled.div`
     background : #F5F5F5;
     min-height:100vh;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
+
 export const ResultDisplayDiv=styled.div`
     display : flex;
     justify-content : center;
+    margin-top: 160px;
+`
+export const ResultMentDiv=styled.div`
+    margin-top: 83px;
+    line-height:47.52px;
+    min-width: 300px;
+    // background:lightblue;
+    text-align:left;
+`
+export const ResultMent1=styled.div`
+    font-size:36px;
+    font-weight: 500;
+    text-align:left;
+    color:#2E2E2E;
+`
+export const ResultMent2=styled.div`
+    font-size:36px;
+    font-weight: 400;   
+    text-align:left;
+    color:#2E2E2E;
+`
+export const NextBtn=styled.button`
+    border:none;
+    background: #FF7A00;
+    border-radius: 50px;
+    color:white;
+    width: 279px;
+    height: 50px;
+    font-size: 18px;
+    font-weight:500;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    margin-top: 25px;
 
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
+`
+export const Q=styled.div`
+    font-size: 16px;
+    font-weight:500;
+    line-height: 22.4px;
+    color: #2E2E2E;
+    margin-top: 46px;
+`
+export const RankDiv=styled.div`    
+    background: rgba(255, 255, 255, 0.8);    
+    border-radius: 12px;
+    margin-top:15px;
+    text-align:left;
+    padding: 8px 17px;
+`
+export const Rank=styled.div`
+    font-size:16px;
+    font-weight:500;
+    color:#2E2E2E;
+    line-height:32px;
+    
+`
+export const Word=styled.div`
+    display:inline;
+    color:  #FF7A00;
+`
+export const ResultImg=styled.img`
+    width:527px;
+    height:457px;
+    object-fit:contain;
+    margin-left:130px;
+    margin-bottom:340px;
 `
