@@ -6,7 +6,19 @@ import {
     Logo,
     PlayLevel,
     ResultDiv,
-    ResultDisplayDiv
+    ResultDisplayDiv,
+    ResultMentDiv,
+    ResultMent1,
+    ResultMent2,
+    NextBtn,
+    Q,
+    RankDiv,
+    Word,
+    ResultImg,
+    Rank,
+    
+
+
 
 } from './../component_css/Study_style';
 
@@ -22,50 +34,46 @@ const Ment=[
 
     {
         result: 1 ,
-        ment1: '동작이 정확해요',
+        ment1: '동작이 정확해요.',
         ment2 : '참 잘했어요!'
 
-    }
-]
-
-// flask 예상 데이터
-const Data=[
-    {
-        result: 1 ,
-
-        rank : [
-            {
-                wordName : 'ㄱ(기역)',
-                wordRatio : 30
-            },
-            {
-                wordName : 'ㄴ(니은)',
-                wordRatio : 10
-            },
-            {
-                wordName : 'ㄷ(디귿)',
-                wordRatio : 5
-            },
-        ]
     }
 ]
 
 function StudyResult(){
     const level=useLocation().state.level;
     const word_idx=useLocation().state.word_idx;
-    var Rresult=useLocation().state.result;
+    var result=useLocation().state.result;
+    let rank=useLocation().state.rank;
 
-    const [flaskResult,setFlaskResult]=useState(Data[0].result);
-    const [ResultMent1, setResultMent1]=useState(Ment[0].ment1);
-    const [ResultMent2, setResultMent2]=useState(Ment[0].ment2);
+    console.log(rank);
 
-    console.log(flaskResult,ResultMent1,ResultMent2);
+    var ment1='';
+    var ment2='';
+    var resultImg='';
 
-    // axios.get(`model/study`)
-    // .then((response)=>{
-    //     console.log(response);
-    // })
 
+    // 틀렸을때
+    if ( result == 0 ){
+        ment1 = Ment[0].ment1;
+        ment2 = Ment[0].ment2;
+        resultImg='/img/studyresult0.png';
+    }
+    else{
+        ment1 = Ment[1].ment1;
+        ment2 = Ment[1].ment2;
+        resultImg='/img/studyresult1.png';
+    }
+
+    console.log(result, ment1,ment2);
+
+    const NextWord=()=>{
+
+    }
+
+    const Restart=()=>{
+
+    }
 
     return(
         <ResultDiv>
@@ -75,7 +83,38 @@ function StudyResult(){
             </PlayTitleDiv>
 
             <ResultDisplayDiv>
+                <ResultMentDiv>
+                    <ResultMent1>
+                        {ment1}
+                    </ResultMent1>
 
+                    <ResultMent2>
+                        {ment2}
+                    </ResultMent2>
+
+                    {result?(
+                        <NextBtn onClick={NextWord}>다음 단어로 넘어가기  > </NextBtn>
+                    ): (
+                        <NextBtn onClick={Restart}>다시 하기  > </NextBtn>
+                    )}
+
+                    <Q>
+                        방금 한 동작과 유사한 동작이 궁금하신가요?
+                    </Q>
+
+                    <RankDiv>
+            
+                        {rank.map((i,index)=>(
+                            <Rank> {index+1}. <Word>{i.wordName}</Word> / {i.wordRatio} % 유사 </Rank>
+                        ))
+                        }
+        
+                    </RankDiv>
+
+
+                </ResultMentDiv>
+
+                <ResultImg src={resultImg}></ResultImg>
             </ResultDisplayDiv>
 
 
