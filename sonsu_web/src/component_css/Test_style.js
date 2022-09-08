@@ -10,9 +10,9 @@ export const GlobalStyles=createGlobalStyle`
 export const MediaDiv=styled.div`
     margin: 0px auto;
     //background-color: lightblue;
-    min-height:100vh;
-    width: 1024px;
-    @media screen and (max-width: 1024px) {
+    min-height:60vh;
+    width: 1026px;
+    @media screen and (max-width: 1026px) {
         width: 100%;
     } 
 `
@@ -24,53 +24,57 @@ export const Header_Div=styled.div`
 
 export const ImgBox=styled.img`
     width:100%;
-    height: 250px;
+    height: 270px;
     object-fit:contain;
     text-align:center;   
     background-color: #F37A1F;
 `
 export const FullBox=styled.div`
     display:flex;
+    justify-content: space-between;
 `
 
 export const LevelBox=styled.div`
-    width: 360px;
-    height: 500px; 
-    border-radius : 35px;
-    background-color: #FAFAFA;
-    margin:23px;
+    width: 322px;
+    height: 490px; 
+    border-radius : 20px;
+    background-color: #F9F9F9;
+    margin-top:34px;
 `
 
 export const ImgDiv=styled.img`
-    width: 250px;
-    height: 250px;
+    width: 258px;
+    height: 264px;
     object-fit:cover;
-    //background-color:yellow;
-    padding: 15px 0 ;
-    margin:35px 10px 10px 10px;
+    margin-top:40px;
+    margin-bottom:32px;
 `
 
 export const LevelName=styled.p`
     //background-color:yellow;
-    font-size: 24px;
+    font-size: 22px;
+    font-weight:500;
+    line-height:27.54px;
+    color:#2E2E2E;
 `
 
 export const TestBtn=styled.button`
     border:none;
-    background: #F37A1F;
-    border-radius: 24px;
+    background: #FF7A00;
+    border-radius: 50px;
     color:white;
-    width: 167px;
-    height: 35px;
-    font-size: 16px;
+    width: 199px;
+    height: 47px;
+    font-size: 18px;
+    font-weight:500;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin-top: 35px;
+    margin-top: 39px;
 
     transition: 0.4s;
     &:hover{
         color:#FF7A00;
         background-color:white;
-        border:1px solid #F37A1F;
+        border:1px solid #FF7A00;
     }
 `
 

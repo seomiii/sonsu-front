@@ -60,14 +60,13 @@ function TestHome() {
                 <ImgBox src='/img/test_box.jpg'/>
 
                 <MediaDiv>  
-                <FadeHome> 
-                    <FullBox>                 
-                        {Test_level(1)}                      
-                        {Test_level(2)}
-                        {Test_level(3)}  
-                    </FullBox> 
-
-                </FadeHome>                    
+                    <FadeHome> 
+                        <FullBox>                 
+                            {Test_level(1)}                      
+                            {Test_level(2)}
+                            {Test_level(3)}  
+                        </FullBox> 
+                    </FadeHome>                    
                 </MediaDiv>
             </>
         );
