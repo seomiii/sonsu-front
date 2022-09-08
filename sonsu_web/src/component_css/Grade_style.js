@@ -1,19 +1,31 @@
 import styled from 'styled-components';
 
+export const GradeDiv=styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+`
+
 export const GradeTitle=styled.div`
-    position: absolute;
-    left: 510px;
     margin-top: 50px;
+    margin-left: 120px;
     text-align: left;
     // font-weight: bold;
     font-size: 32px;
 `
 export const GradeLevel=styled.div`
-    position: absolute;
-    left: 510px;
-    margin-top: 110px;
+    margin-top: 20px;
+    margin-left: 120px;
     text-align: left;
     font-size: 20px;
+`
+
+export const GradeChart=styled.div`
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
 `
 
 export const ChartDivA=styled.div`
@@ -24,9 +36,7 @@ export const ChartDivA=styled.div`
     font-size: 16px;
     // font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     padding: 60px 100px 30px 100px; 
-    position: absolute;
-    left: 510px;
-    margin-top: 170px;
+    margin-top: 40px;
 `
 
 export const ChartDivB=styled.div`
@@ -37,8 +47,6 @@ export const ChartDivB=styled.div`
     font-size: 16px;
     // font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     padding: 60px 100px 30px 100px; 
-    position: absolute;
-    left: 510px;
-    margin-top: 820px;
+    margin-top: 40px;
     margin-bottom: 100px;
 `
