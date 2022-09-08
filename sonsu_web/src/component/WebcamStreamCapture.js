@@ -1,13 +1,17 @@
 import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Webcam from "react-webcam";
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 import { 
 PlayTitleDiv,
 Logo,
 PlayLevel,
 PlayVideos,
 CamDiv,
+WebcamDiv,
+BtnDiv,
+StartBtn,
+ResultBtn,
 
 
  } from './../component_css/Study_style';
@@ -15,14 +19,29 @@ CamDiv,
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
 
+// flask 예상 데이터
+const rank = [
+  {
+    wordName : 'ㄱ(기역)',
+    wordRatio : 30
+},
+{
+    wordName : 'ㄴ(니은)',
+    wordRatio : 10
+},
+{
+    wordName : 'ㄷ(디귿)',
+    wordRatio : 5
+},
+]
 
-
+// --------------------------------리소스-----------------------
 const WebcamStreamCapture = () => {
 
   const word_id = useLocation().state.word_id;
   const level=useLocation().state.level;
 
-  const [flaskResult,setFlaskResult]=useState(false);  
+  const [flaskResult,setFlaskResult]=useState(1);  
 
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -81,7 +100,7 @@ const WebcamStreamCapture = () => {
 
       axios.post('/model/study',fd)
         .then((res)=>{
-          setFlaskResult(res.data);
+          // setFlaskResult(res.data);
           alert("결과 : " + res.data);
           console.log(res);
         })
@@ -104,12 +123,12 @@ const WebcamStreamCapture = () => {
   },[recordedChunks.length]);
 
 
-  // 모델 서버에서 온 결과를 서버에게 전달
+  // 모델 서버에서 온 결과를 서버에게 전달 
+  // 수강현황 업데이트
   const SendToServer = () => {
-    axios.post('study/{level}/{word_id}/{user_id}/{flaskResult}',{
-      user_id:'miseomiseo',
-      level: (level),
-      result: flaskResult
+    axios.post(`/study/word/${word_id}`,{
+      levelIdx: (level),
+      userIdx : 1
     })
     .then((res)=>{
       console.log(res);
@@ -124,24 +143,31 @@ const WebcamStreamCapture = () => {
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
-      <PlayVideos>
-
+      <WebcamDiv>
         <CamDiv>
-          <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
-        </CamDiv>
+          <Webcam audio={false} mirrored={true} ref={webcamRef} width={1115} height={652} />          
+        </CamDiv>    
+      </WebcamDiv>
 
-        {capturing ? (
-          <button onClick={handleStopCaptureClick}>Stop Capture</button>
+
+    <BtnDiv>
+      {capturing ? (
+          <StartBtn onClick={handleStopCaptureClick}>촬영 끝내기</StartBtn>
         ) : (
-          <button onClick={handleStartCaptureClick}>Start Capture</button>
+          <StartBtn onClick={handleStartCaptureClick}>촬영 시작하기</StartBtn>
         )}
 
         {recordedChunks.length > 0 && (
-          //
-          <button onClick={SendToServer}>결과 보기</button>
+          <Link to='/studyresult' state={{
+            level : (level),
+            word_idx : (word_id),
+            result : (flaskResult),
+            rank : (rank),
+          }}>
+            <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
+          </Link>
         )}
-
-    </PlayVideos>
+    </BtnDiv>
 
     </>
   );

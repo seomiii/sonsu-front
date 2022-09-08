@@ -14,6 +14,7 @@ import Study_class from './component/Study_class';
 import Login from './component/login';
 import Service_intro from './component/Service_intro';
 import WebcamStreamCapture from './component/WebcamStreamCapture';
+import StudyResult from './component/StudyResult';
 
 import { GlobalStyles } from './component_css/Study_style';
 import { MediaDiv } from './component_css/Study_style';
@@ -49,6 +50,8 @@ function App() {
               <Route path="study/study_class/study_play" element={<Study_play/>} />
               {/* 사용자 웹캠 페이지 */}
               <Route path="webcam" element={<WebcamStreamCapture/>}/>
+              {/* 수강하기 결과 페이지 */}
+              <Route path="studyresult" element={<StudyResult/>}/>
               {/* 테스트하기 */}
               <Route path="test_home" element={<TestHome/>} />
               {/* 테스트 영상나오는 페이지 */}
