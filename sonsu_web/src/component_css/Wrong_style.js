@@ -7,9 +7,20 @@ export const WrongDiv=styled.div`
 `
 
 export const WrongTitle=styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    align-items: center;
+    // justify-content: center;
+    font-size: 20px;
+    // font-weight: bold;
+    margin-left: 50px;
+`
+
+export const WrongText=styled.div`
     // width: 290px;
     // height: 164px;
-    margin: 25px;
+    margin-left: 10px;
 `
 
 export const WrongContent=styled.div`

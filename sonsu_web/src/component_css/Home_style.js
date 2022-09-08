@@ -12,6 +12,7 @@ const Fade=keyframes`
 export const FadeHome=styled.div`
     animation: ${Fade} 1s;
 `
+
 export const HeaderDiv=styled.div`
     margin: 0px auto;
     width: 1024px;
@@ -23,37 +24,50 @@ export const HeaderDiv=styled.div`
 
 export const HomeDiv=styled.div`
     position: absolute;
-    margin : 0px auto;
+    // margin : 0px auto;
     // margin-top: 25px;
     // min-height:100vh;
     width: 100%;
     height: 100%;
-    background-image: url( "img/hand_sign.png" );
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgba(255, 122, 0, 0.1);
+    background-image: url( "img/hand-sign-back.jpg");
+    background-size: 100%;
+    // width: 100%;
+	// height: auto;
+    // position: fixed;
+	// top: 0;
+	// left: 0;
+
+    // background-repeat: no-repeat;
+    // background-color: rgba(255, 122, 0, 0.1);
     // background-image: url('../img/hand_sign.png'});
     // background-color: rgba(243,122,32,0.07);
 `
 
+export const HeaderBack=styled.div`
+    background-color: white;
+    position: absolute;
+    width:100%;
+    height: 100;
+`
+
 export const HomeText=styled.div`
     position: absolute;
-    top: 400px;
-    left: 1150px;
-
+    left: 800px;
+    top: 280px;
 `
 
 export const HomeDesTitle=styled.div`
-    font-size:32px;
+    font-size:30px;
     font-weight:bold;
     text-align: left;
+    line-height: 40px;
     // margin-top: 100px;
 
 `
 
 export const HomeContent=styled.div`
-    margin-top:20px;
-    font-size:20px;
+    margin-top:30px;
+    font-size:18px;
     line-height: 30px;
     text-align: left;
     // margin-top: 100px;
@@ -61,7 +75,7 @@ export const HomeContent=styled.div`
 `
 
 export const StartBtn=styled.button`
-    margin-top: 20px;
+    margin-top: 30px;
     border:none;
     outline:none;
     background-color: #F37A1F;
