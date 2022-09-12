@@ -22,13 +22,13 @@ const COLORS = ["#FF7A00", "#ffffff"];
 
 export default function App() {
   return (
-    <PieChart width={800} height={250}>
+    <PieChart width={750} height={180}>
       <Pie
         data={data}
-        cx={90}
-        cy={150}
-        innerRadius={40}
-        outerRadius={90}
+        cx={120}
+        cy={90}
+        innerRadius={30}
+        outerRadius={60}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}
@@ -41,10 +41,10 @@ export default function App() {
       </Pie>
       <Pie
         data={data}
-        cx={350}
-        cy={150}
-        innerRadius={40}
-        outerRadius={90}
+        cx={370}
+        cy={90}
+        innerRadius={30}
+        outerRadius={60}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}
@@ -58,9 +58,9 @@ export default function App() {
       <Pie
         data={data}
         cx={620}
-        cy={150}
-        innerRadius={40}
-        outerRadius={90}
+        cy={90}
+        innerRadius={30}
+        outerRadius={60}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}

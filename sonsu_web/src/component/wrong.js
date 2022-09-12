@@ -9,16 +9,20 @@ import {
     WrongDiv,
     WrongContent,
     Wrongcalendar,
+    WrongText,
 } from './../component_css/Wrong_style';
-
-moment.locale('ko-KR');
-const localizer = momentLocalizer(moment);
+// import { Toolbar } from '@material-ui/core';
+import Toolbar from './Toolbar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // const allViews = Object
 //   .keys(Calendar.Views)
 //   .map(k => Calendar.Views[k])
 
 const Wrong = () => {
+    moment.locale('ko-KR');
+    const localizer = momentLocalizer(moment);
+
     return (
         <>
             <HeaderDiv>
@@ -26,7 +30,10 @@ const Wrong = () => {
             </HeaderDiv>
             <WrongDiv>
                 <WrongTitle>
-                    오답노트
+                    <img src='img/bar.png' alt="image"/>
+                    <WrongText>
+                        오답노트
+                    </WrongText>
                 </WrongTitle>
                 <WrongContent>
                     <Wrongcalendar>
@@ -36,7 +43,10 @@ const Wrong = () => {
                             style={{ height: 500 }}
                             step={60}
                             // views={allViews}
-                            defaultDate={new Date(2015, 3, 1)}
+                            // defaultDate={new Date(2015, 3, 1)}
+                            components={{
+                                toolbar: Toolbar,
+                            }}
                         />
                     </Wrongcalendar>
                 </WrongContent>
