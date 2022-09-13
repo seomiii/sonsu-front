@@ -6,7 +6,7 @@ import axios from 'axios';
 import { PlayTitleDiv,PlayLevel,Logo,PlayVideos,MenuBar,MenuDiv,MenuCurriDiv, MenuCurri,
 PlayWords,PlayWord } from '../component_css/Study_style';
 import {TestNumberDiv,TestDiv,TestNumber,CamDiv,FollowDiv,FollowBtn
-,ShowResultBtn,NextBtn,TestWord} from '../component_css/Test_style'
+,ShowResultBtn,NextBtn,TestWord,CurWordHeadDiv,CurWord,PlayTestWords,PlayTestWord,NextDiv} from '../component_css/Test_style'
 
 
 const Levels=[
@@ -170,21 +170,20 @@ function Test() {
                 <Link to='/'>
                     <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
                 </Link>              
-                <PlayLevel>테스트 하기</PlayLevel>
+                <PlayLevel>{Levels[levelIdx-1].level_name}</PlayLevel>
             </PlayTitleDiv>
 
         <PlayVideos>
 
             <TestDiv>
-                <TestNumberDiv>
+                {/* <TestNumberDiv>
                     <TestNumber>
-                    {/* {currentnumber} / {data.wordsDto.length}  */}
                     {currentnumber} .
                     </TestNumber> 
                     <TestWord>
                     {data&& data.wordsDto[currentnumber-1].wordName}
                     </TestWord>                 
-                </TestNumberDiv>
+                </TestNumberDiv> */}
                 <CamDiv>
                     <Webcam audio={false} mirrored={true} ref={webcamRef}  width={100+'%'} height={100+'%'} />          
                 </CamDiv>  
@@ -192,31 +191,35 @@ function Test() {
 
             <MenuBar>
                 <MenuDiv>
-                    <MenuCurriDiv>
-                        <MenuCurri>
-                            {Levels[levelIdx-1].level_name}
-                        </MenuCurri>
-                    </MenuCurriDiv>
+                    <CurWordHeadDiv>
+                        문제 {currentnumber}
+                    </CurWordHeadDiv>
+                    <CurWord>                    
+                        {data&& data.wordsDto[currentnumber-1].wordName}
+                    </CurWord>
+            
                 </MenuDiv>
 
-                <PlayWords>
+                <PlayTestWords>
                     {data&& data.wordsDto.map(i=>(                                
-                        <PlayWord onClick={()=>setNumber(i.testNo)}>{i.testNo}번</PlayWord>
+                        <PlayTestWord onClick={()=>setNumber(i.testNo)}>{i.testNo}번</PlayTestWord>
                     ))}
-                </PlayWords>          
+                </PlayTestWords> 
 
-                <FollowDiv>     
-                {capturing ? (
-                    <FollowBtn onClick={handleStopCaptureClick}>따라하기 종료</FollowBtn>
-                ) : (
-                    <FollowBtn onClick={handleStartCaptureClick}>따라하기</FollowBtn>
-                )}
-                </FollowDiv>  
-
-                <FollowDiv isLast={isLast}>
+                {/* <NextDiv isLast={isLast}> */}
                     <NextBtn isLast={isLast} onClick={()=>setNumber(currentnumber+1)}>다음 문제로 넘어가기</NextBtn>
                     <ShowResultBtn isLast={isLast} onClick={SumbitTest}>결과 보기</ShowResultBtn>
-                </FollowDiv>
+                {/* </NextDiv>          */}
+
+                {/* <FollowDiv>      */}
+                {capturing ? (
+                    <FollowBtn onClick={handleStopCaptureClick}>촬영 끝내기</FollowBtn>
+                ) : (
+                    <FollowBtn onClick={handleStartCaptureClick}>촬영 시작하기</FollowBtn>
+                )}
+                {/* </FollowDiv>   */}
+
+                
 
 
             </MenuBar>              
