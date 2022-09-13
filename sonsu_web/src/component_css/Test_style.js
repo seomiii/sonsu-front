@@ -33,6 +33,7 @@ export const FullBox=styled.div`
     display:flex;
     justify-content: space-between;
     margin-bottom: 39px;
+
 `
 
 export const LevelBox=styled.div`
