@@ -32,6 +32,7 @@ export const ImgBox=styled.img`
 export const FullBox=styled.div`
     display:flex;
     justify-content: space-between;
+    margin-bottom: 39px;
 `
 
 export const LevelBox=styled.div`
@@ -107,43 +108,121 @@ export const TestWord=styled.div`
 `
 
 export const CamDiv=styled.div`
-    width:982px;
-    height:553px;
+    width:1224px;
+    height:754px;
     //margin-top:15px; 
     background-color:black; 
-    border-radius: 0 0 21px 21px;
+    border-radius: 22px;
 `
 
-export const FollowDiv=styled.div`
-    background-color: ${props=>props.isLast ? '#F37A1F' : 'rgba(0,0,0,0.7)'};
+export const CurWordHeadDiv=styled.div`
+    background-color:#FF7A00;
+    width:400px;
+    height:51px;
+    border-radius: 12px 12px 0 0;
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+    line-height:51px;
+
+`
+export const CurWord=styled.div`
+    border:1px solid #FF7A00;
+    border-top:none;
+    width:400px;
+    height:101px;
+    color: #2E2E2E;
+    font-size: 32px;
+    font-weight: 500;
+    border-radius: 0 0 12px 12px;
+    line-height:101px;
+`
+
+export const PlayTestWords=styled.div`
+    color:#2E2E2E;
+    background-color: white;  
+    overflow: auto;
+    &::-webkit-scrollbar{
+        width:4px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: #D9D9D9;
+    }    
+`
+export const PlayTestWord=styled.div`
+    font-size: 17px;
+    font-weight:400;
+    height: 62px;
+    line-height:62px;
+    text-align:left;
+    text-indent: 35px;
+    border-bottom: 1px solid #D9D9D9;    
+`
+export const NextDiv=styled.div`
+    background-color: ${props=>props.isLast ? '#F37A1F' : '#4A4A4A'};
     margin-bottom:20px;
     //background-color:rgba(0,0,0,0.7);
     border-radius: 12px;
     height:60px;
     line-height:60px;
+    text-align:left;
+    margin-top:23px;
+`
+
+export const FollowDiv=styled.div`
+    background-color: ${props=>props.isLast ? '#F37A1F' : '#4A4A4A'};
+    margin-bottom:20px;
+    //background-color:rgba(0,0,0,0.7);
+    border-radius: 12px;
+    height:60px;
+    line-height:60px;
+    text-align:left;
+    // margin-top:23px;
 `
 
 export const FollowBtn=styled.button`
+    background-color:white;
+    width:400px;
+    height: 60px;
     border:none;
     outline:none;
-    background-color:rgba(0,0,0,0.0);
-    color:white;
-    font-size: 16px;   
+    border: 1px solid #FF7A00;
+    border-radius: 12px;
+    color: #FF7A00;
+    font-size: 18px; 
+    font-weight: 500; 
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
+    margin-top:268px;
 `
 export const NextBtn=styled.button`
     display:${props=>props.isLast ? 'none' : ''};
+    background-color: ${props=>props.isLast ? '#FF7A00' : '#4A4A4A'};
     border:none;
     outline:none;
-    background-color:rgba(0,0,0,0.0);
+    width:400px;
+    border-radius: 12px;
+    height:60px;
+    margin-top:23px;
     color:white;
-    font-size: 16px;
-    line-height:16px;
+    font-size: 18px;
+    font-weight:400;
+    line-height:18px;
+    text-align:left;
+    text-indent:24px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `
 export const ShowResultBtn=styled.button`
     display:${props=>props.isLast ? '' : 'none'};
-    background-color:rgba(0,0,0,0.0);
+    background-color: ${props=>props.isLast ? '#FF7A00' : '#4A4A4A'};
     border:none;
     outline:none;
     color:white;
-    font-size: 16px;
+    width:400px;
+    border-radius: 12px;
+    height:60px;
+    margin-top:23px;
+    font-size: 20px;
+    font-weight:500;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `
