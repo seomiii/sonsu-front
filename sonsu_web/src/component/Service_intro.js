@@ -46,32 +46,33 @@ const Service_intro = () => {
                                 <MSDiv
                                     // onMouseOver={() => setIsListHover(true)}
                                     // onMouseOut={() => setIsListHover(false)}
-                                    onMouseOver={setIsMouseHover(true)}
-                                    onMouseOut={setIsMouseHover(false)}
+                                    // onMouseOver={setIsMouseHover(true)}
+                                    // onMouseOut={setIsMouseHover(false)}
                                 >
-                                    <img
+                                    {/* <img
                                         // src={isListHover ? 'img/miseo-text.png' : 'img/miseo.png' }
-                                        src={isMouseHover ? 'img/miseo-text.png' : 'img/miseo.png' }
+                                        // src={isMouseHover ? 'img/miseo-text.png' : 'img/miseo.png' }
                                         // width="100%"
                                         // height="100%"
+                                        src={'img/miseo.png'}
                                         width="200"
                                         height="200"
                                         alt=""
-                                    />
+                                    /> */}
                                 </MSDiv>
                                 <JYDiv
                                     // onMouseOver={() => setIsListHover(true)}
                                     // onMouseOut={() => setIsListHover(false)}
-                                    onMouseOver={setIsMouseHover(true)}
-                                    onMouseOut={setIsMouseHover(false)}
+                                    // onMouseOver={setIsMouseHover(true)}
+                                    // onMouseOut={setIsMouseHover(false)}
                                 >
-                                    <img
+                                    {/* <img
                                         // src={isListHover ? 'img/jungyune-text.png' : 'img/jungyune.png'}
-                                        src={isMouseHover ? 'img/jungyune-text.png' : 'img/jungyune.png'}
+                                        // src={isMouseHover ? 'img/jungyune-text.png' : 'img/jungyune.png'}
                                         alt=""
                                         width="200"
                                         height="200"
-                                    />
+                                    /> */}
                                 </JYDiv>
                             </FrontDiv>
                             <EditorContent>
@@ -81,16 +82,16 @@ const Service_intro = () => {
                                 <JHDiv
                                     // onMouseOver={() => setIsListHover(true)}
                                     // onMouseOut={() => setIsListHover(false)}
-                                    onMouseOver={setIsMouseHover(true)}
-                                    onMouseOut={setIsMouseHover(false)}
+                                    // onMouseOver={setIsMouseHover(true)}
+                                    // onMouseOut={setIsMouseHover(false)}
                                 >
-                                    <img
+                                    {/* <img
                                         // src={isListHover ? 'img/jihyeon-text.png' : 'img/jihyeon.png'}
-                                        src={isMouseHover ? 'img/jihyeon-text.png' : 'img/jihyeon.png'}
+                                        // src={isMouseHover ? 'img/jihyeon-text.png' : 'img/jihyeon.png'}
                                         alt=""
                                         width="200"
                                         height="200"
-                                    />
+                                    /> */}
                                 </JHDiv>
                             </AppDiv>
                             <EditorContent>
@@ -100,16 +101,16 @@ const Service_intro = () => {
                                 <MNDiv
                                     // onMouseOver={() => setIsListHover(true)}
                                     // onMouseOut={() => setIsListHover(false)}
-                                    onMouseOver={setIsMouseHover(true)}
-                                    onMouseOut={setIsMouseHover(false)}
+                                    // onMouseOver={setIsMouseHover(true)}
+                                    // onMouseOut={setIsMouseHover(false)}
                                 >
-                                    <img
+                                    {/* <img
                                         // src={isListHover ? 'img/muni-text.png' : 'img/muni.png'}
-                                        src={isMouseHover ? 'img/muni-text.png' : 'img/muni.png'}
+                                        // src={isMouseHover ? 'img/muni-text.png' : 'img/muni.png'}
                                         alt=""
                                         width="200"
                                         height="200"
-                                    />
+                                    /> */}
                                 </MNDiv>
                             </BackDiv>
                             <EditorContent>
@@ -119,16 +120,16 @@ const Service_intro = () => {
                                 <JEDiv
                                     // onMouseOver={() => setIsListHover(true)}
                                     // onMouseOut={() => setIsListHover(false)}
-                                    onMouseOver={setIsMouseHover(true)}
-                                    onMouseOut={setIsMouseHover(false)}
+                                    // onMouseOver={setIsMouseHover(true)}
+                                    // onMouseOut={setIsMouseHover(false)}
                                 >
-                                    <img
+                                    {/* <img
                                         // src={isListHover ? 'img/jieun-text.png' : 'img/jieun.png'}
-                                        src={isMouseHover ? 'img/jieun-text.png' : 'img/jieun.png'}
+                                        // src={isMouseHover ? 'img/jieun-text.png' : 'img/jieun.png'}
                                         alt=""
                                         width="200"
                                         height="200"
-                                    />
+                                    /> */}
                                 </JEDiv>
                             </DesignDiv>
                         </ServiceEditor>

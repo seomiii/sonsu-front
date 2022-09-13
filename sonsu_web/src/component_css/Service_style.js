@@ -47,6 +47,12 @@ export const MSDiv=styled.div`
     margin-left: 50px;
     margin-right: 20px;
     margin-bottom: 70px;
+    background-image: url("img/miseo.png");
+    &:hover{
+        // image: url("img/miseo.png");
+        background-image: url("img/miseo-text.png");
+        // border:1px solid #FF7A00;
+    }
 `
 
 export const JYDiv=styled.div`
@@ -55,6 +61,12 @@ export const JYDiv=styled.div`
     margin-top: 30px;
     margin-left: 50px;
     margin-bottom: 70px;
+    background-image: url("img/jungyune.png");
+    &:hover{
+        // image: url("img/miseo.png");
+        background-image: url("img/jungyune-text.png");
+        // border:1px solid #FF7A00;
+    }
 `
 
 export const AppDiv=styled.div`
@@ -67,6 +79,12 @@ export const JHDiv=styled.div`
     margin-top: 30px;
     margin-left: 50px;
     margin-bottom: 70px;
+    background-image: url("img/jihyeon.png");
+    &:hover{
+        // image: url("img/miseo.png");
+        background-image: url("img/jihyeon-text.png");
+        // border:1px solid #FF7A00;
+    }
 `
 
 export const BackDiv=styled.div`
@@ -79,6 +97,12 @@ export const MNDiv=styled.div`
     margin-top: 30px;
     margin-left: 50px;
     margin-bottom: 70px;
+    background-image: url("img/muni.png");
+    &:hover{
+        // image: url("img/muni.png");
+        background-image: url("img/muni-text.png");
+        // border:1px solid #FF7A00;
+    }
 `
 
 export const DesignDiv=styled.div`
@@ -90,5 +114,11 @@ export const JEDiv=styled.div`
     height: 200px;
     margin-top: 30px;
     margin-left: 50px;
-    padding-bottom: 70px;
+    // padding-bottom: 70px;
+    background-image: url("img/jieun.png");
+    &:hover{
+        // image: url("img/muni.png");
+        background-image: url("img/jieun-text.png");
+        // border:1px solid #FF7A00;
+    }
 `
