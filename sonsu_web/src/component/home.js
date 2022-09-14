@@ -18,11 +18,12 @@ const Home = () => {
     return (
         <>
             <HomeDiv>
-                <HeaderBack>
+                {/* <HeaderBack> */}
                     <HeaderDiv>
                         <Header/>
                     </HeaderDiv>
-                </HeaderBack>
+                {/* </HeaderBack> */}
+
                 <FadeHome>
                     <HomeText>
                         <HomeDesTitle>
