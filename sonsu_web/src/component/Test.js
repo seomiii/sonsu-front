@@ -154,16 +154,22 @@ function Test() {
     }, [recordedChunks.length]);
 
     let testIdx=data&& data.testIdx;
-    const SumbitTest=()=>{
+    console.log(testIdx);
+ 
+    // testIdx : (testIdx),
+    // .catch((err)=>alert("error"));
+
+    const SumbitTest=()=>{     
         axios.patch(`/test/${levelIdx}`,{
-            testIdx:testIdx
+            testIdx : (testIdx)
+           
         })
         .then((res)=>{
             console.log(res);
-        })
-        .catch((err)=>alert("error"));
+        })        
     }
 
+ 
     return (
         <>
             <PlayTitleDiv>
@@ -208,7 +214,13 @@ function Test() {
 
                 {/* <NextDiv isLast={isLast}> */}
                     <NextBtn isLast={isLast} onClick={()=>setNumber(currentnumber+1)}>다음 문제로 넘어가기</NextBtn>
+
+                    <Link to='/testresult' state={{
+                        level : (levelIdx) ,
+                        testIdx : (testIdx),                        
+                    }}>
                     <ShowResultBtn isLast={isLast} onClick={SumbitTest}>결과 보기</ShowResultBtn>
+                    </Link>
                 {/* </NextDiv>          */}
 
                 {/* <FollowDiv>      */}
