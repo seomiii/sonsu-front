@@ -21,39 +21,19 @@ export const HeaderDiv=styled.div`
     }   
     //background-color:skyblue;
 `
-
-export const HomeDiv=styled.div`
-    position: absolute;
-    // margin : 0px auto;
-    // margin-top: 25px;
-    // min-height:100vh;
-    width: 100%;
-    height: 100%;
-    background-image: url( "img/hand-sign-back.jpg");
-    background-size: 100%;
-    // width: 100%;
-	// height: auto;
-    // position: fixed;
-	// top: 0;
-	// left: 0;
-
-    // background-repeat: no-repeat;
-    // background-color: rgba(255, 122, 0, 0.1);
-    // background-image: url('../img/hand_sign.png'});
-    // background-color: rgba(243,122,32,0.07);
-`
-
 export const HeaderBack=styled.div`
-    background-color: white;
+    background-color:white;
     position: absolute;
     width:100%;
     height: 100;
 `
 
 export const HomeText=styled.div`
-    position: absolute;
-    left: 800px;
-    top: 280px;
+    min-height:89vh;
+    // width: 100%;   
+    background-image: url( "img/hand-sign-back.jpg");
+    // background-size: cotain;
+    // background-color: rgba(255, 122, 0, 0.1);    
 `
 
 export const HomeDesTitle=styled.div`

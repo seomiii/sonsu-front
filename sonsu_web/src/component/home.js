@@ -1,8 +1,6 @@
 import {Link} from 'react-router-dom';
 import Header from './header'
 import {
-    HeaderBack,
-    HomeDiv,
     HeaderDiv,
     StartBtn,
     HomeDesTitle,
@@ -16,13 +14,10 @@ import { MediaDiv, } from '../component_css/Study_style';
 
 const Home = () => {
     return (
-        <>
-            <HomeDiv>
-                {/* <HeaderBack> */}
+        <>          
                     <HeaderDiv>
                         <Header/>
                     </HeaderDiv>
-                {/* </HeaderBack> */}
 
                 <FadeHome>
                     <HomeText>
@@ -40,7 +35,7 @@ const Home = () => {
                         </Link>       
                     </HomeText>   
                 </FadeHome>
-            </HomeDiv> 
+            
 
 
         </>
