@@ -15,6 +15,7 @@ import Login from './component/login';
 import Service_intro from './component/Service_intro';
 import WebcamStreamCapture from './component/WebcamStreamCapture';
 import StudyResult from './component/StudyResult';
+import TestResult from './component/TestResult';
 
 import { GlobalStyles } from './component_css/Study_style';
 import { MediaDiv } from './component_css/Study_style';
@@ -56,6 +57,8 @@ function App() {
               <Route path="test_home" element={<TestHome/>} />
               {/* 테스트 영상나오는 페이지 */}
               <Route path="test_home/test" element={<Test/>} />
+              {/* 테스트하기 결과 페이지 */}
+              <Route path="testresult" element={<TestResult/>}/>
             </Routes>
             {/* <a><Footer /></a> */}
       </BrowserRouter> 

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useLocation,Link} from 'react-router-dom';
+import { useLocation,Link,useNavigate} from 'react-router-dom';
 
 import { 
     PlayTitleDiv,
@@ -16,14 +16,17 @@ import {
     Word,
     ResultImg,
     Rank,
-    
-
-
 
 } from './../component_css/Study_style';
 
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
+const LevelWord=[
+    'ㄱ(기역)', 'ㄴ(니은)', 'ㄷ(디귿)', 'ㅏ(아)' , 'ㅓ(어)', 'ㅜ(우)', 
+    '안녕하세요','괜찮습니다','감사합니다','미안합니다', '좋다', '싫다',
+    '사람','생각','학교','친구','마음'
+];
+
 
 const Ment=[
     {
@@ -43,10 +46,32 @@ const Ment=[
 function StudyResult(){
     const level=useLocation().state.level;
     const word_idx=useLocation().state.word_idx;
-    var result=useLocation().state.result;
-    let rank=useLocation().state.rank;
+    var data=useLocation().state.data;
 
-    console.log(rank);
+
+    var result=data.result;
+    var rank_ratio=data.rank;
+    var rank_word=data.rank_word;    
+    
+    result=true;
+
+    console.log(result,rank_ratio,rank_word);
+
+    const rank = [
+        {
+          wordName : LevelWord[rank_word[0]],
+          wordRatio : rank_ratio[0].toFixed(2)
+      },
+      {
+          wordName : LevelWord[rank_word[1]],
+          wordRatio : rank_ratio[1].toFixed(2)
+      },
+      {
+          wordName : LevelWord[rank_word[2]],
+          wordRatio : rank_ratio[2].toFixed(2)
+      },
+    ]
+      
 
     var ment1='';
     var ment2='';
@@ -67,12 +92,14 @@ function StudyResult(){
 
     console.log(result, ment1,ment2);
 
-    const NextWord=()=>{
+    let navigate = useNavigate();
 
-    }
+    // const NextWord=()=>{
+
+    // }
 
     const Restart=()=>{
-
+       navigate(-1)
     }
 
     return(
@@ -93,7 +120,13 @@ function StudyResult(){
                     </ResultMent2>
 
                     {result?(
-                        <NextBtn onClick={NextWord}>다음 단어로 넘어가기  > </NextBtn>
+                        <Link to ="/study/study_class/study_play" state={{
+                            level: (level),
+                            word_idx : (word_idx+1),
+        
+                        }}>
+                        <NextBtn>다음 단어로 넘어가기  > </NextBtn>
+                        </Link>
                     ): (
                         <NextBtn onClick={Restart}>다시 하기  > </NextBtn>
                     )}
