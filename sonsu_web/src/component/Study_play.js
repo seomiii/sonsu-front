@@ -36,12 +36,12 @@ function Study_play(props){
     const word_name=useLocation().state.word_name;    
     const word_idx=useLocation().state.word_idx;    
 
-    console.log(word_idx,word_name);
+    // console.log(word_idx,word_name);
     
     //const word_loc= words_arr.indexOf(word_name);
     // console.log('word_loc', word_loc);   
 
-    const [cur_word,setWord]=useState({word_name});
+    const [cur_word,setWord]=useState(word_name);
     const [cur_wordIdx, setWordIdx]=useState(word_idx);
     
 
@@ -58,7 +58,17 @@ function Study_play(props){
     }, [cur_wordIdx])
 
     const word_loc = data && data.wordsDto.findIndex(obj => obj.wordIdx == cur_wordIdx);
-    console.log('word_loc', word_loc);
+    console.log('word_loc', word_loc,data);
+
+    
+    const MoveWord=(i)=>{
+        setWordIdx(i.wordIdx);
+        setWord(i.wordName);
+    }
+   
+   
+
+    console.log(cur_wordIdx, cur_word)
 
     return(
         <div> 
@@ -79,13 +89,13 @@ function Study_play(props){
                     <MenuDiv>
                         <MenuCurriDiv>
                             <MenuCurri>
-                                {data && data.curriName}
+                                {data && data.curriName} | {data&& cur_word}
                             </MenuCurri>                        
                         </MenuCurriDiv>
 
                         <PlayWords>
                             {data && data.wordsDto.map(i=>(                                
-                                <PlayWord onClick={()=> setWordIdx(i.wordIdx)}>{i.wordName}</PlayWord>
+                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx); setWord(i.wordName);}}>{i.wordName}</PlayWord>
                             ))}
 
                             {/* {words_arr.map(i=>(
@@ -96,9 +106,15 @@ function Study_play(props){
 
                     <BackNextDiv>
                         {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx)}}>이전으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{
+                            {setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx); 
+                            setWord(data && data.wordsDto[(word_loc-1)].wordName);}
+                            }}>이전으로</BackNextBtn>
                         <Bar></Bar>
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx)}}>다음으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{{
+                            setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx);
+                            setWord(data && data.wordsDto[(word_loc+1)].wordName)
+                            }}}>다음으로</BackNextBtn>
                     </BackNextDiv>       
 
                     <FollowDiv>
