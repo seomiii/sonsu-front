@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useLocation,Link} from 'react-router-dom';
+import { useLocation,Link,useNavigate} from 'react-router-dom';
 
 import { 
     PlayTitleDiv,
@@ -53,6 +53,7 @@ function StudyResult(){
     var rank_ratio=data.rank;
     var rank_word=data.rank_word;    
     
+    result=true;
 
     console.log(result,rank_ratio,rank_word);
 
@@ -91,12 +92,14 @@ function StudyResult(){
 
     console.log(result, ment1,ment2);
 
-    const NextWord=()=>{
+    let navigate = useNavigate();
 
-    }
+    // const NextWord=()=>{
+
+    // }
 
     const Restart=()=>{
-
+       navigate(-1)
     }
 
     return(
@@ -117,7 +120,13 @@ function StudyResult(){
                     </ResultMent2>
 
                     {result?(
-                        <NextBtn onClick={NextWord}>다음 단어로 넘어가기  > </NextBtn>
+                        <Link to ="/study/study_class/study_play" state={{
+                            level: (level),
+                            word_idx : (word_idx+1),
+                            word_name : 'demo'
+                        }}>
+                        <NextBtn>다음 단어로 넘어가기  > </NextBtn>
+                        </Link>
                     ): (
                         <NextBtn onClick={Restart}>다시 하기  > </NextBtn>
                     )}

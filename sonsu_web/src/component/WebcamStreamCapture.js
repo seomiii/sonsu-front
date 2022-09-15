@@ -101,15 +101,14 @@ const WebcamStreamCapture = () => {
       fd.append('file',file);    
       fd.append('word_id', word_id)
 
+      // flask에게 사용자 영상 post
       axios.post('/model/study',fd)
         .then((res)=>{
           setFlaskData(res.data)
         })
-
         .catch((err)=>{
         alert("error");
         console.log(err);
-
       },[recordedChunks]);  
 
     }
@@ -145,7 +144,9 @@ const WebcamStreamCapture = () => {
   return (
     <>
       <PlayTitleDiv>
-          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>                
+        <Link to='/'>
+          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
+        </Link>              
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
