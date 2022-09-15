@@ -115,6 +115,27 @@ export const CamDiv=styled.div`
     background-color:black; 
     border-radius: 22px;
 `
+export const CurWordHead=styled.div`
+    display:flex;
+    justify-content:center;
+    border-bottom: 3px solid #FF7A00;
+    width:400px;
+    padding-bottom:23px;
+    margin-bottom:47px;
+    
+`
+export const HeadWord=styled.div`    
+    font-weight: 700;
+    font-size: 32px;
+    color: #2E2E2E;
+    letter-spacing: 12px;
+`
+export const HeadWord2=styled.div`
+    font-weight: 400;
+    font-size: 24px;
+    color: #2E2E2E;
+    line-height:32px;
+`
 
 export const CurWordHeadDiv=styled.div`
     background-color:#FF7A00;
@@ -131,12 +152,12 @@ export const CurWord=styled.div`
     border:1px solid #FF7A00;
     border-top:none;
     width:400px;
-    height:101px;
+    height:194px;
     color: #2E2E2E;
     font-size: 32px;
     font-weight: 500;
     border-radius: 0 0 12px 12px;
-    line-height:101px;
+    line-height:194px;
 `
 
 export const PlayTestWords=styled.div`
@@ -183,18 +204,17 @@ export const FollowDiv=styled.div`
 `
 
 export const FollowBtn=styled.button`
-    background-color:white;
+    background-color:#FF7A00;
     width:400px;
-    height: 60px;
+    height: 103px;
     border:none;
     outline:none;
-    border: 1px solid #FF7A00;
     border-radius: 12px;
-    color: #FF7A00;
-    font-size: 18px; 
+    color: white;
+    font-size: 20px; 
     font-weight: 500; 
     font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
-    margin-top:268px;
+    margin-top:70px;
 `
 export const NextBtn=styled.button`
     display:${props=>props.isLast ? 'none' : ''};
@@ -204,13 +224,12 @@ export const NextBtn=styled.button`
     width:400px;
     border-radius: 12px;
     height:60px;
-    margin-top:23px;
+    margin-top:170px;
     color:white;
     font-size: 18px;
     font-weight:400;
     line-height:18px;
-    text-align:left;
-    text-indent:24px;
+    text-align:center;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `
 export const ShowResultBtn=styled.button`
@@ -222,8 +241,78 @@ export const ShowResultBtn=styled.button`
     width:400px;
     border-radius: 12px;
     height:60px;
-    margin-top:23px;
+    margin-top:170px;
     font-size: 20px;
     font-weight:500;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `
+// ------------------TestResult.js ------------------------
+
+export const TestResultDiv=styled.div`
+    width:1224px;
+    height:754px; 
+    background-color:#F5F5F5; 
+    border-radius: 22px;
+`
+
+export const ResultTitle=styled.div`
+    margin: 0 auto;
+    width: 140px;
+    font-size: 24px;
+    font-weight: 400;
+    color: #2E2E2E;
+
+    padding:22px;
+    padding-top:111px;
+    border-bottom: 2px solid #FF7A00;
+    // background:skyblue;
+`
+
+export const Score=styled.div`
+    color: #2E2E2E;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing:20px;
+    margin-top:66px;
+`
+export const Table=styled.table`
+    margin: 0 auto;
+    margin-top:66px;
+    width:780px;
+    background:white;
+`
+export const Table1=styled.tr`
+    background:#4A4A4A;
+    color:white;
+    height:50px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height:50px;
+    border: 1px solid #D9D9D9;
+`
+export const Th=styled.th`
+    border-right: 1px solid #D9D9D9;
+`
+
+export const Table2=styled.tr`
+    background: #F5F5F5;
+    height:68px;
+    color: #2E2E2E;
+    font-weight: 500;
+    font-size: 20px;
+    line-height:68px;
+`
+
+export const Table3=styled.tr`
+    
+    background: #FFFFFF;
+    height:95px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height:95px;
+`
+export const Table3th=styled.th`
+    border-right: 1px solid #D9D9D9;
+    color:#FF7A00;
+`
+
