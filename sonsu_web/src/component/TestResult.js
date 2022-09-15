@@ -19,7 +19,7 @@ function TestResult() {
     const [data,setData]=useState();
 
     useEffect(()=>{
-    axios.get('/test/53/result')
+    axios.get(`/test/${testIdx}/result`)
     .then((res)=>{
         setData(res.data.data);
     })
@@ -41,7 +41,7 @@ function TestResult() {
                 <TestDiv>
                     <TestResultDiv>
                         <ResultTitle> 테스트 결과 </ResultTitle>
-                        <Score>r/r</Score>
+                        <Score>{data && data[0].answerCount}/{data && data[0].testCount}</Score>
 
                         <Table>
                             <thead>
@@ -80,7 +80,7 @@ function TestResult() {
                 <MenuBar>
                     <MenuDiv>
                         <CurWordHead>
-                            <HeadWord>r/r</HeadWord> 
+                            <HeadWord>{data && data[0].testCount}/{data && data[0].testCount}</HeadWord> 
                             <HeadWord2>문제</HeadWord2>
                         </CurWordHead>
                         
@@ -90,7 +90,9 @@ function TestResult() {
                         <CurWord></CurWord>
 
                         <FollowBtn>촬영 시작하기</FollowBtn>
-                        <NextBtn>다음단어로 넘어가기 ▶️</NextBtn>
+                        <Link to ='/test_home'>
+                            <NextBtn>종료하기</NextBtn>
+                        </Link>
                     </MenuDiv>
                 </MenuBar>
 
