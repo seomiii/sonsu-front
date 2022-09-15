@@ -29,21 +29,20 @@ export const HeaderBack=styled.div`
 `
 
 export const HomeText=styled.div`
-    min-height:89vh;
-    // width: 100%;   
-    background-image: url( "img/hand-sign-back.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    // background-color: rgba(255, 122, 0, 0.1);    
+    position: relative;
+    min-height:89vh;   
+`
+export const HomeImg=styled.img`
+    width: 100%;
+    height:89vh; 
+    object-fit:cover;
 `
 export const HomeDesDiv=styled.div`
-    // display:inline-block;
+    position: absolute;
+    top: 25%;
+    left: 50%;
     width: 600px;
-    // background-color: red;
     text-align: left;
-    // margin-left:975px;
-    // padding-top:227px;
-
 `
 export const HomeDesTitle=styled.div`
     width: 600px;
@@ -51,9 +50,7 @@ export const HomeDesTitle=styled.div`
     font-weight:700;
     text-align: left;
     line-height: 55px;
-    background-color:skyblue;
-    // margin-top: 100px;
-
+    // background-color:skyblue;
 `
 
 export const HomeContent=styled.div`
@@ -63,11 +60,8 @@ export const HomeContent=styled.div`
     font-weight:400;
     line-height: 40px;
     text-align: left;
-
-    background-color:skyblue;
-    // margin-top: 100px;
-
-`
+    // background-color:skyblue;
+  `
 
 export const StartBtn=styled.button`
     margin-top: 58px;

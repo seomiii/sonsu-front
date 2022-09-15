@@ -8,6 +8,7 @@ import {
     HomeContent,
     HomeText,
     HomeDesDiv,
+    HomeImg,
 
 } from './../component_css/Home_style';
 import { MediaDiv, } from '../component_css/Study_style';
@@ -22,6 +23,7 @@ const Home = () => {
 
                 <FadeHome>
                     <HomeText>
+                        <HomeImg src={'img/hand-sign-back.png'}></HomeImg>
                         <HomeDesDiv>
                             <HomeDesTitle>
                                 손으로 세상과 소통하는 수어교실,<br/>
@@ -34,8 +36,7 @@ const Home = () => {
                             </HomeContent>
                             <Link to={"/service_intro"}>
                                 <StartBtn>시작하기</StartBtn>
-                            </Link>  
-                             
+                            </Link> 
                         </HomeDesDiv>    
                     </HomeText>   
                 </FadeHome>
