@@ -123,7 +123,7 @@ function StudyResult(){
                         <Link to ="/study/study_class/study_play" state={{
                             level: (level),
                             word_idx : (word_idx+1),
-                            word_name : 'demo'
+        
                         }}>
                         <NextBtn>다음 단어로 넘어가기  > </NextBtn>
                         </Link>

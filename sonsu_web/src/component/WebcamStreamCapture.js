@@ -41,6 +41,7 @@ const WebcamStreamCapture = () => {
 
   const word_id = useLocation().state.word_id;
   const level=useLocation().state.level;
+  const word_name=useLocation().state.word_name;
 
   const [flaskResult,setFlaskResult]=useState(1);  
 
@@ -168,6 +169,7 @@ const WebcamStreamCapture = () => {
           <Link to='/studyresult' state={{
             level : (level),
             word_idx : (word_id),
+            word_name : (word_name),
             data : (flaskData)
           }}>
             <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>

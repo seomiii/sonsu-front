@@ -46,6 +46,7 @@ function Study_play(props){
     
 
     const [data,setData]=useState();
+
     console.log(data);
 
     //cur_word가 바뀌면 서버에게서 get 해온다.
@@ -59,16 +60,7 @@ function Study_play(props){
 
     const word_loc = data && data.wordsDto.findIndex(obj => obj.wordIdx == cur_wordIdx);
     console.log('word_loc', word_loc,data);
-
-    
-    const MoveWord=(i)=>{
-        setWordIdx(i.wordIdx);
-        setWord(i.wordName);
-    }
-   
-   
-
-    console.log(cur_wordIdx, cur_word)
+    console.log(data && data.wordsDto[word_loc].wordName, cur_wordIdx);
 
     return(
         <div> 
@@ -89,13 +81,13 @@ function Study_play(props){
                     <MenuDiv>
                         <MenuCurriDiv>
                             <MenuCurri>
-                                {data && data.curriName} | {data&& cur_word}
+                                {data && data.curriName} | {data && data.wordsDto[word_loc].wordName}
                             </MenuCurri>                        
                         </MenuCurriDiv>
 
                         <PlayWords>
                             {data && data.wordsDto.map(i=>(                                
-                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx); setWord(i.wordName);}}>{i.wordName}</PlayWord>
+                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx)}}>{i.wordName}</PlayWord>
                             ))}
 
                             {/* {words_arr.map(i=>(
@@ -107,20 +99,18 @@ function Study_play(props){
                     <BackNextDiv>
                         {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
                         <BackNextBtn onClick={()=>{
-                            {setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx); 
-                            setWord(data && data.wordsDto[(word_loc-1)].wordName);}
+                            setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx);                             
                             }}>이전으로</BackNextBtn>
                         <Bar></Bar>
-                        <BackNextBtn onClick={()=>{{
-                            setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx);
-                            setWord(data && data.wordsDto[(word_loc+1)].wordName)
-                            }}}>다음으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{
+                            setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx);                           
+                            }}>다음으로</BackNextBtn>
                     </BackNextDiv>       
 
                     <FollowDiv>
                         <Link to ="../webcam" state={{
                             level : (level),
-                            word_name : (word_name),
+                            word_name : (cur_word),
                             word_id : (word_idx)
                             }}>
                             <FollowBtn>따라하기</FollowBtn>  
