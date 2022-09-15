@@ -16,14 +16,17 @@ import {
     Word,
     ResultImg,
     Rank,
-    
-
-
 
 } from './../component_css/Study_style';
 
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
+const LevelWord=[
+    'ㄱ(기역)', 'ㄴ(니은)', 'ㄷ(디귿)', 'ㅏ(아)' , 'ㅓ(어)', 'ㅜ(우)', 
+    '안녕하세요','괜찮습니다','감사합니다','미안합니다', '좋다', '싫다',
+    '사람','생각','학교','친구','마음'
+];
+
 
 const Ment=[
     {
@@ -43,10 +46,31 @@ const Ment=[
 function StudyResult(){
     const level=useLocation().state.level;
     const word_idx=useLocation().state.word_idx;
-    var result=useLocation().state.result;
-    let rank=useLocation().state.rank;
+    var data=useLocation().state.data;
 
-    console.log(rank);
+
+    var result=data.result;
+    var rank_ratio=data.rank;
+    var rank_word=data.rank_word;    
+    
+
+    console.log(result,rank_ratio,rank_word);
+
+    const rank = [
+        {
+          wordName : LevelWord[rank_word[0]],
+          wordRatio : rank_ratio[0].toFixed(2)
+      },
+      {
+          wordName : LevelWord[rank_word[1]],
+          wordRatio : rank_ratio[1].toFixed(2)
+      },
+      {
+          wordName : LevelWord[rank_word[2]],
+          wordRatio : rank_ratio[2].toFixed(2)
+      },
+    ]
+      
 
     var ment1='';
     var ment2='';

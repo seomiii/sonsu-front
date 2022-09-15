@@ -19,6 +19,7 @@ ResultBtn,
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
 
+
 // flask 예상 데이터
 const rank = [
   {
@@ -48,6 +49,8 @@ const WebcamStreamCapture = () => {
   
   const [capturing, setCapturing] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
+
+  const [flaskData,setFlaskData]=useState([]);
       
   const handleStartCaptureClick = useCallback(() => {
       setCapturing(true);
@@ -100,9 +103,7 @@ const WebcamStreamCapture = () => {
 
       axios.post('/model/study',fd)
         .then((res)=>{
-          // setFlaskResult(res.data);
-          alert("결과 : " + res.data);
-          console.log(res);
+          setFlaskData(res.data)
         })
 
         .catch((err)=>{
@@ -135,6 +136,11 @@ const WebcamStreamCapture = () => {
     })
   }
 
+  useEffect(()=>{
+    setFlaskResult(flaskData.result);
+    console.log('setdata');
+  },[flaskData]);
+  
 
   return (
     <>
@@ -161,8 +167,7 @@ const WebcamStreamCapture = () => {
           <Link to='/studyresult' state={{
             level : (level),
             word_idx : (word_id),
-            result : (flaskResult),
-            rank : (rank),
+            data : (flaskData)
           }}>
             <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
           </Link>
