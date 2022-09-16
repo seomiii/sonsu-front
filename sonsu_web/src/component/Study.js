@@ -2,7 +2,7 @@
 //import {Button,Paper} from '@material-ui/core'
 
 import React, { useState } from 'react';
-import { Link,useLocation} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import Service_intro from './Service_intro';
 import study_play from './Study_play';
 import axios from 'axios';

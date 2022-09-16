@@ -10,7 +10,7 @@ import {
     WrongContent,
     Wrongcalendar,
     WrongText,
-} from './../component_css/Wrong_style';
+} from '../component_css/Wrong_style';
 // import { Toolbar } from '@material-ui/core';
 import Toolbar from './Toolbar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';

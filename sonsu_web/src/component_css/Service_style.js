@@ -14,7 +14,7 @@ export const ServiceContent=styled.div`
 
 export const ServiceEditor=styled.div`
     margin-top: 80px;
-    margin-left: 60px;
+    // margin-left: 30px;
 `
 
 export const EditorTitle=styled.div`
@@ -26,99 +26,89 @@ export const EditorTitle=styled.div`
     font-weight: bold;
 `
 
-export const EditorContent=styled.div`
-    color: #FF7A00;
-    text-align: left;
-    font-size: 18px;
-    margin-top: 40px;
-    margin-left: 50px;
-`
-
-export const FrontDiv=styled.div`
+export const EditorDiv=styled.div`
     display: flex;
     flex-direction: row;
 `
 
 export const MSDiv=styled.div`
     // background-color: skyblue;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 50px;
-    margin-right: 20px;
-    margin-bottom: 70px;
+    // margin-right: 20px;
+    margin-bottom: 20px;
     background-image: url("img/miseo.png");
+    background-size: 150px;
     &:hover{
         // image: url("img/miseo.png");
         background-image: url("img/miseo-text.png");
+        background-size: 150px;
         // border:1px solid #FF7A00;
     }
 `
 
 export const JYDiv=styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     background-image: url("img/jungyune.png");
+    background-size: 150px;
     &:hover{
         // image: url("img/miseo.png");
         background-image: url("img/jungyune-text.png");
+        background-size: 150px;
         // border:1px solid #FF7A00;
     }
-`
-
-export const AppDiv=styled.div`
-
 `
 
 export const JHDiv=styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     background-image: url("img/jihyeon.png");
+    background-size: 150px;
     &:hover{
         // image: url("img/miseo.png");
         background-image: url("img/jihyeon-text.png");
+        background-size: 150px;
         // border:1px solid #FF7A00;
     }
-`
-
-export const BackDiv=styled.div`
-
 `
 
 export const MNDiv=styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     background-image: url("img/muni.png");
+    background-size: 150px;
     &:hover{
         // image: url("img/muni.png");
         background-image: url("img/muni-text.png");
+        background-size: 150px;
         // border:1px solid #FF7A00;
     }
 `
 
-export const DesignDiv=styled.div`
-
-`
-
 export const JEDiv=styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 50px;
     // padding-bottom: 70px;
     background-image: url("img/jieun.png");
+    background-size: 150px;
     &:hover{
         // image: url("img/muni.png");
         background-image: url("img/jieun-text.png");
+        background-size: 150px;
         // border:1px solid #FF7A00;
     }
 `

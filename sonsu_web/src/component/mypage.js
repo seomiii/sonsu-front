@@ -1,4 +1,7 @@
+import React, { useState } from 'react';
 import Chart from "./chart/chart";
+import axios from 'axios';
+import study_play from './Study_play';
 import {useLocation,Link} from 'react-router-dom';
 import Header from './header'
 import { FadeHome } from '../component_css/Home_style';
@@ -136,12 +139,12 @@ const Mypage = (props) => {
                                     <PieName> 30% </PieName>
                                 </ChartName>
                                 <GoDiv>
-                                    {/* {Study_level(1)}
+                                    {Study_level(1)}
                                     {Study_level(2)}
-                                    {Study_level(3)}  */}
-                                    <GoBtn> 초급 바로가기 </GoBtn>
+                                    {Study_level(3)} 
+                                    {/* <GoBtn> 초급 바로가기 </GoBtn>
                                     <GoBtn> 중급 바로가기 </GoBtn>
-                                    <GoBtn> 고급 바로가기 </GoBtn>
+                                    <GoBtn> 고급 바로가기 </GoBtn> */}
                                 </GoDiv>
                             </ChartBox>
                         </Chartcontain>
@@ -167,4 +170,4 @@ function Study_level(level){
     );
 }
 
-export default Mypage
+export default React.memo(Mypage);
