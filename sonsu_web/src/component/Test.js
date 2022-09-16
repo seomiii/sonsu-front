@@ -6,7 +6,8 @@ import axios from 'axios';
 import { PlayTitleDiv,PlayLevel,Logo,PlayVideos,MenuBar,MenuDiv,MenuCurriDiv, MenuCurri,
 PlayWords,PlayWord } from '../component_css/Study_style';
 import {TestNumberDiv,TestDiv,TestNumber,CamDiv,FollowDiv,FollowBtn
-,ShowResultBtn,NextBtn,TestWord,CurWordHeadDiv,CurWord,PlayTestWords,PlayTestWord,NextDiv} from '../component_css/Test_style'
+,ShowResultBtn,NextBtn,TestWord,CurWordHeadDiv,CurWord,PlayTestWords,PlayTestWord,NextDiv,CurWordHead,
+HeadWord,HeadWord2,} from '../component_css/Test_style'
 
 
 const Levels=[
@@ -71,7 +72,7 @@ function Test() {
     })
      .then((response)=>{
          setData(response.data.data);
-         console.log(response.data.data);
+         console.log(response);
     })
     },[]);
 
@@ -154,16 +155,21 @@ function Test() {
     }, [recordedChunks.length]);
 
     let testIdx=data&& data.testIdx;
-    const SumbitTest=()=>{
+    console.log(testIdx);
+ 
+    // testIdx : (testIdx),
+    // .catch((err)=>alert("error"));
+
+    const SumbitTest=()=>{     
         axios.patch(`/test/${levelIdx}`,{
-            testIdx:testIdx
+            testIdx : (testIdx)           
         })
         .then((res)=>{
             console.log(res);
-        })
-        .catch((err)=>alert("error"));
+        })        
     }
 
+ 
     return (
         <>
             <PlayTitleDiv>
@@ -191,37 +197,40 @@ function Test() {
 
             <MenuBar>
                 <MenuDiv>
+                    <CurWordHead>
+                        <HeadWord>{currentnumber}/{wordslength}</HeadWord> 
+                        <HeadWord2>문제</HeadWord2>
+                    </CurWordHead>
+
                     <CurWordHeadDiv>
                         문제 {currentnumber}
                     </CurWordHeadDiv>
                     <CurWord>                    
                         {data&& data.wordsDto[currentnumber-1].wordName}
-                    </CurWord>
-            
+                    </CurWord>            
                 </MenuDiv>
 
-                <PlayTestWords>
+                {/* <PlayTestWords>
                     {data&& data.wordsDto.map(i=>(                                
                         <PlayTestWord onClick={()=>setNumber(i.testNo)}>{i.testNo}번</PlayTestWord>
                     ))}
-                </PlayTestWords> 
+                </PlayTestWords>  */}
 
-                {/* <NextDiv isLast={isLast}> */}
-                    <NextBtn isLast={isLast} onClick={()=>setNumber(currentnumber+1)}>다음 문제로 넘어가기</NextBtn>
-                    <ShowResultBtn isLast={isLast} onClick={SumbitTest}>결과 보기</ShowResultBtn>
-                {/* </NextDiv>          */}
-
-                {/* <FollowDiv>      */}
                 {capturing ? (
                     <FollowBtn onClick={handleStopCaptureClick}>촬영 끝내기</FollowBtn>
                 ) : (
                     <FollowBtn onClick={handleStartCaptureClick}>촬영 시작하기</FollowBtn>
-                )}
-                {/* </FollowDiv>   */}
-
+                )} 
                 
+                <NextBtn isLast={isLast} onClick={()=>setNumber(currentnumber+1)}>다음 문제로 넘어가기</NextBtn>
 
-
+                <Link to='/testresult' state={{
+                    level : (levelIdx) ,
+                    testIdx : (testIdx),                        
+                }}>
+                <ShowResultBtn isLast={isLast} onClick={SumbitTest}>결과 보기</ShowResultBtn>
+                </Link>
+                       
             </MenuBar>              
 
         </PlayVideos>

@@ -19,6 +19,7 @@ ResultBtn,
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
 
+
 // flask 예상 데이터
 const rank = [
   {
@@ -40,6 +41,7 @@ const WebcamStreamCapture = () => {
 
   const word_id = useLocation().state.word_id;
   const level=useLocation().state.level;
+  const word_name=useLocation().state.word_name;
 
   const [flaskResult,setFlaskResult]=useState(1);  
 
@@ -48,6 +50,8 @@ const WebcamStreamCapture = () => {
   
   const [capturing, setCapturing] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
+
+  const [flaskData,setFlaskData]=useState([]);
       
   const handleStartCaptureClick = useCallback(() => {
       setCapturing(true);
@@ -98,17 +102,14 @@ const WebcamStreamCapture = () => {
       fd.append('file',file);    
       fd.append('word_id', word_id)
 
+      // flask에게 사용자 영상 post
       axios.post('/model/study',fd)
         .then((res)=>{
-          // setFlaskResult(res.data);
-          alert("결과 : " + res.data);
-          console.log(res);
+          setFlaskData(res.data)
         })
-
         .catch((err)=>{
         alert("error");
         console.log(err);
-
       },[recordedChunks]);  
 
     }
@@ -135,11 +136,18 @@ const WebcamStreamCapture = () => {
     })
   }
 
+  useEffect(()=>{
+    setFlaskResult(flaskData.result);
+    console.log('setdata');
+  },[flaskData]);
+  
 
   return (
     <>
       <PlayTitleDiv>
-          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>                
+        <Link to='/'>
+          <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
+        </Link>              
           <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
       </PlayTitleDiv>
 
@@ -161,8 +169,8 @@ const WebcamStreamCapture = () => {
           <Link to='/studyresult' state={{
             level : (level),
             word_idx : (word_id),
-            result : (flaskResult),
-            rank : (rank),
+            word_name : (word_name),
+            data : (flaskData)
           }}>
             <ResultBtn onClick={SendToServer}>결과 보기</ResultBtn>
           </Link>

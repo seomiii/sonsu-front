@@ -21,68 +21,67 @@ export const HeaderDiv=styled.div`
     }   
     //background-color:skyblue;
 `
-
-export const HomeDiv=styled.div`
-    position: absolute;
-    // margin : 0px auto;
-    // margin-top: 25px;
-    // min-height:100vh;
-    width: 100%;
-    height: 100%;
-    background-image: url( "img/hand-sign-back.jpg");
-    background-size: 100%;
-    // width: 100%;
-	// height: auto;
-    // position: fixed;
-	// top: 0;
-	// left: 0;
-
-    // background-repeat: no-repeat;
-    // background-color: rgba(255, 122, 0, 0.1);
-    // background-image: url('../img/hand_sign.png'});
-    // background-color: rgba(243,122,32,0.07);
-`
-
 export const HeaderBack=styled.div`
-    background-color: white;
+    background-color:white;
     position: absolute;
     width:100%;
     height: 100;
 `
 
 export const HomeText=styled.div`
-    position: absolute;
-    left: 800px;
-    top: 280px;
+    position: relative;
+    min-height:89vh;   
 `
-
-export const HomeDesTitle=styled.div`
-    font-size:30px;
-    font-weight:bold;
+export const HomeImg=styled.img`
+    width: 100%;
+    height:89vh; 
+    object-fit:cover;
+`
+export const HomeDesDiv=styled.div`
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 600px;
     text-align: left;
-    line-height: 40px;
-    // margin-top: 100px;
-
+`
+export const HomeDesTitle=styled.div`
+    width: 600px;
+    font-size:38px;
+    font-weight:700;
+    text-align: left;
+    line-height: 55px;
+    // background-color:skyblue;
 `
 
 export const HomeContent=styled.div`
-    margin-top:30px;
-    font-size:18px;
-    line-height: 30px;
+    width: 600px;
+    margin-top:51px;
+    font-size:24px;
+    font-weight:400;
+    line-height: 40px;
     text-align: left;
-    // margin-top: 100px;
-
-`
+    // background-color:skyblue;
+  `
 
 export const StartBtn=styled.button`
-    margin-top: 30px;
+    margin-top: 58px;
     border:none;
     outline:none;
-    background-color: #F37A1F;
+    background-color: #FF7A00;
     color:white;
-    border-radius: 83px;
-    width: 140px;
-    height: 36px;
-    font-size:14px;
+
+    border-radius: 109px;
+    width: 212px;
+    height: 50px;
+    font-size:20px;
+    font-weight:500;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     float: left;
+
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
 `

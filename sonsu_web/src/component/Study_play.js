@@ -36,16 +36,18 @@ function Study_play(props){
     const word_name=useLocation().state.word_name;    
     const word_idx=useLocation().state.word_idx;    
 
-    console.log(word_idx);
+    // console.log(word_idx,word_name);
     
     //const word_loc= words_arr.indexOf(word_name);
     // console.log('word_loc', word_loc);   
 
-    const [cur_word,setWord]=useState({word_name});
+    const [cur_word,setWord]=useState(word_name);
     const [cur_wordIdx, setWordIdx]=useState(word_idx);
     
 
     const [data,setData]=useState();
+
+    console.log(data);
 
     //cur_word가 바뀌면 서버에게서 get 해온다.
     useEffect(()=>{
@@ -57,7 +59,8 @@ function Study_play(props){
     }, [cur_wordIdx])
 
     const word_loc = data && data.wordsDto.findIndex(obj => obj.wordIdx == cur_wordIdx);
-    console.log('word_loc', word_loc);
+    console.log('word_loc', word_loc,data);
+    console.log(data && data.wordsDto[word_loc].wordName, cur_wordIdx);
 
     return(
         <div> 
@@ -78,13 +81,13 @@ function Study_play(props){
                     <MenuDiv>
                         <MenuCurriDiv>
                             <MenuCurri>
-                                {data && data.curriName}
+                                {data && data.curriName} | {data && data.wordsDto[word_loc].wordName}
                             </MenuCurri>                        
                         </MenuCurriDiv>
 
                         <PlayWords>
                             {data && data.wordsDto.map(i=>(                                
-                                <PlayWord onClick={()=> setWordIdx(i.wordIdx)}>{i.wordName}</PlayWord>
+                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx)}}>{i.wordName}</PlayWord>
                             ))}
 
                             {/* {words_arr.map(i=>(
@@ -95,15 +98,19 @@ function Study_play(props){
 
                     <BackNextDiv>
                         {/* 만약 cur_word가 .. 아무튼 그뭐냐 갯수 초과나 더 이전으로 갈 수 없으면 막아줘야함 */}
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx)}}>이전으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{
+                            setWordIdx(data && data.wordsDto[(word_loc-1)].wordIdx);                             
+                            }}>이전으로</BackNextBtn>
                         <Bar></Bar>
-                        <BackNextBtn onClick={()=>{setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx)}}>다음으로</BackNextBtn>
+                        <BackNextBtn onClick={()=>{
+                            setWordIdx(data && data.wordsDto[(word_loc+1)].wordIdx);                           
+                            }}>다음으로</BackNextBtn>
                     </BackNextDiv>       
 
                     <FollowDiv>
                         <Link to ="../webcam" state={{
                             level : (level),
-                            word_name : (word_name),
+                            word_name : (cur_word),
                             word_id : (word_idx)
                             }}>
                             <FollowBtn>따라하기</FollowBtn>  
