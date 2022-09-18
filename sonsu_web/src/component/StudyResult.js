@@ -138,7 +138,8 @@ function StudyResult(){
                     <RankDiv>
             
                         {rank.map((i,index)=>(
-                            <Rank> {index+1}. <Word>{i.wordName}</Word> / {i.wordRatio} % 유사 </Rank>
+                            // <Rank> {index+1}. <Word>{i.wordName}</Word> / {i.wordRatio} % 유사 </Rank>
+                            <Rank> {index+1}. <Word>{i.wordName}</Word></Rank>
                         ))
                         }
         
