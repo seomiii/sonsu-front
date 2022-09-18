@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Chart from "./chart/chart";
 import axios from 'axios';
-import study_play from './Study_play';
-import {useLocation,Link} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 import Header from './header'
 import { FadeHome } from '../component_css/Home_style';
 import { MediaDiv,
@@ -65,23 +64,20 @@ const Levels=[
     {
         level : 1,
         level_name : '초급',
-        level_info : '수어의 지문자를 배워 자음과 모음을 표현해봅시다. 손수와 함께 수어의 첫단추를 끼워보아요.',
     }
     ,
     {
         level : 2,
         level_name : '중급',
-        level_info : '일상생활에서 자주 쓰이는 표현들을 배워봅시다. 간단한 의사소통을 주고받아 보아요.'
     }
     ,
     {
         level : 3,
         level_name : '고급',
-        level_info : '문장 구성의 핵심이 되는 다양한 단어들을 배워봅시다. 배운 단어들을 이용하여 원하는 문장을 만들어보아요.'
     }    
 ]
 
-const Mypage = (props) => {
+const Mypage = () => {
     return (
         <>
             <Myheader>
@@ -160,13 +156,13 @@ const Mypage = (props) => {
 function Study_level(level){
 
     return(
-        <LevelBox>
+        // <LevelBox>
             <div>
-                <Link to = {"study_class"} state={{level : (level)}}>
-                    <StudyBtn>수강하기</StudyBtn>
+                <Link to = {"/study/study_class"} style={{ textDecoration: 'none'}} state={{level : (level)}}>
+                    <GoBtn>수강하기</GoBtn>
                 </Link>
             </div> 
-        </LevelBox>
+        // </LevelBox>
     );
 }
 

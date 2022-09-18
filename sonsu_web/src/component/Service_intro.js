@@ -2,8 +2,8 @@ import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
 import Header from './header';
 import { FadeHome, } from '../component_css/Home_style';
-import { MediaDiv, } from '../component_css/Study_style';
 import {
+    MediaDiv,
     ServiceDiv,
     ServiceContent,
     ServiceEditor,

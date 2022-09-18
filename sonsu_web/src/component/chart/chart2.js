@@ -11,43 +11,43 @@ import {
 
 const data = [
   {
-    name: "Page A",
+    name: "1",
     uv: 400,
     pv: 240,
     amt: 240
   },
   {
-    name: "Page B",
+    name: "2",
     uv: 300,
     pv: 139,
     amt: 221
   },
   {
-    name: "Page C",
+    name: "3",
     uv: 200,
     pv: 980,
     amt: 229
   },
   {
-    name: "Page D",
+    name: "4",
     uv: 278,
     pv: 390,
     amt: 200
   },
   {
-    name: "Page E",
+    name: "5",
     uv: 189,
     pv: 480,
     amt: 218
   },
   {
-    name: "Page F",
+    name: "6",
     uv: 239,
     pv: 380,
     amt: 250
   },
   {
-    name: "Page G",
+    name: "7",
     uv: 349,
     pv: 430,
     amt: 210

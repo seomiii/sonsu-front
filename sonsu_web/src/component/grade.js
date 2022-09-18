@@ -1,6 +1,7 @@
 import React,{useCallback, useState,useEffect} from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Chart from "./chart/chart2";
+import axios from 'axios';
 import Header from './header'
 import {
     GradeDiv,
@@ -16,6 +17,7 @@ import {
 } from './../component_css/Study_style';
 import { HeaderDiv } from '../component_css/Home_style';
 
+// 탭 구성 리소스
 const Level_Arr=[
     {
         level_name:["초급", "중급", "고급"],
@@ -24,9 +26,23 @@ const Level_Arr=[
 
 const Grade = (props) => {
 
-    const level_arr=Level_Arr[(level-1)].level_name;
+    // const level_name = Level_Arr.curri_arr;
 
-    const [cur_curri,setCurri] = useState(curri_arr[0]);
+    // const [cur_curri,setCurri] = useState(level_name[0]);
+
+    // //서버
+    // const [Curris,setCurris] = useState();
+
+    // //서버에게서 데이터 받아오기
+    // useEffect(()=>{
+    //     axios.get(`/study/${encodeURIComponent(cur_curri)}`)
+    //     .then((response)=>{
+    //         console.log(response.data.data);
+    //         setCurris(response.data.data);
+    //     })
+
+    // }, [cur_curri])
+
     return (
         <>
             <HeaderDiv>
@@ -36,10 +52,10 @@ const Grade = (props) => {
                 <GradeDiv>
                     <GradeTitle>성적표</GradeTitle>
                     <GradeLevel>
-                        {curri_arr.map(i=> (                    
+                        {/* {level_name.map(i => (                    
                             <Curri onClick={()=> {setCurri(i)}}>{i}</Curri>                
                         )
-                        )}
+                        )} */}
                     </GradeLevel>
                     <GradeChart>
                         <ChartDivA>
