@@ -1,5 +1,5 @@
 import React,{useCallback, useState,useEffect} from 'react';
-import { useLocation,Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Study_play from './Study_play';
 import axios from 'axios';
 import Header from './header'
@@ -103,7 +103,6 @@ function Study_class(props){
         
         <MediaDiv>  
             <Header/>
-            
             {/* 수강하기 - 단계선택 - 메뉴바 (ex. 초급 자음|모음) */}
             <TitleDiv>
                 <LevelDiv>{level_name}</LevelDiv>
