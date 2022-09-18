@@ -53,7 +53,7 @@ function StudyResult(){
     var rank_ratio=data.rank;
     var rank_word=data.rank_word;    
     
-    result=true;
+    // result=true;
 
     console.log(result,rank_ratio,rank_word);
 
