@@ -40,25 +40,7 @@ const Curri_Arr=[
     },
 ]
 
-//const Images=['../img/word1.png','../img/word2.png','../img/word3.png','../img/word3.png'];
-const Images=[
-    {
-        curri: '자음',
-        urls:['../img/thumnail/11001.jpg','../img/thumnail/11002.jpg','../img/thumnail/11003.jpg' ]
-    },
-    {
-        curri: '모음',
-        urls:['../img/thumnail/12001.jpg','../img/thumnail/12002.jpg','../img/thumnail/12003.jpg' ]
-    },
-    {
-        curri: '짧은 문장',
-        urls:['../img/thumnail/21001.jpg','../img/thumnail/21002.jpg','../img/thumnail/21003.jpg','../img/thumnail/21004.jpg','../img/thumnail/21005.jpg','../img/thumnail/21006.jpg' ]
-    },
-    {
-        curri: '단어',
-        urls:['../img/thumnail/31001.jpg','../img/thumnail/31002.jpg','../img/thumnail/31003.jpg','../img/thumnail/31004.jpg','../img/thumnail/31005.jpg']
-    }    
-]
+
 
 // -----------------------리소스------------------------------------
 
@@ -71,8 +53,6 @@ function Study_class(props){
 
     const [cur_curri,setCurri] = useState(curri_arr[0]);
      
-    
-    // console.log(Images[Images.findIndex((element)=>element.curri === cur_curri)].urls);
 
     //서버
     const [Curris,setCurris] = useState();
@@ -127,9 +107,11 @@ function Study_class(props){
                         <WordDiv key={obj.wordIdx}>
                             
                             {/* <WordThumb alt={obj.wordName} src={Images[index]}/> */}
-                            <WordThumb alt={obj.wordName} src={
+                            {/* <WordThumb alt={obj.wordName} src={
                                 Images[Images.findIndex((element)=>element.curri === cur_curri)].urls[index]
-                            }/>
+                            }/> */}
+
+                            <WordThumb alt={obj.wordName} src={obj.thumbnailUrl}/>
 
                             <WordDesDiv>
                                 <WordName>{obj.wordName}</WordName>
