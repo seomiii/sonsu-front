@@ -36,20 +36,22 @@ const Levels=[
     }    
 ]
 
-const Images=['img/level1-1.png','img/level2-2.png','img/level3-3.png'];
 
 //---------------------------리소스-------------------------------
 
 function Study(){    
+    const [data,setData]=useState();
 
     // 서버에서 이미지 받아오기 -> 일단은 프론트에서 하기로
 
-    // useEffect(()=>{
-    //     axios.get('/study')
-    //     .then((response)=>{
-    //     console.log(response);
-    //     })
-    // },[])
+    useEffect(()=>{
+        axios.get('/study')
+        .then((response)=>{
+        setData(response.data.data);
+        })
+    },[])
+
+    console.log(data);
    
     return (
         <>
@@ -62,9 +64,9 @@ function Study(){
         <StudyMediaDiv>
             <FadeHome>
                 <FullBox>
-                    {Study_level(1)}
-                    {Study_level(2)}
-                    {Study_level(3)} 
+                    {Study_level(1,data&& data[0].imgUrl)}
+                    {Study_level(2,data && data[1].imgUrl)}
+                    {Study_level(3,data && data[2].imgUrl)} 
                 </FullBox>
                 
                 <div>
@@ -80,13 +82,14 @@ function Study(){
 }
 
 //단계 컴포넌트 (단계무관)
-function Study_level(level){
+function Study_level(level,src){
 
     return(
         <LevelBox>
 
             <div>
-                <ImgDiv alt="level" src={Images[level-1]}/>
+                {/* <ImgDiv alt="level" src={Images[level-1]}/> */}
+                <ImgDiv alt="level" src={src}/>
             </div>
 
             <StudyLevelDiv>

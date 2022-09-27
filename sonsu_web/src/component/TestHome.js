@@ -1,7 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useEffect } from 'react';
 import Header from './header';
 import { FadeHome } from '../component_css/Home_style';
 import {Header_Div,ImgBox,MediaDiv,ImgDiv,LevelName
@@ -34,22 +36,17 @@ const Levels=[
 //     )
 // }
 
-// 나중에 이미지 받아오는게 해결되면 지울 부분
-const Images=[
-    {
-        image_src : '/img/level1-1.png'
-    }
-    ,
-    {
-        image_src : '/img/level2-2.png'
-    }
-    ,
-    {
-        image_src : '/img/level3-3.png'
-    }  
-]
+
 
 function TestHome() {
+    const [data,setData]=useState();
+
+    useEffect(()=>{
+        axios.get('/test')
+        .then((response)=>{
+        setData(response.data.data);
+        })
+    },[])
 
         return (
             <>
@@ -62,9 +59,9 @@ function TestHome() {
                 <MediaDiv>  
                     <FadeHome> 
                         <FullBox>                 
-                            {Test_level(1)}                      
-                            {Test_level(2)}
-                            {Test_level(3)}  
+                            {Test_level(1,data&& data[0].imgUrl)}                      
+                            {Test_level(2,data && data[1].imgUrl)}
+                            {Test_level(3,data && data[2].imgUrl)}  
                         </FullBox> 
                     </FadeHome>                    
                 </MediaDiv>
@@ -72,10 +69,10 @@ function TestHome() {
         );
 }
 
-function Test_level(level) {
+function Test_level(level,src) {
     return(
         <LevelBox>
-            <ImgDiv src={Images[(level-1)].image_src} alt="image"/>
+            <ImgDiv src={src} alt="image"/>
             
             <LevelName>{Levels[(level-1)].level_name}</LevelName>
 
