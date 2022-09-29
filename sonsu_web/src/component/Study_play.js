@@ -73,8 +73,8 @@ function Study_play(props){
 
             <PlayVideos>
                 {/* <VideoDiv> */}
-                    {/* <Video src="{data.videoUrl}" controls="controls"/> */}
-                    <Video src="../../videos/word1.mp4" controls="controls"/> 
+                    <Video src={ data&& data.videoUrl} controls="controls"/>
+                    {/* <Video src="../../videos/word1.mp4" controls="controls"/>  */}
                 {/* </VideoDiv> */}
                 
                 <MenuBar>
