@@ -93,7 +93,6 @@ function Study_class(props){
                 )
                 )}
                 </CurriDiv>
-
             </TitleDiv>
 
             {/* 각 영상 하나 섹션별 */}

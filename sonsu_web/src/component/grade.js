@@ -26,22 +26,22 @@ const Level_Arr=[
 
 const Grade = (props) => {
 
-    // const level_name = Level_Arr.curri_arr;
+    const level_name = Level_Arr.curri_arr;
 
-    // const [cur_curri,setCurri] = useState(level_name[0]);
+    const [cur_curri,setCurri] = useState(level_name[0]);
 
-    // //서버
-    // const [Curris,setCurris] = useState();
+    //서버
+    const [Curris,setCurris] = useState();
 
-    // //서버에게서 데이터 받아오기
-    // useEffect(()=>{
-    //     axios.get(`/study/${encodeURIComponent(cur_curri)}`)
-    //     .then((response)=>{
-    //         console.log(response.data.data);
-    //         setCurris(response.data.data);
-    //     })
+    //서버에게서 데이터 받아오기
+    useEffect(()=>{
+        axios.get(`/study/${encodeURIComponent(cur_curri)}`)
+        .then((response)=>{
+            console.log(response.data.data);
+            setCurris(response.data.data);
+        })
 
-    // }, [cur_curri])
+    }, [cur_curri])
 
     return (
         <>
@@ -52,10 +52,10 @@ const Grade = (props) => {
                 <GradeDiv>
                     <GradeTitle>성적표</GradeTitle>
                     <GradeLevel>
-                        {/* {level_name.map(i => (                    
+                        {level_name.map(i => (                    
                             <Curri onClick={()=> {setCurri(i)}}>{i}</Curri>                
                         )
-                        )} */}
+                        )}
                     </GradeLevel>
                     <GradeChart>
                         <ChartDivA>

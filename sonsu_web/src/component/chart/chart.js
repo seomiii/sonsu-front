@@ -5,10 +5,10 @@ const data = [
   { name: "process", value: 400 },
   { name: "n process", value: 300 },
 ];
-// const dataA = [
-//   { name: "process", value: 400 },
-//   { name: "n process", value: 300 },
-// ];
+const dataA = [
+  { name: "process", value: 400 },
+  { name: "n process", value: 300 },
+];
 // const dataB = [
 //   { name: "process", value: 600 },
 //   { name: "n process", value: 300 },
@@ -40,7 +40,7 @@ export default function App() {
         ))}
       </Pie>
       <Pie
-        data={data}
+        data={dataA}
         cx={370}
         cy={90}
         innerRadius={30}
