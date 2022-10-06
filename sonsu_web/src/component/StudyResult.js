@@ -105,8 +105,15 @@ function StudyResult(){
     return(
         <ResultDiv>
             <PlayTitleDiv>
-            <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>                
-            <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+                <Link to='/'>
+                    <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>
+                </Link>   
+
+                <Link to = {"../study/study_class"} 
+                    style={{ textDecoration: 'none' }}
+                    state={{level : (level)}}>               
+                    <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+                </Link>
             </PlayTitleDiv>
 
             <ResultDisplayDiv>
@@ -128,7 +135,17 @@ function StudyResult(){
                         <NextBtn>다음 단어로 넘어가기  > </NextBtn>
                         </Link>
                     ): (
-                        <NextBtn onClick={Restart}>다시 하기  > </NextBtn>
+                        <>
+                            <NextBtn onClick={Restart}>다시 하기  > </NextBtn>
+
+                            <Link to ="/study/study_class/study_play" state={{
+                            level: (level),
+                            word_idx : (word_idx+1),
+        
+                            }}>
+                                <NextBtn>다음 단어로 넘어가기  > </NextBtn>
+                            </Link>
+                        </>
                     )}
 
                     <Q>

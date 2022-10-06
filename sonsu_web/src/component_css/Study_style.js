@@ -257,6 +257,7 @@ export const PlayLevel=styled.div`
     line-height:40.06px;
     margin-left:50px;
     width: 60px;
+    color: #2E2E2E;
 `
 
 export const PlayVideos=styled.div`
@@ -500,6 +501,7 @@ export const NextBtn=styled.button`
     font-weight:500;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     margin-top: 25px;
+    margin-right:10px;
 
     transition: 0.4s;
     &:hover{
