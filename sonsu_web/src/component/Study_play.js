@@ -67,8 +67,13 @@ function Study_play(props){
             <PlayTitleDiv>
                 <Link to='/'>
                     <Logo src={`${process.env.PUBLIC_URL}/img/logo-fin-02.png`}/>  
-                </Link>              
-                <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+                </Link>   
+
+                <Link to = {"../study/study_class"} 
+                style={{ textDecoration: 'none' }}
+                state={{level : (level)}}>            
+                    <PlayLevel>{Levelname[(level-1)]}</PlayLevel>
+                </Link>
             </PlayTitleDiv>
 
             <PlayVideos>
