@@ -1,6 +1,8 @@
 import React,{useCallback, useState,useEffect} from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Chart from "./chart/chart2";
+import Chart1 from "./chart/grade_chart_1";
+import Chart2 from "./chart/grade_chart_2";
+import Chart3 from "./chart/grade_chart_3";
 import axios from 'axios';
 import Header from './header'
 import {
@@ -28,20 +30,20 @@ const Grade = (props) => {
 
     const level_name = Level_Arr.curri_arr;
 
-    const [cur_curri,setCurri] = useState(level_name[0]);
+    // const [cur_curri,setCurri] = useState(level_name[0]);
 
     //서버
-    const [Curris,setCurris] = useState();
+    const [Scores,setScores] = useState();
 
     //서버에게서 데이터 받아오기
     useEffect(()=>{
-        axios.get(`/study/${encodeURIComponent(cur_curri)}`)
+        axios.get(`/test/2022/9/1`)
         .then((response)=>{
             console.log(response.data.data);
-            setCurris(response.data.data);
+            // setScores(response.data.data);
         })
 
-    }, [cur_curri])
+    }, [])
 
     return (
         <>
@@ -52,18 +54,21 @@ const Grade = (props) => {
                 <GradeDiv>
                     <GradeTitle>성적표</GradeTitle>
                     <GradeLevel>
-                        {level_name.map(i => (                    
+                        {/* {level_name.map(i => (                    
                             <Curri onClick={()=> {setCurri(i)}}>{i}</Curri>                
                         )
-                        )}
+                        )} */}
                     </GradeLevel>
                     <GradeChart>
                         <ChartDivA>
-                            <Chart/>
+                            <Chart1/>
                         </ChartDivA>
                         <ChartDivB>
-                            <Chart/>
+                            <Chart2/>
                         </ChartDivB>
+                        {/* <ChartDivC>
+                            <Chart3/>
+                        </ChartDivC> */}
                     </GradeChart>
                 </GradeDiv>
             </MediaDiv>

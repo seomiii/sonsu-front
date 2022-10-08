@@ -163,7 +163,7 @@ const Mypage = () => {
                             </Chartcontain>
                         </MypageDiv>
                     )
-                    )} 
+                    )}
                 </FadeHome>
             </MediaDiv>
             {/* <Chart options={options} series={series} type="radialBar" height="50" /> */}
