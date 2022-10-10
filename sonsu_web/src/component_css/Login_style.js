@@ -12,7 +12,7 @@ export const LoginContain=styled.div`
 `
 
 export const LoginDivAll=styled.div`
-    margin-top: 150px;
+    margin-top: 230px;
     display: flex;
     flex-direction: row;
     justify-content: center;
