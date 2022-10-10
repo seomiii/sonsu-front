@@ -51,11 +51,11 @@ export const PCAprofile=styled.div`
     background-color: #F9F9F9;
 `
 
-export const Profileimg=styled.div`
+export const Profileimg=styled.img`
     width: 80px;
     height: 80px;
     background: #D9D9D9;
-    background-image: url( "img/jungyune.png" );
+    // background-image: url( "img/jungyune.png" );
     background-size: 80px;
     border-radius: 50%;
     display: flex;

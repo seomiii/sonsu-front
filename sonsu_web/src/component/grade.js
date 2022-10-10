@@ -15,10 +15,12 @@ import {
     ChartDivB,
     ChartDivC,
 } from './../component_css/Grade_style';
+
 import { 
     MediaDiv,
     Curri, 
 } from './../component_css/Study_style';
+
 import { HeaderDiv } from '../component_css/Home_style';
 
 // 탭 구성 리소스

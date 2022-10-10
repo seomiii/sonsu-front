@@ -70,36 +70,31 @@ const Curri_Arr=[
 ]
 
 const Mypage = () => {
-    // const level=useLocation().state.level;
 
-    // const level_name=Curri_Arr[(level-1)].level;
-    // const curri_arr=Curri_Arr[(level-1)].level_name;
-
-    // const [cur_curri,setCurri] = useState(Levels[0]);
-     
-    
-    // console.log(Images[Images.findIndex((element)=>element.curri === cur_curri)].urls);
-
-    //서버
-    const [Users,setUsers] = useState();
+    const [UserData,setUserData] = useState();
     
     //서버에게서 데이터 받아오기
     useEffect(()=>{
-        axios.get(`/mypage/1`)
+        axios.get(`/mypage/2`)
         .then((response)=>{
-         console.log(response.data.data);
-        //  setUsers(response.data.data);
+        //  console.log(response.data.data);
+         setUserData(response.data.data);
         })
 
     }, [])
 
+    
+    var level1_per= UserData && Math.round((UserData.progressDto[0].doneCount / UserData.progressDto[0].totalCount)*100)
+    var level2_per = UserData && Math.round((UserData.progressDto[1].doneCount / UserData.progressDto[1].totalCount)*100)
+    var level3_per = UserData && UserData && Math.round((UserData.progressDto[2].doneCount / UserData.progressDto[2].totalCount)*100)
+    
+
     return (
-        <>
-            {/* <Myheader> */}
-                <HeaderDiv>
-                    <Header/>
-                </HeaderDiv>
-            {/* </Myheader> */}
+        <>            
+            <HeaderDiv>
+                <Header/>
+            </HeaderDiv>
+            
             <MediaDiv>
                 <FadeHome>
                 {/* {Users && Users.map((obj)=>(    */}
@@ -113,11 +108,11 @@ const Mypage = () => {
                                         </ProfileText>
                                     </Profile>
                                     <PCAprofile>
-                                        <Profileimg></Profileimg>
+                                        <Profileimg src={UserData && UserData.picture}></Profileimg>
                                         <PCAcontent>
-                                            {/* <Profilename> {obj.userName} </Profilename>
-                                            <Profileemail> {obj.email} </Profileemail>
-                                            <Profiledate> 손수와 함께한지 {obj.withDate}일째 </Profiledate> */}
+                                            <Profilename> {UserData && UserData.userName} </Profilename>
+                                            <Profileemail> {UserData && UserData.email} </Profileemail>
+                                            <Profiledate> 손수와 함께한지 {UserData && UserData.withDate}일째 </Profiledate>
                                         </PCAcontent>
                                     </PCAprofile>
                                 </PCA>
@@ -146,9 +141,9 @@ const Mypage = () => {
                                 <ChartBox>
                                     <Chart/>
                                     <ChartName>
-                                        <PieName> 70% </PieName>
-                                        <PieName> 20% </PieName>
-                                        <PieName> 30% </PieName>
+                                        <PieName> {level1_per} % </PieName>
+                                        <PieName> {level2_per} % </PieName>
+                                        <PieName> {level3_per} % </PieName>
                                     </ChartName>
                                     <GoDiv>
                                         {Study_level(1)}
@@ -161,8 +156,7 @@ const Mypage = () => {
                                 </ChartBox>
                             </Chartcontain>
                         </MypageDiv>
-                    {/* )
-                    )} */}
+                    
                 </FadeHome>
             </MediaDiv>
             {/* <Chart options={options} series={series} type="radialBar" height="50" /> */}
