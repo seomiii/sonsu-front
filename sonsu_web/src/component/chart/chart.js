@@ -1,30 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Sector, Cell } from "recharts";
+import axios from 'axios';
 
-const data = [
-  { name: "process", value: 400 },
-  { name: "n process", value: 300 },
-];
-const dataA = [
-  { name: "process", value: 400 },
-  { name: "n process", value: 300 },
-];
-// const dataB = [
-//   { name: "process", value: 600 },
-//   { name: "n process", value: 300 },
-// ];
-// const dataC = [
-//   { name: "process", value: 100 },
-//   { name: "n process", value: 800 },
-// ];
-// const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 const COLORS = ["#FF7A00", "#ffffff"];
 
 export default function App() {
+
+  const [UserData,setUserData] = useState();
+
+  useEffect(()=>{
+    axios.get(`/mypage/2`)
+    .then((response)=>{
+     setUserData(response.data.data);
+    })
+
+  }, [])
+
+  const data1 = [
+    { name: "process", value: UserData && (UserData.progressDto[0].doneCount) },
+    { name: "n process", value: UserData && (UserData.progressDto[0].totalCount-UserData.progressDto[0].doneCount) },
+  ];
+
+  const data2 = [
+    { name: "process", value: UserData && (UserData.progressDto[1].doneCount) },
+    { name: "n process", value: UserData && (UserData.progressDto[1].totalCount-UserData.progressDto[1].doneCount) },
+  ];
+
+  const data3 = [
+    { name: "process", value: UserData && (UserData.progressDto[2].doneCount) },
+    { name: "n process", value: UserData && (UserData.progressDto[2].totalCount-UserData.progressDto[2].doneCount) },
+  ];
+
+
   return (
     <PieChart width={750} height={180}>
       <Pie
-        data={data}
+        data={data1}
         cx={120}
         cy={90}
         innerRadius={30}
@@ -35,12 +46,13 @@ export default function App() {
         paddingAngle={5}
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {data1.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
+
       <Pie
-        data={dataA}
+        data={data2}
         cx={370}
         cy={90}
         innerRadius={30}
@@ -51,12 +63,13 @@ export default function App() {
         paddingAngle={5}
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {data2.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
+
       <Pie
-        data={data}
+        data={data3}
         cx={620}
         cy={90}
         innerRadius={30}
@@ -67,26 +80,11 @@ export default function App() {
         paddingAngle={5}
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {data3.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
-      {/* <Pie
-        data={data}
-        cx={420}
-        cy={200}
-        startAngle={180}
-        endAngle={0}
-        innerRadius={60}
-        outerRadius={80}
-        fill="#8884d8"
-        paddingAngle={5}
-        dataKey="value"
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie> */}
+      
     </PieChart>
   );
 }
