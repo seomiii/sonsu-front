@@ -25,7 +25,6 @@ import {
     MyBtn,
     Process,
     ChartBox,
-    Circle,
     Chartcontain,
     PCAcontent,
     PCAprofile,
@@ -96,11 +95,11 @@ const Mypage = () => {
 
     return (
         <>
-            <Myheader>
+            {/* <Myheader> */}
                 <HeaderDiv>
                     <Header/>
                 </HeaderDiv>
-            </Myheader>
+            {/* </Myheader> */}
             <MediaDiv>
                 <FadeHome>
                 {/* {Users && Users.map((obj)=>(    */}
@@ -130,10 +129,10 @@ const Mypage = () => {
                                         </ProfileText>
                                     </Going>
                                     <Link to={"/grade"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn><Circle></Circle> 성적표 </MyBtn>
+                                        <MyBtn><img src="img/gograde.png" alt="image" /></MyBtn>
                                     </Link>
                                     <Link to={"/wrong"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn><Circle></Circle> 오답노트 </MyBtn>
+                                        <MyBtn><img src="img/gowrong.png" alt="image"/></MyBtn>
                                     </Link>
                                 </PCB>
                             </Profilecontain>

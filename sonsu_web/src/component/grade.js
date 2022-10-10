@@ -5,6 +5,7 @@ import Chart2 from "./chart/grade_chart_2";
 import Chart3 from "./chart/grade_chart_3";
 import axios from 'axios';
 import Header from './header'
+import { Myheader } from './../component_css/Mypage_style';
 import {
     GradeDiv,
     GradeTitle,
@@ -35,9 +36,11 @@ const Grade = (props) => {
 
     return (
         <>
-            <HeaderDiv>
-                <Header/>
-            </HeaderDiv>
+            {/* <Myheader> */}
+                <HeaderDiv>
+                    <Header/>
+                </HeaderDiv>
+            {/* </Myheader> */}
             <MediaDiv>
                 <GradeDiv>
                     <GradeTitle>성적표</GradeTitle>

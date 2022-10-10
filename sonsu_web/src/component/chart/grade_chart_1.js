@@ -63,7 +63,7 @@ export default function App() {
   useEffect(()=>{
     try{
     // 데이터를 받아오는 동안 시간이 소요됨으로 await 로 대기
-      const res = axios.get(`/test/{year}/{month}/{userIdx}`)
+      const res = axios.get(`/test/2022/9/13`)
       // 받아온 데이터로 다음 작업을 진행하기 위해 await 로 대기
       // 받아온 데이터를 map 해주어 rowData 별로 _inputData 선언
       const _inputData = res.data.map((rowData) => (
@@ -105,17 +105,5 @@ export default function App() {
       <Bar dataKey="월" fill="#FF7A00" background={{ fill: "#eee" }} />
     </BarChart>
 
-     // rowData 가 없으면 '작성된 글이 없습니다'를 나타냄
-     {lastIdx !== 0 ?
-      inputData.map(rowData => (
-        // 최초 선언한 기본값은 나타내지 않음
-          rowData.idx !== '' &&
-          <tr>
-              <td className='listTableIndex'>
-                // router 로 이동 시 idx값을 param 으로 전달
-                  <Link to={`/BoardContent/${rowData.idx}`}>{rowData.idx}</Link>
-              </td>
-              <td className='listTableTitle'>
-                  <Link to={`/BoardContent/${rowData.idx}`}>{rowData.title}</Link>
   );
 }
