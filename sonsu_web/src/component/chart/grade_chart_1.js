@@ -10,6 +10,41 @@ import {
   Legend
 } from "recharts";
 
+const data1 = [
+  // {name: "1",uv: 400,pv: 1500,amt: 200},
+  {name: "25", 월: 100},
+  {name: "26", 월: 100},
+  {name: "27", 월: 100},
+  {name: "28", 월: 100},
+  {name: "29", 월: 100},
+  {name: "30", 월: 100},
+  {name: "31", 월: 100},
+  {name: "1", 월: 100},
+  {name: "2", 월: 100},
+  {name: "3", 월: 100},
+  {name: "4", 월: 100},
+  {name: "5", 월: 100},
+  {name: "6", 월: 100},
+  {name: "7", 월: 100},
+  {name: "8", 월: 100},
+  {name: "9", 월: 100},
+  {name: "10", 월: 100},
+  {name: "11", 월: 100},
+  {name: "12", 월: 100},
+  {name: "13", 월: 100},
+  {name: "14", 월: 100},
+  {name: "15", 월: 100},
+  {name: "16", 월: 100},
+  {name: "17", 월: 100},
+  {name: "18", 월: 100},
+  {name: "19", 월: 100},
+  {name: "20", 월: 100},
+  {name: "21", 월: 100},
+  {name: "22", 월: 100},
+  {name: "23", 월: 100},
+  {name: "24", 월: 100},
+  
+];
 
 // 현재 년도, 월
 let now=new Date();
@@ -56,9 +91,16 @@ export default function Grade_chart_1() {
     ))
     setData(data.concat(graphData)) 
 
+    // const add={name:'1', 갯수:1};
+    // setData(data.concat(add));
+
+    
+
   },[inputData])
 
-  // console.log(data)  
+  console.log(data)  
+
+  
   
   return (
     <BarChart

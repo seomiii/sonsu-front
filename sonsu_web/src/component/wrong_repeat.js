@@ -17,14 +17,13 @@ const Wrong = () => {
     const level = useLocation().state.level;
     const UrlDay=(day).slice(8,10);
 
-    const [data,setData]=useState([]);
+    const [data,setData]=useState();
 
     useEffect(()=>{
-        // axios.get(`/note/${year}/${month}/${UrlDay}/${level}/1`)
-        axios.get(`/note/${year}/9/14/${level}/1`)
+        axios.get(`/note/${year}/${month}/${UrlDay}/${level}/1`)
+        // axios.get(`/note/${year}/9/14/${level}/1`)
         .then((response)=>{
-        //  console.log(response.data.data);
-         setData(response.data.data);
+          setData(response.data.data);
         })
     }, [])
 
@@ -36,11 +35,35 @@ const Wrong = () => {
 
             {Levelname[level-1]}
             <WrongDiv>
-                <WrongContent>2022</WrongContent>
-                <WrongContent>05/23</WrongContent>
-                <WrongContent>1회차 | 2회차 | 3회차</WrongContent>
-                <WrongContent>영상</WrongContent>
-                <WrongContent>시작하기</WrongContent>
+                <WrongContent>{data && data[0].testDate}</WrongContent>
+
+                {data && data.map((i,index)=>(
+                    <>
+                        <div>
+                            {index+1}회차
+                        </div>
+
+                        {i.wordsDTO.map(j=>(
+                            <div>
+                                <div>{j.wordName}</div>
+                                <img src={j.thumbnailUrl} alt="image"/>
+
+                                <Link to={"/study/study_class/study_play"}
+                                style={{ textDecoration: 'none' }}
+                                state={{level : (i.levelIdx),
+                                        word_name : (j.wordName),
+                                        word_idx : (j.wordIdx)}}
+                                >
+                                    <button>시작하기</button>
+                                </Link>
+                            </div>
+                        ))}
+
+                    </>
+                    
+
+                ))}                
+                
             </WrongDiv>
         </>
     )
