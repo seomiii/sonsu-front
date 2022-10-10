@@ -103,7 +103,7 @@ const Mypage = () => {
             </Myheader>
             <MediaDiv>
                 <FadeHome>
-                {Users && Users.map((obj)=>(   
+                {/* {Users && Users.map((obj)=>(    */}
                         <MypageDiv>
                             <Profilecontain>
                                 <PCA>
@@ -116,9 +116,9 @@ const Mypage = () => {
                                     <PCAprofile>
                                         <Profileimg></Profileimg>
                                         <PCAcontent>
-                                            <Profilename> {obj.userName} </Profilename>
+                                            {/* <Profilename> {obj.userName} </Profilename>
                                             <Profileemail> {obj.email} </Profileemail>
-                                            <Profiledate> 손수와 함께한지 {obj.withDate}일째 </Profiledate>
+                                            <Profiledate> 손수와 함께한지 {obj.withDate}일째 </Profiledate> */}
                                         </PCAcontent>
                                     </PCAprofile>
                                 </PCA>
@@ -162,8 +162,8 @@ const Mypage = () => {
                                 </ChartBox>
                             </Chartcontain>
                         </MypageDiv>
-                    )
-                    )}
+                    {/* )
+                    )} */}
                 </FadeHome>
             </MediaDiv>
             {/* <Chart options={options} series={series} type="radialBar" height="50" /> */}

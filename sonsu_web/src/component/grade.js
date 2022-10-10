@@ -12,6 +12,7 @@ import {
     GradeChart,
     ChartDivA,
     ChartDivB,
+    ChartDivC,
 } from './../component_css/Grade_style';
 import { 
     MediaDiv,
@@ -31,19 +32,6 @@ const Grade = (props) => {
     const level_name = Level_Arr.curri_arr;
 
     // const [cur_curri,setCurri] = useState(level_name[0]);
-
-    //서버
-    const [Scores,setScores] = useState();
-
-    //서버에게서 데이터 받아오기
-    useEffect(()=>{
-        axios.get(`/test/2022/9/1`)
-        .then((response)=>{
-            console.log(response.data.data);
-            // setScores(response.data.data);
-        })
-
-    }, [])
 
     return (
         <>
@@ -66,9 +54,9 @@ const Grade = (props) => {
                         <ChartDivB>
                             <Chart2/>
                         </ChartDivB>
-                        {/* <ChartDivC>
+                        <ChartDivC>
                             <Chart3/>
-                        </ChartDivC> */}
+                        </ChartDivC>
                     </GradeChart>
                 </GradeDiv>
             </MediaDiv>
