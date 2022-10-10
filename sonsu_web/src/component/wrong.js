@@ -1,8 +1,6 @@
 import {Link} from 'react-router-dom';
-import React, { useState } from 'react';
-import events from './events';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from './header'
 import { HeaderDiv } from '../component_css/Home_style';
 import { Myheader } from './../component_css/Mypage_style';
@@ -20,26 +18,35 @@ import {
 
 } from '../component_css/Wrong_style';
 // import { Toolbar } from '@material-ui/core';
-import Toolbar from './Toolbar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-// import 'react-big-calendar/dist/react-big-calendar.css'; // css import
 
-// const allViews = Object
-//   .keys(Calendar.Views)
-//   .map(k => Calendar.Views[k])
+
+// 현재 년도, 월
+let now=new Date();
+let year=now.getFullYear();
+let todayMonth=now.getMonth()+1;
 
 const Wrong = () => {
-    moment.locale('ko-KR');
-    const localizer = momentLocalizer(moment);
-    const [value, onChange] = useState(new Date());
+
+    const [month,setMonth]=useState(todayMonth);
+    const [data,setData]=useState([]);
+
+    useEffect(()=>{
+        axios.get(`/note/${year}/${month}/1`)        
+        .then((response)=>{
+         setData(response.data.data);
+        })
+
+    }, [])
+
+    console.log(data);
 
     return (
         <>
-            {/* <Myheader> */}
-                <HeaderDiv>
-                    <Header/>
-                </HeaderDiv>
-            {/* </Myheader> */}
+            <HeaderDiv>
+                <Header/>
+            </HeaderDiv>
+            
             <MediaDiv>
                 <FadeHome>
                     <WrongDiv>
@@ -49,52 +56,49 @@ const Wrong = () => {
                                 오답노트
                             </WrongText>
                         </WrongTitle>
+
+                        {year}년
+
+
+
                         <WrongContent>
-                            <WrongList>
-                                <WrongListContent>
-                                    <WrongDay>
-                                        10월 29일
-                                    </WrongDay>
-                                    <Link to={"/wrong_repeat"} style={{ textDecoration: 'none' }}>
-                                        <WrongBtn>
-                                            초급
-                                        </WrongBtn>
-                                    </Link>
-                                    <WrongBtn>
-                                        중급
-                                    </WrongBtn>
-                                    <WrongBtn>
-                                        고급
-                                    </WrongBtn>
-                                </WrongListContent>
-                                <WrongListContent>
-                                    <WrongDay>
-                                        10월 29일
-                                    </WrongDay>
-                                    <WrongBtn>
-                                        초급
-                                    </WrongBtn>
-                                    <WrongBtn>
-                                        중급
-                                    </WrongBtn>
-                                    <WrongBtn>
-                                        고급
-                                    </WrongBtn>
-                                </WrongListContent>
-                                <WrongListContent>
-                                    <WrongDay>
-                                        10월 29일
-                                    </WrongDay>
-                                    <WrongBtn>
-                                        초급
-                                    </WrongBtn>
-                                    <WrongBtn>
-                                        중급
-                                    </WrongBtn>
-                                    <WrongBtn>
-                                        고급
-                                    </WrongBtn>
-                                </WrongListContent>
+                            <WrongList>                                
+                                {data.map(i=>(
+                                    <WrongListContent>
+                                        <WrongDay>{i.testDate}</WrongDay>
+
+                                        <Link to="/wrong_repeat" state={{
+                                            year:(year),
+                                            month: (month),
+                                            day: (i.testDate),
+                                            level : 1
+                                        }} 
+                                        style={{ textDecoration: 'none' }}>
+                                            <WrongBtn>초급</WrongBtn>
+                                        </Link>
+
+                                        <Link to="/wrong_repeat" state={{
+                                            year:(year),
+                                            month: (month),
+                                            day: ((i.testDate).slice(8,10)),
+                                            level : 2
+                                        }} 
+                                        style={{ textDecoration: 'none' }}>
+                                            <WrongBtn>중급</WrongBtn>
+                                        </Link>
+
+                                        <Link to="/wrong_repeat" state={{
+                                            year:(year),
+                                            month: (month),
+                                            day: ((i.testDate).slice(8,10)),
+                                            level : 3
+                                        }}
+                                        style={{ textDecoration: 'none' }}>
+                                            <WrongBtn>고급</WrongBtn>
+                                        </Link>
+                                    </WrongListContent>
+                                    )
+                                )}
                             </WrongList>
                         </WrongContent>
                     </WrongDiv>

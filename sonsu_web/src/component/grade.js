@@ -30,19 +30,22 @@ const Level_Arr=[
     },
 ]
 
+// 현재 년도, 월
+let now=new Date();
+let year=now.getFullYear();
+let todayMonth=now.getMonth()+1;
+
+
 const Grade = (props) => {
 
     const level_name = Level_Arr.curri_arr;
 
-    // const [cur_curri,setCurri] = useState(level_name[0]);
-
     return (
         <>
-            {/* <Myheader> */}
-                <HeaderDiv>
-                    <Header/>
-                </HeaderDiv>
-            {/* </Myheader> */}
+            <HeaderDiv>
+                <Header/>
+            </HeaderDiv>
+            
             <MediaDiv>
                 <GradeDiv>
                     <GradeTitle>성적표</GradeTitle>
