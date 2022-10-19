@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Sector, Cell } from "recharts";
 import axios from 'axios';
-
 const COLORS = ["#FF7A00", "#ffffff"];
 
 export default function App() {
@@ -31,15 +30,14 @@ export default function App() {
     { name: "n process", value: UserData && (UserData.progressDto[2].totalCount-UserData.progressDto[2].doneCount) },
   ];
 
-
   return (
-    <PieChart width={750} height={180}>
+    <PieChart width={850} height={250}>
       <Pie
         data={data1}
-        cx={120}
-        cy={90}
-        innerRadius={30}
-        outerRadius={60}
+        cx={190}
+        cy={130}
+        innerRadius={50}
+        outerRadius={90}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}
@@ -53,10 +51,10 @@ export default function App() {
 
       <Pie
         data={data2}
-        cx={370}
-        cy={90}
-        innerRadius={30}
-        outerRadius={60}
+        cx={460}
+        cy={130}
+        innerRadius={50}
+        outerRadius={90}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}
@@ -70,10 +68,10 @@ export default function App() {
 
       <Pie
         data={data3}
-        cx={620}
-        cy={90}
-        innerRadius={30}
-        outerRadius={60}
+        cx={730}
+        cy={130}
+        innerRadius={50}
+        outerRadius={90}
         fill="#8884d8"
         stroke="#FF7A00"
         strokeWidth={1}
@@ -84,7 +82,6 @@ export default function App() {
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
-      
     </PieChart>
   );
 }

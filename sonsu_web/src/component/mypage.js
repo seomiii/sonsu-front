@@ -5,8 +5,6 @@ import {useLocation, Link} from 'react-router-dom';
 import Header from './header'
 import { FadeHome } from '../component_css/Home_style';
 import { MediaDiv,
-        LevelBox,
-        StudyBtn,
 } from '../component_css/Study_style';
 // import Chart from 'react-apexcharts';
 import {
@@ -31,43 +29,10 @@ import {
     ChartName,
     PieName,
     GoDiv,
-    GoBtn
+    GoBtn,
 } from './../component_css/Mypage_style';
 import { HeaderDiv } from '../component_css/Home_style';
 import userEvent from '@testing-library/user-event';
-
-// 예상되는 서버에서 오는 유저정보
-const user={   
-    profileimg : 'urlurl',
-    nickname : '홍길동',
-    email : 'abcd@gmail.com',
-    date : 10,
-}
-
-// 수강하기의 모든 문항에 대해서 해당 데이터 필요
-const word={
-    level : 1,
-    counts : 6,
-    number : 1002,
-    follow : 'True',
-}
-
-const Curri_Arr=[
-    {
-        level : 1,
-        level_name : '초급',
-    }
-    ,
-    {
-        level : 2,
-        level_name : '중급',
-    }
-    ,
-    {
-        level : 3,
-        level_name : '고급',
-    }    
-]
 
 const Mypage = () => {
 
@@ -77,7 +42,7 @@ const Mypage = () => {
     useEffect(()=>{
         axios.get(`/mypage/2`)
         .then((response)=>{
-        //  console.log(response.data.data);
+         console.log(response.data.data);
          setUserData(response.data.data);
         })
 
@@ -88,7 +53,6 @@ const Mypage = () => {
     var level2_per = UserData && Math.round((UserData.progressDto[1].doneCount / UserData.progressDto[1].totalCount)*100)
     var level3_per = UserData && UserData && Math.round((UserData.progressDto[2].doneCount / UserData.progressDto[2].totalCount)*100)
     
-
     return (
         <>            
             <HeaderDiv>
@@ -124,10 +88,10 @@ const Mypage = () => {
                                         </ProfileText>
                                     </Going>
                                     <Link to={"/grade"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn><img src="img/gograde.png" alt="image" /></MyBtn>
+                                        <MyBtn src={'img/gograde.png'}></MyBtn>
                                     </Link>
                                     <Link to={"/wrong"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn><img src="img/gowrong.png" alt="image"/></MyBtn>
+                                        <MyBtn src={'img/gowrong.png'}></MyBtn>
                                     </Link>
                                 </PCB>
                             </Profilecontain>
@@ -149,9 +113,6 @@ const Mypage = () => {
                                         {Study_level(1)}
                                         {Study_level(2)}
                                         {Study_level(3)} 
-                                        {/* <GoBtn> 초급 바로가기 </GoBtn>
-                                        <GoBtn> 중급 바로가기 </GoBtn>
-                                        <GoBtn> 고급 바로가기 </GoBtn> */}
                                     </GoDiv>
                                 </ChartBox>
                             </Chartcontain>

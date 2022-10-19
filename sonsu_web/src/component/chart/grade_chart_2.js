@@ -30,11 +30,8 @@ export default function Grade_chart_2() {
       const _inputData = await res.data.data.level2.map((rowData) => (
         setLastIdx(lastIdx+1),
         {
-        answerCount: rowData.answerCount,
-        levelIdx: rowData.levelIdx,
-        testCount: rowData.testCount,
-        testDate: (rowData.testDate).slice(8,10),
-        testIdx: rowData.testIdx
+          testDate: (rowData.testDate).slice(8,10),
+          average: (rowData.average)
       }
       ))
       setInputData(inputData.concat(_inputData))      
@@ -50,8 +47,8 @@ export default function Grade_chart_2() {
   useEffect(()=>{
     const graphData=inputData.map((i)=>(
       {
-        name: i.testDate,
-        갯수 : i.answerCount
+        name: `${i.testDate}일`,
+        맞춘갯수 : i.average
       }
     ))
     setData(data.concat(graphData)) 
@@ -62,7 +59,7 @@ export default function Grade_chart_2() {
   
   return (
     <BarChart
-      width={1000}
+      width={800}
       height={400}
       data={data}
       margin={{
@@ -77,7 +74,7 @@ export default function Grade_chart_2() {
       <Tooltip />
       <Legend />
       <CartesianGrid strokeDasharray="3 3" />
-      <Bar dataKey="갯수" fill="#FF7A00" background={{ fill: "#D9D9D9" }} />
+      <Bar dataKey="맞춘갯수" fill="#FF7A00" background={{ fill: "#D9D9D9" }} />
     </BarChart>
 
   );
