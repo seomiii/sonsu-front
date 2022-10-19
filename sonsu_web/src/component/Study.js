@@ -64,7 +64,7 @@ function Study(){
         <StudyMediaDiv>
             <FadeHome>
                 <FullBox>
-                    {Study_level(1,data&& data[0].imgUrl)}
+                    {Study_level(1,data && data[0].imgUrl)}
                     {Study_level(2,data && data[1].imgUrl)}
                     {Study_level(3,data && data[2].imgUrl)} 
                 </FullBox>

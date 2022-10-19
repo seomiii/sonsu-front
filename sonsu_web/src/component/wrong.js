@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './header'
@@ -15,11 +15,16 @@ import {
     WrongListContent,
     WrongDay,
     WrongBtn,
-
+    YearDiv,
+    MonthDiv,
+    Month,
 } from '../component_css/Wrong_style';
 // import { Toolbar } from '@material-ui/core';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
+const Month_Arr=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+// const [mon_month,setMonth] = useState(Month_Arr[0]);
 
 // 현재 년도, 월
 let now=new Date();
@@ -32,14 +37,25 @@ const Wrong = () => {
     const [data,setData]=useState([]);
 
     useEffect(()=>{
-        axios.get(`/note/${year}/${month}/1`)        
+        axios.get(`/note/${year}/${month}/1`)  
         .then((response)=>{
          setData(response.data.data);
         })
 
-    }, [])
+    }, [month])
 
     console.log(data);
+    console.log(month);
+
+    const [active, setActive] = useState("");
+    // const handleClick = () => {
+    //     setActive(!active);
+    // };
+    const toggleActive = (e) => {
+        setActive((prev) => {
+          return e.target.value;
+        });
+    };
 
     return (
         <>
@@ -56,11 +72,15 @@ const Wrong = () => {
                                 오답노트
                             </WrongText>
                         </WrongTitle>
+                        <YearDiv>{year}년</YearDiv>
+                        <MonthDiv>
+                            { Month_Arr.map(i=> (                    
+                                    // <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month> 
+                                    <Month onClick={()=> {setMonth(i)}}>{i}월</Month> 
 
-                        {year}년
-
-
-
+                            )
+                            )}
+                        </MonthDiv>
                         <WrongContent>
                             <WrongList>                                
                                 {data.map(i=>(
@@ -91,7 +111,7 @@ const Wrong = () => {
                                             year:(year),
                                             month: (month),
                                             day: ((i.testDate).slice(8,10)),
-                                            level : 3
+                                            level: 3
                                         }}
                                         style={{ textDecoration: 'none' }}>
                                             <WrongBtn>고급</WrongBtn>
@@ -108,4 +128,11 @@ const Wrong = () => {
     )
 }
 
-export default Wrong
+// export default Wrong
+
+function changeColor() {
+    document.body.style.color = "purple";
+    return (false);
+}
+
+export default React.memo(Wrong);

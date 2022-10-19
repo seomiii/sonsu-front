@@ -1,10 +1,24 @@
 import axios from 'axios';
 import { useLocation, Link } from 'react-router-dom';
 import React,{useCallback, useState,useEffect} from 'react';
+import Header from './header'
+import { HeaderDiv } from '../component_css/Home_style';
+import { FadeHome } from '../component_css/Home_style';
+import { MediaDiv } from '../component_css/Study_style';
 import {
     WrongTitle,
     WrongDiv,
-    WrongContent
+    WrongSome,
+    WrongText,
+    WrongReapeat,
+    WrongReapeatContent,
+    WrongStartBtn,
+    WrongLevelName,
+    WrongWordName,
+    WrongHeader,
+    WrongDate,
+    WrongReapeatNumber,
+    WrongReapeatTitle,
 } from './../component_css/Wrong_style';
 
 const Levelname=['초급','중급','고급'];
@@ -31,40 +45,59 @@ const Wrong = () => {
 
     return (
         <>
-            <WrongTitle>오답노트</WrongTitle>
+            <HeaderDiv>
+                <Header/>
+            </HeaderDiv>
+            <MediaDiv>
+                <FadeHome>
+                    <WrongDiv>
+                        <WrongTitle>
+                            <img src='img/bar.png' alt="image"/>
+                            <WrongText>
+                                오답노트
+                            </WrongText>
+                        </WrongTitle>
+                        <WrongHeader>
+                            <WrongLevelName>
+                                {Levelname[level-1]}
+                            </WrongLevelName>
+                            <WrongDate>{data && data[0].testDate}</WrongDate>
+                        </WrongHeader>
+                        {data && data.map((i,index)=>(
+                            <>
+                                <WrongReapeatTitle>
+                                    <img src='img/dot.png' alt="image" margin="10"/>
+                                    <WrongReapeatNumber>
+                                        {index+1}회차
+                                    </WrongReapeatNumber>
+                                </WrongReapeatTitle>
+                                <WrongReapeat>
+                                    {i.wordsDTO.map(j=>(
+                                        <WrongReapeatContent>
+                                            <WrongSome>
+                                                <img src={j.thumbnailUrl} alt="image" height="150" width="220"/>
+                                            </WrongSome>
+                                            <WrongWordName>{j.wordName}</WrongWordName>
+                                            <Link to={"/study/study_class/study_play"}
+                                            style={{ textDecoration: 'none' }}
+                                            state={{level : (i.levelIdx),
+                                                    word_name : (j.wordName),
+                                                    word_idx : (j.wordIdx)}}
+                                            >
+                                                <WrongStartBtn>시작하기</WrongStartBtn>
+                                            </Link>
+                                        </WrongReapeatContent>
+                                    ))}
+                                </WrongReapeat>
 
-            {Levelname[level-1]}
-            <WrongDiv>
-                <WrongContent>{data && data[0].testDate}</WrongContent>
+                            </>
+                            
 
-                {data && data.map((i,index)=>(
-                    <>
-                        <div>
-                            {index+1}회차
-                        </div>
-
-                        {i.wordsDTO.map(j=>(
-                            <div>
-                                <div>{j.wordName}</div>
-                                <img src={j.thumbnailUrl} alt="image"/>
-
-                                <Link to={"/study/study_class/study_play"}
-                                style={{ textDecoration: 'none' }}
-                                state={{level : (i.levelIdx),
-                                        word_name : (j.wordName),
-                                        word_idx : (j.wordIdx)}}
-                                >
-                                    <button>시작하기</button>
-                                </Link>
-                            </div>
-                        ))}
-
-                    </>
-                    
-
-                ))}                
-                
-            </WrongDiv>
+                        ))}                
+                        
+                    </WrongDiv>
+                </FadeHome>
+            </MediaDiv>
         </>
     )
 }

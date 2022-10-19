@@ -10,18 +10,15 @@ export const MypageDiv=styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 30px;
-    margin-left: 10px;
-
+    // justify-content: space-between;
+    margin-top: 20px;
 `
 
 export const Profilecontain=styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
 `
 
 export const PCA=styled.div`
@@ -32,9 +29,9 @@ export const Profile=styled.div`
     display: flex;
     flex-direction: row;
     align-items: left;
-    align-items: center;
+    // align-items: center;
     font-size: 20px;
-    margin-left: 10px;
+    // margin-left: 10px;
 `
 
 export const ProfileText=styled.div`
@@ -44,11 +41,12 @@ export const ProfileText=styled.div`
 export const PCAprofile=styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 20px;
     align-items: center;
     border-radius: 12px;
-    padding: 40px 150px 40px 20px;
+    padding: 40px 150px 40px 40px;
     background-color: #F9F9F9;
+    margin-left: 20px;
 `
 
 export const Profileimg=styled.img`
@@ -92,30 +90,31 @@ export const Profiledate=styled.div`
 
 
 export const PCB=styled.div`
-    margin-left: 60px;
+    margin-right: 40px;
 `
 
 export const Going=styled.div`
     display: flex;
     flex-direction: row;
     align-items: left;
-    align-items: center;
+    // align-items: center;
     font-size: 20px;
     margin-left: 10px;
 `
 
 
-export const MyBtn=styled.div`
-    width: 410px;
-    height: 75px;
+export const MyBtn=styled.img`
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 320px;
+    height: 60px;
     // align-items: flex-start;
 `
 
 export const Chartcontain=styled.div`
-    margin-top: 20px;
-    // margin-left: 30px;
+    margin : 80px 40px 0px 0px;
 `
 
 export const Process=styled.div`
@@ -131,6 +130,7 @@ export const ChartBox=styled.div`
     margin-top: 20px;
     padding: 0px 0px 30px 0px;
     border-radius: 12px;
+    margin-left: 20px;
 `
 
 export const ChartName=styled.div`
@@ -172,4 +172,11 @@ export const GoBtn=styled.button`
     justify-content: center;
     align-items: center;
     margin: 10px 40px 0px 50px;
+
+    transition: 0.4s;
+    &:hover{
+        color:#FF7A00;
+        background-color:white;
+        border:1px solid #FF7A00;
+    }
 `
