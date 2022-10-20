@@ -27,6 +27,8 @@ const Levels=[
     }    
 ]
 
+const modelfilename=['model_level_1.h5','model_level_2.h5','model_level_3.h5']
+
 //서버에서 오는 예상 데이터
 // const data={
 // 	testIdx : 1,
@@ -132,7 +134,7 @@ function Test() {
             fd.append('file',file);
             fd.append('wname', data&& data.wordsDto[currentnumber-1].wordNum)
             fd.append('testListIndex', data&& data.wordsDto[currentnumber-1].testListIdx)
-            fd.append('level',levelIdx)
+            fd.append('modelfilename',modelfilename[levelIdx-1])
         
             axios.post('/model/test',fd)
                 .then((res)=>{

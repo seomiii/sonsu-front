@@ -18,6 +18,7 @@ ResultBtn,
 
 // 프론트 고정 소스
 const Levelname=['초급','중급','고급'];
+const modelfilename=['model_level_1.h5','model_level_2.h5','model_level_3.h5']
 
 
 // flask 예상 데이터
@@ -101,7 +102,7 @@ const WebcamStreamCapture = () => {
       // fd.append('test','hi');
       fd.append('file',file);    
       fd.append('word_id', word_id)
-      fd.append('level',level)
+      fd.append('modelfilename',modelfilename[level-1])
 
       // flask에게 사용자 영상 post
       axios.post('/model/study',fd)
