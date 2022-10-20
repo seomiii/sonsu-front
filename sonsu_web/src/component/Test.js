@@ -132,6 +132,7 @@ function Test() {
             fd.append('file',file);
             fd.append('wname', data&& data.wordsDto[currentnumber-1].wordNum)
             fd.append('testListIndex', data&& data.wordsDto[currentnumber-1].testListIdx)
+            fd.append('level',levelIdx)
         
             axios.post('/model/test',fd)
                 .then((res)=>{

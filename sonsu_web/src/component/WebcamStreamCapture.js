@@ -101,6 +101,7 @@ const WebcamStreamCapture = () => {
       // fd.append('test','hi');
       fd.append('file',file);    
       fd.append('word_id', word_id)
+      fd.append('level',level)
 
       // flask에게 사용자 영상 post
       axios.post('/model/study',fd)
