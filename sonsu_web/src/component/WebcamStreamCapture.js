@@ -109,7 +109,8 @@ const WebcamStreamCapture = () => {
       // flask에게 사용자 영상 post
       axios.post('/model/study',fd)
         .then((res)=>{
-          setFlaskData(res.data)
+          setFlaskData(res.data);
+          alert("결과 보기를 눌러주세요 :)");
         })
         .catch((err)=>{
         alert("error");
