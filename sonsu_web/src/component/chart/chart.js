@@ -8,12 +8,13 @@ export default function App() {
   const [UserData,setUserData] = useState();
 
   useEffect(()=>{
-    axios.get(`/mypage/2`)
+    axios.get(`/mypage/1`)
     .then((response)=>{
      setUserData(response.data.data);
     })
 
   }, [])
+
 
   const data1 = [
     { name: "process", value: UserData && (UserData.progressDto[0].doneCount) },

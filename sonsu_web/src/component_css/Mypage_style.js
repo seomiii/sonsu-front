@@ -12,6 +12,7 @@ export const MypageDiv=styled.div`
     flex-direction: column;
     // justify-content: space-between;
     margin-top: 20px;
+    // background-color:skyblue;
 `
 
 export const Profilecontain=styled.div`
@@ -19,6 +20,7 @@ export const Profilecontain=styled.div`
     flex-direction: row;
     justify-content: space-between;
     // align-items: center;
+    background-color:skyblue;
 `
 
 export const PCA=styled.div`
@@ -32,6 +34,7 @@ export const Profile=styled.div`
     // align-items: center;
     font-size: 20px;
     // margin-left: 10px;
+    background-color:blue;
 `
 
 export const ProfileText=styled.div`
@@ -44,9 +47,11 @@ export const PCAprofile=styled.div`
     margin-top: 20px;
     align-items: center;
     border-radius: 12px;
-    padding: 40px 150px 40px 40px;
+    // padding: 40px 150px 40px 40px;
     background-color: #F9F9F9;
-    margin-left: 20px;
+    // margin-left: 20px;
+    width:586px;
+    height:197px;
 `
 
 export const Profileimg=styled.img`
@@ -57,6 +62,7 @@ export const Profileimg=styled.img`
     background-size: 80px;
     border-radius: 50%;
     display: flex;
+    margin-left:27px;
 `
 
 export const PCAcontent=styled.div`
@@ -68,7 +74,7 @@ export const PCAcontent=styled.div`
 export const Profilename=styled.div`
     display: flex;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    font-size: 20px;
+    font-size: 18px;
 `
 
 export const Profileemail=styled.div`
@@ -76,7 +82,7 @@ export const Profileemail=styled.div`
     margin-top: 8px;
     width: 100%;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    font-size: 15px;
+    font-size: 17px;
 `
 
 export const Profiledate=styled.div`
@@ -84,7 +90,7 @@ export const Profiledate=styled.div`
     margin-top: 8px;
     width: 100%;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    font-size: 15px;
+    font-size: 17px;
     color: #FF7A00;
 `
 
@@ -161,7 +167,7 @@ export const GoBtn=styled.button`
     display: flex;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     border:none;
-    background: #F37A1F;
+    background: #FF7A00;
     border-radius: 24px;
     color:white;
     width: 160px;
