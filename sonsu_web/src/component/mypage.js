@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Chart from "./chart/chart";
+import Chart from "./chart/mypage_chart";
 import axios from 'axios';
 import {useLocation, Link} from 'react-router-dom';
 import Header from './header'
