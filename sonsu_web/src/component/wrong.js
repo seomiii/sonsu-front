@@ -100,7 +100,7 @@ const Wrong = () => {
                                         <Link to="/wrong_repeat" state={{
                                             year:(year),
                                             month: (month),
-                                            day: ((i.testDate).slice(8,10)),
+                                            day: ((i.testDate)),
                                             level : 2
                                         }} 
                                         style={{ textDecoration: 'none' }}>
@@ -110,7 +110,7 @@ const Wrong = () => {
                                         <Link to="/wrong_repeat" state={{
                                             year:(year),
                                             month: (month),
-                                            day: ((i.testDate).slice(8,10)),
+                                            day: ((i.testDate)),
                                             level: 3
                                         }}
                                         style={{ textDecoration: 'none' }}>

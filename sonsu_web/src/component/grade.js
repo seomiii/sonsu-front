@@ -54,6 +54,7 @@ const Grade = (props) => {
         axios.get(`/note/${year}/${month}/1`)        
         .then((response)=>{
          setData(response.data.data);
+         console.log(response)
         })
 
     }, [month])

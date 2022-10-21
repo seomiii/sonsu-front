@@ -28,7 +28,7 @@ const Header = () => {
                             </Link>
 
                             <Link to={"/login"} style={{ textDecoration: 'none' }}>
-                                <NavLoginBtn>로그인</NavLoginBtn>
+                                <NavLoginBtn>로그아웃</NavLoginBtn>
                             </Link>   
                         </ContentDiv>  
 
