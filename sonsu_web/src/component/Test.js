@@ -97,6 +97,7 @@ function Test() {
     const [recordedChunks, setRecordedChunks] = React.useState([]);
 
     const handleStartCaptureClick = React.useCallback(() => {
+        console.log(mediaRecorderRef.current)
         setCapturing(true);
         mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
         mimeType: "video/webm"
@@ -120,26 +121,42 @@ function Test() {
     const handleStopCaptureClick = React.useCallback( async () => {
         mediaRecorderRef.current.stop();
               setCapturing(false);
+              clearInterval(webcamRef.current)
+              clearInterval(mediaRecorderRef.current)
+             
+
     }, [mediaRecorderRef, webcamRef, setCapturing]); 
 
+    let [cnt, setcnt] = React.useState(0);
+
     const Send=()=>{
+        
         if(recordedChunks.length){
             const blob=new Blob(recordedChunks,{type:'video/webm'});
             
             //let filename=new Date().toString()+'.avi';
             let filename=new Date().getTime().toString(36)+'.avi';
-            const file=new File([blob],filename);
+            const file=new File([blob],filename);            
         
             let fd=new FormData();
             fd.append('file',file);
             fd.append('wname', data&& data.wordsDto[currentnumber-1].wordNum)
             fd.append('testListIndex', data&& data.wordsDto[currentnumber-1].testListIdx)
+            fd.append('level',levelIdx)
             fd.append('modelfilename',modelfilename[levelIdx-1])
         
             axios.post('/model/test',fd)
                 .then((res)=>{
                     // setFlaskResult(res.data);
-                    alert("결과 : " + res.data);
+                    setcnt(cnt+=1)
+                    if(cnt==3){
+                        alert("결과를 확인하세요 :)"+cnt);
+                    }
+                    else{
+                        alert("다음 문제로 넘어가세요 :)"+cnt);
+                    }
+                    
+                    
                 })
                 .catch((err)=>{
                 alert("error");

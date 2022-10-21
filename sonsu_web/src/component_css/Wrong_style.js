@@ -111,6 +111,9 @@ export const WrongHeader=styled.div`
     flex-direction: column;
     align-items: center;
 `
+export const NoWrong=styled.div`
+    margin: 50px;
+`
 
 export const WrongLevelName=styled.div`
     font-size: 25px;

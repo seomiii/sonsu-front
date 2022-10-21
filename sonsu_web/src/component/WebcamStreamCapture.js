@@ -55,6 +55,7 @@ const WebcamStreamCapture = () => {
   const [flaskData,setFlaskData]=useState([]);
       
   const handleStartCaptureClick = useCallback(() => {
+      console.log(mediaRecorderRef.current)
       setCapturing(true);
       mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: "video/webm"
@@ -102,6 +103,7 @@ const WebcamStreamCapture = () => {
       // fd.append('test','hi');
       fd.append('file',file);    
       fd.append('word_id', word_id)
+      fd.append('level',level)
       fd.append('modelfilename',modelfilename[level-1])
 
       // flask에게 사용자 영상 post

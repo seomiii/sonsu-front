@@ -117,6 +117,7 @@ function Study_play(props){
                             level : (level),
                             word_name : (cur_word),
                             word_id : (word_idx)
+                            
                             }}>
                             <FollowBtn>따라하기</FollowBtn>  
                         </Link>
