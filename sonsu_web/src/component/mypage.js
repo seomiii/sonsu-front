@@ -40,7 +40,7 @@ const Mypage = () => {
     
     //서버에게서 데이터 받아오기
     useEffect(()=>{
-        axios.get(`/mypage/2`)
+        axios.get(`/mypage/1`)
         .then((response)=>{
          console.log(response.data.data);
          setUserData(response.data.data);
@@ -80,6 +80,7 @@ const Mypage = () => {
                                         </PCAcontent>
                                     </PCAprofile>
                                 </PCA>
+
                                 <PCB>
                                     <Going>
                                         <img src="img/bar.png" alt="image"/>
