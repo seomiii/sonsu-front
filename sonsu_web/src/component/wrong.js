@@ -45,8 +45,8 @@ const Wrong = () => {
 
     }, [month])
 
-    console.log(data);
-    console.log(month);
+    // console.log(data);
+    // console.log(month);
 
     const [active, setActive] = useState("");
     // const handleClick = () => {
@@ -57,6 +57,7 @@ const Wrong = () => {
           return e.target.value;
         });
     };
+    
     
 
     return (
@@ -85,7 +86,7 @@ const Wrong = () => {
                         </MonthDiv>
                         <WrongContent>
                             <WrongList>                                
-                                {data.map(i=>(
+                                {data && data.map(i=>(
                                     
                                     <WrongListContent>
                                         <WrongDay>{i.testDate}</WrongDay>
@@ -97,8 +98,11 @@ const Wrong = () => {
                                             level : 1
                                         }} 
                                         style={{ textDecoration: 'none' }}>
-                                            {/* <WrongBtn style={{i.testResult[0]} ? {border:'2px solid #FF7A00' , backgroundColor: '#FFFFFF' , color:'#2E2E2E'}: {color:'red'}}>초급 {i.testResult[0]}</WrongBtn> */}
-                                            <WrongBtn>초급</WrongBtn>
+                                            <WrongBtn style={
+                                                {backgroundColor : i.testResult['1']==true ? '#FF7A00' : 'white'}
+                                                
+                                            }>초급</WrongBtn>
+                                            {/* <WrongBtn>초급</WrongBtn> */}
                                         </Link>
 
                                         <Link to="/wrong_repeat" state={{
@@ -108,7 +112,10 @@ const Wrong = () => {
                                             level : 2
                                         }} 
                                         style={{ textDecoration: 'none' }}>
-                                            <WrongBtn>중급</WrongBtn>
+                                            <WrongBtn style={
+                                                {backgroundColor : i.testResult['2']==true ? '#FF7A00' : 'white'}
+                                                
+                                            }>중급</WrongBtn>
                                         </Link>
 
                                         <Link to="/wrong_repeat" state={{
@@ -118,7 +125,10 @@ const Wrong = () => {
                                             level: 3
                                         }}
                                         style={{ textDecoration: 'none' }}>
-                                            <WrongBtn>고급</WrongBtn>
+                                            <WrongBtn style={
+                                                {backgroundColor : i.testResult['3']==true ? '#FF7A00' : 'white'}
+                                                
+                                            }>고급</WrongBtn>
                                         </Link>
                                     </WrongListContent>
                                     )
