@@ -83,18 +83,18 @@ export const WrongBtn=styled.div`
     height: 100px;
     margin: 25px;
     border-radius: 50%;
-    background-color: #D9D9D9;
-    border:2px solid #D9D9D9;
+    background-color: #ffffff;
+    border:2px solid #FF7A00;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: white;
-    &:hover{
-        color: black;
-        background-color:white;
-        border:2px solid #FF7A00;
-    }
+    color: #2E2E2E;
+    // &:hover{
+    //     color: black;
+    //     background-color:white;
+    //     border:2px solid #FF7A00;
+    // }
 `
 
 

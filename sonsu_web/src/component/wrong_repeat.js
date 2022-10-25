@@ -130,7 +130,7 @@ const Wrong = () => {
                             </WrongHeader>
                             
                             <NoWrong>
-                                <img src='img/nowrong.png' alt="image"/>
+                                <img src='img/notest.png' alt="image"/>
                             </NoWrong>                               
                             
                         </WrongDiv>
