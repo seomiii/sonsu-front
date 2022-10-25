@@ -49,7 +49,7 @@ const Mypage = () => {
     }, [])
 
     
-    var level1_per= UserData && Math.round((UserData.progressDto[0].doneCount / UserData.progressDto[0].totalCount)*100)
+    var level1_per = UserData && Math.round((UserData.progressDto[0].doneCount / UserData.progressDto[0].totalCount)*100)
     var level2_per = UserData && Math.round((UserData.progressDto[1].doneCount / UserData.progressDto[1].totalCount)*100)
     var level3_per = UserData && UserData && Math.round((UserData.progressDto[2].doneCount / UserData.progressDto[2].totalCount)*100)
     

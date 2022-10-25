@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import Chart1 from "./chart/grade_chart_1";
 import Chart2 from "./chart/grade_chart_2";
 import Chart3 from "./chart/grade_chart_3";
+import Chart from "./chart/grade_chart";
 import axios from 'axios';
 import Header from './header'
 import { Myheader } from './../component_css/Mypage_style';
@@ -94,16 +95,16 @@ const Grade = (props) => {
                     <GradeChart>
                         <ChartDivA>
                             <ChartContent>초급</ChartContent>
-                            <Chart1/>
+                            <Chart/>
                         </ChartDivA>
-                        <ChartDivB>
+                        {/* <ChartDivB>
                             <ChartContent>중급</ChartContent>
                             <Chart2/>
                         </ChartDivB>
                         <ChartDivC>
                             <ChartContent>고급</ChartContent>
                             <Chart3/>
-                        </ChartDivC>
+                        </ChartDivC> */}
                     </GradeChart>
                 </GradeDiv>
             </MediaDiv>
