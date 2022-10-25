@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Sector, Cell,   Tooltip, Legend } from "recharts";
-import Chart from "./chart/mypage_chart";
 import axios from 'axios';
 import {useLocation, Link} from 'react-router-dom';
 import Header from './header'
