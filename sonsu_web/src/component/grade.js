@@ -40,6 +40,12 @@ import { HeaderDiv } from '../component_css/Home_style';
 
 const Month_Arr=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+// const data = [
+//     // {name: "1",uv: 400,pv: 1500,amt: 200},
+//     {name: "25", 갯수 : 100},
+//     {name: "26", 월: 100},
+//   ];
+
 // 탭 구성 리소스
 const Level_Arr=[
     {
@@ -67,8 +73,8 @@ const Grade = (props) => {
     const [testData, setTestData] = useState([]);
 
     // 그래프 데이터
-    useEffect(async()=>{
-        try{
+    const getGroupList = async()=>{
+    try{
 
         const res = await axios.get(`/test/${year}/10/1`)
         // console.log('response: ', res.data.data);
@@ -82,7 +88,6 @@ const Grade = (props) => {
             {
             testDate: (rowData.testDate).slice(8,10),
             averageA: (rowData.average)
-            
             }
         ))
         const _inputDataB = await res.data.data.level2.map((rowData) => (
@@ -90,15 +95,13 @@ const Grade = (props) => {
             {
             testDate: (rowData.testDate).slice(8,10),
             averageB: (rowData.average)
-            
             }
         ))
         const _inputDataC = await res.data.data.level3.map((rowData) => (
             setLastIdxC(lastIdxC+1),
             {
-            testDate: (rowData.testDate).slice(8,10),
-            averageC: (rowData.average)
-            
+                testDate: (rowData.testDate).slice(8,10),
+                averageC: (rowData.average)
             }
         ))
 
@@ -107,11 +110,15 @@ const Grade = (props) => {
 
         }
         catch(e){
-        console.error(e.message)
+            console.error(e.message)
         }
-    },[])
+    };
 
-    console.log('testdata: ', testData);
+    useEffect(()=>{
+        getGroupList();
+    },[]);
+
+    // console.log('testdata: ', testData);
     console.log('App :: inputData :: ', inputData)
 
     useEffect(()=>{
@@ -137,13 +144,13 @@ const Grade = (props) => {
     useEffect(()=>{
         axios.get(`/note/${year}/${month}/1`)        
         .then((response)=>{
-         setData(response.data.data);
+         setTestData(response.data.data);
          console.log(response)
         })
 
     }, [month])
 
-    console.log(data);
+    console.log(testData);
     console.log(month);
 
     const [active, setActive] = useState(false);
@@ -165,7 +172,8 @@ const Grade = (props) => {
                     </GradeTitle>
                     <MonthDiv>
                             { Month_Arr.map(i=> (                    
-                                    <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month>                
+                                    // <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month>
+                                    <Month>{i}월</Month>                
                             )
                             )}
                     </MonthDiv>

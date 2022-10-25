@@ -28,7 +28,7 @@ const Service_intro = () => {
             <FadeHome>
                 <ServiceDiv>
                     <ServiceContent>
-                        <img src='img/serviceIntro.jpg' alt="image" width='100%'/> <br/>
+                        <img src='img/serviceIntro.png' alt="image" width='100%'/> <br/>
                     </ServiceContent>
                     <MediaDiv>
                         <ServiceEditor>
