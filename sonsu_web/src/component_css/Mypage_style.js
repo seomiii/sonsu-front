@@ -170,7 +170,7 @@ export const GoDiv=styled.div`
     justify-content: center;
     // background-color: yellow;
     // margin-left: 30px;
-    margin-right: 20px;
+    margin-right: 22px;
     margin-top: 10px;
 `
 export const LevelBox=styled.div`
