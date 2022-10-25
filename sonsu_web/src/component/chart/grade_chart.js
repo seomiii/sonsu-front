@@ -87,7 +87,8 @@ export default function Grade_chart() {
   useEffect(()=>{
     const graphData=inputData.map((i)=>(
       {
-        name: `${i.testDate}일`,
+        // name: `${i.testDate}일`,
+        name : i.testDate,
         초급맞춘갯수 : i.averageA,
         중급맞춘갯수 : i.averageB, 
         고급맞춘갯수 : i.averageC, 

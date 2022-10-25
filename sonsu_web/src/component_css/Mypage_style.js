@@ -20,7 +20,7 @@ export const Profilecontain=styled.div`
     flex-direction: row;
     justify-content: space-between;
     // align-items: center;
-    background-color:skyblue;
+    // background-color:skyblue;
 `
 
 export const PCA=styled.div`
@@ -34,7 +34,7 @@ export const Profile=styled.div`
     // align-items: center;
     font-size: 20px;
     // margin-left: 10px;
-    background-color:blue;
+    // background-color:blue;
 `
 
 export const ProfileText=styled.div`
