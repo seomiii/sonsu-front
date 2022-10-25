@@ -28,7 +28,7 @@ export const GradeText=styled.div`
     margin-left: 10px;
 `
 export const GradeLevel=styled.div`
-    margin-top: 20px;
+    // margin-top: 20px;
     margin-left: 120px;
     text-align: left;
     font-size: 20px;

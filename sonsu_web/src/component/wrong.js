@@ -39,7 +39,8 @@ const Wrong = () => {
     useEffect(()=>{
         axios.get(`/note/${year}/${month}/1`)  
         .then((response)=>{
-         setData(response.data.data);
+            console.log(response);
+            setData(response.data.data);
         })
 
     }, [month])
@@ -56,6 +57,7 @@ const Wrong = () => {
           return e.target.value;
         });
     };
+    
 
     return (
         <>
@@ -84,6 +86,7 @@ const Wrong = () => {
                         <WrongContent>
                             <WrongList>                                
                                 {data.map(i=>(
+                                    
                                     <WrongListContent>
                                         <WrongDay>{i.testDate}</WrongDay>
 
@@ -94,6 +97,7 @@ const Wrong = () => {
                                             level : 1
                                         }} 
                                         style={{ textDecoration: 'none' }}>
+                                            {/* <WrongBtn style={{i.testResult[0]} ? {border:'2px solid #FF7A00' , backgroundColor: '#FFFFFF' , color:'#2E2E2E'}: {color:'red'}}>초급 {i.testResult[0]}</WrongBtn> */}
                                             <WrongBtn>초급</WrongBtn>
                                         </Link>
 

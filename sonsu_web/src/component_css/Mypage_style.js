@@ -39,6 +39,7 @@ export const Profile=styled.div`
 
 export const ProfileText=styled.div`
     margin-left: 10px;
+    font-size: 20px;
 `
 
 export const PCAprofile=styled.div`
@@ -97,6 +98,8 @@ export const Profiledate=styled.div`
 
 export const PCB=styled.div`
     margin-right: 40px;
+    margin-left: 20px;
+    // background-color:red;
 `
 
 export const Going=styled.div`
@@ -108,14 +111,17 @@ export const Going=styled.div`
     margin-left: 10px;
 `
 
+export const GoingBtn=styled.div`
+    // margin-top: 40px;
+`
 
 export const MyBtn=styled.img`
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 320px;
-    height: 60px;
+    margin-top: 30px;
+    // margin-left: 20px;
+    width: 400px;
+    height: 75px;
     // align-items: flex-start;
 `
 
@@ -132,11 +138,14 @@ export const Process=styled.div`
 `
 
 export const ChartBox=styled.div`
+    // display: flex;
+    // flex-direction: row;
     background-color: #F9F9F9;
     margin-top: 20px;
     padding: 0px 0px 30px 0px;
     border-radius: 12px;
-    margin-left: 20px;
+    // margin-left: 20px;
+    // background-color: red;
 `
 
 export const ChartName=styled.div`
@@ -144,12 +153,14 @@ export const ChartName=styled.div`
     flex-direction: row;
     justify-content: center;
     margin-top: 5px;
+    // background-color: yellow;
 `
 
 export const PieName=styled.div`
     display: flex;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin: 0px 120px 0px 100px;
+    margin: 0px 150px 0px 97px;
+    // background-color: lightblue;
 `
 
 export const GoDiv=styled.div`
@@ -159,8 +170,15 @@ export const GoDiv=styled.div`
     justify-content: center;
     // background-color: yellow;
     // margin-left: 30px;
-    margin-right: 40px;
+    margin-right: 20px;
     margin-top: 10px;
+`
+export const LevelBox=styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // align-items: center;
+    // background-color: red;
 `
 
 export const GoBtn=styled.button`
@@ -170,19 +188,19 @@ export const GoBtn=styled.button`
     background: #FF7A00;
     border-radius: 24px;
     color:white;
-    width: 160px;
-    height: 35px;
+    width: 180px;
+    height: 45px;
     font-size: 16px;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    margin-top: 20px;
+    // margin-top: 20px;
     justify-content: center;
     align-items: center;
-    margin: 10px 40px 0px 50px;
+    margin: 20px 63px 0px 40px;
 
     transition: 0.4s;
     &:hover{
-        color:#FF7A00;
-        background-color:white;
+        color: #FF7A00;
+        background-color: white;
         border:1px solid #FF7A00;
     }
 `

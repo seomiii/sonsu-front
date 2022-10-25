@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Sector, Cell,   Tooltip, Legend } from "recharts";
 import Chart from "./chart/mypage_chart";
 import axios from 'axios';
 import {useLocation, Link} from 'react-router-dom';
@@ -21,6 +21,7 @@ import {
     Profileemail,
     Profiledate,
     Going,
+    GoingBtn,
     MyBtn,
     Process,
     ChartBox,
@@ -31,6 +32,7 @@ import {
     PieName,
     GoDiv,
     GoBtn,
+    LevelBox,
 } from './../component_css/Mypage_style';
 import { HeaderDiv } from '../component_css/Home_style';
 import userEvent from '@testing-library/user-event';
@@ -106,13 +108,17 @@ const Mypage = () => {
                                             바로가기
                                         </ProfileText>
                                     </Going>
-                                    <Link to={"/grade"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn src={'img/gograde.png'}></MyBtn>
-                                    </Link>
-                                    <Link to={"/wrong"} style={{ textDecoration: 'none' }}>
-                                        <MyBtn src={'img/gowrong.png'}></MyBtn>
-                                    </Link>
+
+                                    <GoingBtn>
+                                        <Link to={"/grade"} style={{ textDecoration: 'none' }}>
+                                            <MyBtn src={'img/gograde.png'}></MyBtn>
+                                        </Link>
+                                        <Link to={"/wrong"} style={{ textDecoration: 'none' }}>
+                                            <MyBtn src={'img/gowrong.png'}></MyBtn>
+                                        </Link>
+                                    </GoingBtn>
                                 </PCB>
+                                
                             </Profilecontain>
                             <Chartcontain>
                                 <Process>
@@ -124,11 +130,13 @@ const Mypage = () => {
                                 <ChartBox>
                                     {/* <Chart/> */}
                                     <PieChart width={850} height={250}>
+                                        {/* <Legend /> */}
+                                        {/* <Tooltip /> */}
                                         <Pie
                                             data={data1}
                                             cx={190}
                                             cy={130}
-                                            innerRadius={50}
+                                            innerRadius={60}
                                             outerRadius={90}
                                             fill="#8884d8"
                                             stroke="#FF7A00"
@@ -140,12 +148,16 @@ const Mypage = () => {
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                             ))}
                                         </Pie>
+                                        {/* <ChartName>
+                                            <PieName> {level1_per} % </PieName>
+                                        </ChartName>
+                                        <GoDiv>{Study_level(1)}</GoDiv> */}
 
                                         <Pie
                                             data={data2}
                                             cx={460}
                                             cy={130}
-                                            innerRadius={50}
+                                            innerRadius={60}
                                             outerRadius={90}
                                             fill="#8884d8"
                                             stroke="#FF7A00"
@@ -157,12 +169,18 @@ const Mypage = () => {
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                             ))}
                                         </Pie>
+                                        {/* <ChartName>
+                                            <PieName> {level2_per} % </PieName>
+                                        </ChartName>
+                                        <GoDiv>{Study_level(2)}</GoDiv> */}
 
                                         <Pie
                                             data={data3}
                                             cx={730}
                                             cy={130}
-                                            innerRadius={50}
+                                            // cx="85%"
+                                            // cy="60%"
+                                            innerRadius={60}
                                             outerRadius={90}
                                             fill="#8884d8"
                                             stroke="#FF7A00"
@@ -174,6 +192,11 @@ const Mypage = () => {
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                             ))}
                                         </Pie>
+                                        {/* <ChartName>
+                                            <PieName> {level3_per} % </PieName>
+                                        </ChartName>
+                                        <GoDiv>{Study_level(3)}</GoDiv> */}
+
                                         </PieChart>
                                     <ChartName>
                                         <PieName> {level1_per} % </PieName>
@@ -200,13 +223,15 @@ const Mypage = () => {
 function Study_level(level){
 
     return(
-        // <LevelBox>
-            <div>
-                <Link to = {"/study/study_class"} style={{ textDecoration: 'none'}} state={{level : (level)}}>
-                    <GoBtn>수강하기</GoBtn>
-                </Link>
-            </div> 
-        // </LevelBox>
+        // <MediaDiv>
+            <LevelBox>
+                {/* <div> */}
+                    <Link to = {"/study/study_class"} style={{ textDecoration: 'none'}} state={{level : (level)}}>
+                        <GoBtn>수강하기</GoBtn>
+                    </Link>
+                {/* </div>  */}
+            </LevelBox>
+        // </MediaDiv>
     );
 }
 
