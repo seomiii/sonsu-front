@@ -99,7 +99,9 @@ const Wrong = () => {
                                         }} 
                                         style={{ textDecoration: 'none' }}>
                                             <WrongBtn style={
-                                                {backgroundColor : i.testResult['1']==true ? '#FF7A00' : 'white'}
+                                                {backgroundColor : i.testResult['1']==true ? '#FF7A00' : 'white', 
+                                                 color : i.testResult['1']==true ? 'white' : '#2E2E2E'
+                                                }                                               
                                                 
                                             }>초급</WrongBtn>
                                             {/* <WrongBtn>초급</WrongBtn> */}
@@ -113,7 +115,9 @@ const Wrong = () => {
                                         }} 
                                         style={{ textDecoration: 'none' }}>
                                             <WrongBtn style={
-                                                {backgroundColor : i.testResult['2']==true ? '#FF7A00' : 'white'}
+                                                {backgroundColor : i.testResult['2']==true ? '#FF7A00' : 'white',
+                                                color : i.testResult['2']==true ? 'white' : '#2E2E2E'}
+                                                
                                                 
                                             }>중급</WrongBtn>
                                         </Link>
@@ -126,7 +130,8 @@ const Wrong = () => {
                                         }}
                                         style={{ textDecoration: 'none' }}>
                                             <WrongBtn style={
-                                                {backgroundColor : i.testResult['3']==true ? '#FF7A00' : 'white'}
+                                                {backgroundColor : i.testResult['3']==true ? '#FF7A00' : 'white',
+                                                color : i.testResult['3']==true ? 'white' : '#2E2E2E'}
                                                 
                                             }>고급</WrongBtn>
                                         </Link>
