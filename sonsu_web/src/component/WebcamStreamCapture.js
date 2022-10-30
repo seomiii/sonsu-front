@@ -44,6 +44,8 @@ const WebcamStreamCapture = () => {
   const level=useLocation().state.level;
   const word_name=useLocation().state.word_name;
 
+  console.log(word_id, word_name);
+
   const [flaskResult,setFlaskResult]=useState(1);  
 
   const webcamRef = useRef(null);

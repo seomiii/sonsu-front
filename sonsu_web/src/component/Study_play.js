@@ -92,7 +92,7 @@ function Study_play(props){
 
                         <PlayWords>
                             {data && data.wordsDto.map(i=>(                                
-                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx)}}>{i.wordName}</PlayWord>
+                                <PlayWord onClick={()=> {setWordIdx(i.wordIdx); setWord(i.wordName);}}>{i.wordName}</PlayWord>
                             ))}
 
                             {/* {words_arr.map(i=>(
@@ -116,7 +116,7 @@ function Study_play(props){
                         <Link to ="../webcam" state={{
                             level : (level),
                             word_name : (cur_word),
-                            word_id : (word_idx)
+                            word_id : (cur_wordIdx)
                             
                             }}>
                             <FollowBtn>따라하기</FollowBtn>  
