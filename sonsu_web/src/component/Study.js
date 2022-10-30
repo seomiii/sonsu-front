@@ -21,18 +21,21 @@ const Levels=[
         level : 1,
         level_name : '초급',
         level_info : '수어의 지문자를 배워 자음과 모음을 표현해봅시다. 손수와 함께 수어의 첫단추를 끼워보아요.',
+        imgUrl : 'img/level1-1.png'
     }
     ,
     {
         level : 2,
         level_name : '중급',
-        level_info : '일상생활에서 자주 쓰이는 표현들을 배워봅시다. 간단한 의사소통을 주고받아 보아요.'
+        level_info : '일상생활에서 자주 쓰이는 표현들을 배워봅시다. 간단한 의사소통을 주고받아 보아요.',
+        imgUrl : 'img/level2-2.png'
     }
     ,
     {
         level : 3,
         level_name : '고급',
-        level_info : '문장 구성의 핵심이 되는 다양한 단어들을 배워봅시다. 배운 단어들을 이용하여 원하는 문장을 만들어보아요.'
+        level_info : '문장 구성의 핵심이 되는 다양한 단어들을 배워봅시다. 배운 단어들을 이용하여 원하는 문장을 만들어보아요.',
+        imgUrl : 'img/level3-3.png'
     }    
 ]
 
@@ -64,9 +67,12 @@ function Study(){
         <StudyMediaDiv>
             <FadeHome>
                 <FullBox>
-                    {Study_level(1,data && data[0].imgUrl)}
+                    {Study_level(1,Levels[0].imgUrl)}
+                    {Study_level(2,Levels[1].imgUrl)}
+                    {Study_level(3,Levels[2].imgUrl)} 
+                    {/* {Study_level(1,data && data[0].imgUrl)}
                     {Study_level(2,data && data[1].imgUrl)}
-                    {Study_level(3,data && data[2].imgUrl)} 
+                    {Study_level(3,data && data[2].imgUrl)}  */}
                 </FullBox>
                 
                 <div>

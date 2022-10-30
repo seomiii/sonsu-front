@@ -31,18 +31,18 @@ const Service_intro = () => {
                         <img src='img/serviceIntro.png' alt="image" width='100%'/> <br/>
                     </ServiceContent>
                     <MediaDiv>
-                        <ServiceEditor>
+                        {/* <ServiceEditor>
                             <EditorTitle>
                                 제작자 소개
                             </EditorTitle>
                             <EditorDiv>
                                 <MSDiv
-                                    // onMouseOver={() => setIsListHover(true)}
-                                    // onMouseOut={() => setIsListHover(false)}
-                                    // onMouseOver={setIsMouseHover(true)}
-                                    // onMouseOut={setIsMouseHover(false)}
+                                    onMouseOver={() => setIsListHover(true)}
+                                    onMouseOut={() => setIsListHover(false)}
+                                    onMouseOver={setIsMouseHover(true)}
+                                    onMouseOut={setIsMouseHover(false)}
                                 >
-                                    {/* <img
+                                    <img
                                         // src={isListHover ? 'img/miseo-text.png' : 'img/miseo.png' }
                                         // src={isMouseHover ? 'img/miseo-text.png' : 'img/miseo.png' }
                                         // width="100%"
@@ -51,7 +51,7 @@ const Service_intro = () => {
                                         width="200"
                                         height="200"
                                         alt=""
-                                    /> */}
+                                    />
                                 </MSDiv>
                                 <JYDiv>
                                 </JYDiv>
@@ -62,7 +62,7 @@ const Service_intro = () => {
                                 <JEDiv>
                                 </JEDiv>
                             </EditorDiv>
-                        </ServiceEditor>
+                        </ServiceEditor> */}
                     </MediaDiv>
                 </ServiceDiv>
             </FadeHome>

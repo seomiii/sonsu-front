@@ -12,17 +12,20 @@ import {Header_Div,ImgBox,MediaDiv,ImgDiv,LevelName
 const Levels=[
     {
         level : 1,
-        level_name : '초급'
+        level_name : '초급',
+        imgUrl : 'img/level1-1.png'
     }
     ,
     {
         level : 2,
-        level_name : '중급'
+        level_name : '중급',
+        imgUrl : 'img/level2-2.png'
     }
     ,
     {
         level : 3,
-        level_name : '고급'
+        level_name : '고급',
+        imgUrl : 'img/level3-3.png'
     }    
 ]
 
@@ -58,10 +61,13 @@ function TestHome() {
 
                 <MediaDiv>  
                     <FadeHome> 
-                        <FullBox>                 
-                            {Test_level(1,data&& data[0].imgUrl)}                      
+                        <FullBox>    
+                            {Test_level(1,Levels[0].imgUrl)}                      
+                            {Test_level(2,Levels[1].imgUrl)}
+                            {Test_level(3,Levels[2].imgUrl)}               
+                            {/* {Test_level(1,data&& data[0].imgUrl)}                      
                             {Test_level(2,data && data[1].imgUrl)}
-                            {Test_level(3,data && data[2].imgUrl)}  
+                            {Test_level(3,data && data[2].imgUrl)}   */}
                         </FullBox> 
                     </FadeHome>                    
                 </MediaDiv>
