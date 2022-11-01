@@ -27,12 +27,6 @@ export const GradeText=styled.div`
     // font-size: 32px;
     margin-left: 10px;
 `
-export const GradeLevel=styled.div`
-    // margin-top: 20px;
-    margin-left: 120px;
-    text-align: left;
-    font-size: 20px;
-`
 
 export const GradeChart=styled.div`
     display: flex;
@@ -42,6 +36,10 @@ export const GradeChart=styled.div`
 `
 
 export const ChartDivA=styled.div`
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
     border-radius: 12px;
     border: 1px solid #D9D9D9;
     background: white;
@@ -75,9 +73,30 @@ export const ChartDivC=styled.div`
     margin-top: 60px;
     margin-bottom: 120px;
 `
+export const ChartContentDiv=styled.div`
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+`
 
 export const ChartContent=styled.div`
-    margin-bottom: 30px;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+    margin: 0px 60px 40px 60px;
     font-size: 20px;
+
+    &:active{
+        color:#FF7A00;
+        // background-color:white;
+        // border:1px solid #FF7A00;
+    }
+    &:hover{
+        color:#FF7A00;
+        // background-color:white;
+        // border:1px solid #FF7A00;
+    }
 `
 
