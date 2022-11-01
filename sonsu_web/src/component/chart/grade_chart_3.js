@@ -23,17 +23,18 @@ export default function Grade_chart_3() {
   const [inputData, setInputData] = useState([]);
   const [data, setData]=useState([]);
 
-  useEffect(async()=>{
+  const getGroupList3 = async()=>{
     try{
-      const res = await axios.get(`/test/${year}/9/1`)
-      // console.log(res)
+      const res = await axios.get(`/test/${year}/10/1`)
 
       const _inputData = await res.data.data.level3.map((rowData) => (
         setLastIdx(lastIdx+1),
         {
+          
           testDate: (rowData.testDate).slice(8,10),
           average: (rowData.average)
-      }
+         
+        }
       ))
       setInputData(inputData.concat(_inputData))      
 
@@ -41,7 +42,11 @@ export default function Grade_chart_3() {
     catch(e){
       console.error(e.message)
     }
-  },[])
+  };
+
+  useEffect(()=>{
+    getGroupList3();
+  },[]);
 
   console.log('App :: inputData :: ', inputData)
   

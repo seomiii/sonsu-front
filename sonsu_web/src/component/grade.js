@@ -20,11 +20,11 @@ import {
     GradeDiv,
     GradeTitle,
     GradeText,
-    GradeLevel,
     GradeChart,
     ChartDivA,
     ChartDivB,
     ChartDivC,
+    ChartContentDiv,
     ChartContent,
 } from './../component_css/Grade_style';
 import {
@@ -40,19 +40,12 @@ import { HeaderDiv } from '../component_css/Home_style';
 
 const Month_Arr=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-// const data = [
-//     // {name: "1",uv: 400,pv: 1500,amt: 200},
-//     {name: "25", 갯수 : 100},
-//     {name: "26", 월: 100},
-//   ];
-
-// 탭 구성 리소스
-const Level_Arr=[
-    {
-        level_name:["초급", "중급", "고급"],
-    },
-]
-
+// const Level_Arr=[
+//     {
+//         level: ["level1", "level2", "level3"],
+//         level_name: ["초급", "중급", "고급"],
+//     },
+// ]
 // 현재 년도, 월
 let now=new Date();
 let year=now.getFullYear();
@@ -61,102 +54,39 @@ let todayMonth=now.getMonth()+1;
 
 const Grade = (props) => {
 
-    const level_name = Level_Arr.curri_arr;
+    // const level_number = Level_Arr[0].level;
+    // const level_name = Level_Arr[0].level_name;
 
-    const [lastIdxA, setLastIdxA] = useState(0);
-    const [lastIdxB, setLastIdxB] = useState(0);
-    const [lastIdxC, setLastIdxC] = useState(0);
+    const [lastIdx, setLastIdx] = useState(0);
+    // const [lastIdxA, setLastIdxA] = useState(0);
+    // const [lastIdxB, setLastIdxB] = useState(0);
+    // const [lastIdxC, setLastIdxC] = useState(0);
     const [inputData, setInputData] = useState([]);
     const [month,setMonth]=useState(todayMonth);
     const [data,setData]=useState([]);
+    // const [level,setLevel]=useState(Level_Arr[0]);
+    const [level,setLevel]=useState([]);
 
     const [testData, setTestData] = useState([]);
-
-    // 그래프 데이터
-    const getGroupList = async()=>{
-    try{
-
-        const res = await axios.get(`/test/${year}/10/1`)
-        // console.log('response: ', res.data.data);
-
-        // const test = await res.data.data.level1.map()
-        // setTestData(testData.concat(test))
-        // setTestData(res.data.data);
-
-        const _inputDataA = await res.data.data.level1.map((rowData) => (
-            setLastIdxA(lastIdxA+1),
-            {
-            testDate: (rowData.testDate).slice(8,10),
-            averageA: (rowData.average)
-            }
-        ))
-        const _inputDataB = await res.data.data.level2.map((rowData) => (
-            setLastIdxB(lastIdxB+1),
-            {
-            testDate: (rowData.testDate).slice(8,10),
-            averageB: (rowData.average)
-            }
-        ))
-        const _inputDataC = await res.data.data.level3.map((rowData) => (
-            setLastIdxC(lastIdxC+1),
-            {
-                testDate: (rowData.testDate).slice(8,10),
-                averageC: (rowData.average)
-            }
-        ))
-
-        setInputData(inputData.concat(_inputDataA, _inputDataB, _inputDataC))   
-            
-
-        }
-        catch(e){
-            console.error(e.message)
-        }
-    };
-
-    useEffect(()=>{
-        getGroupList();
-    },[]);
-
-    // console.log('testdata: ', testData);
-    console.log('App :: inputData :: ', inputData)
-
-    useEffect(()=>{
-        const graphData=inputData.map((i)=>(
-          {
-            // name: `${i.testDate}일`,
-            name : i.testDate,
-            초급맞춘갯수 : i.averageA,
-            중급맞춘갯수 : i.averageB, 
-            고급맞춘갯수 : i.averageC, 
-          }
-        ))
-        setData(data.concat(graphData)) 
-    
-        // const add={name:'1', 갯수:1};
-        // setData(data.concat(add));
-    
-      },[inputData])
-    
-      console.log(data) 
 
     // 성적표 자체 데이터
     useEffect(()=>{
         axios.get(`/note/${year}/${month}/1`)        
         .then((response)=>{
          setTestData(response.data.data);
-         console.log(response)
+        //  console.log('Response : ', response)
         })
 
     }, [month])
 
-    console.log(testData);
-    console.log(month);
+    // console.log('TestData : ',testData);
+    // console.log('Month : ',month);
 
-    const [active, setActive] = useState(false);
-    const handleClick = () => {
-        setActive(!active);
-    };
+    // const [active, setActive] = useState(false);
+    // const handleClick = () => {
+    //     setActive(!active);
+    // };
+    // console.log('level', level)
 
     return (
         <>
@@ -171,23 +101,24 @@ const Grade = (props) => {
                         <GradeText>성적표</GradeText>
                     </GradeTitle>
                     <MonthDiv>
-                            { Month_Arr.map(i=> (                    
-                                    // <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month>
-                                    <Month>{i}월</Month>                
-                            )
-                            )}
-                    </MonthDiv>
-                    <GradeLevel>
-                        {/* {level_name.map(i => (                    
-                            <Curri onClick={()=> {setCurri(i)}}>{i}</Curri>                
+                        { Month_Arr.map(i=> (                    
+                                // <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month>
+                                <Month>{i}월</Month>                
                         )
-                        )} */}
-                    </GradeLevel>
+                        )}
+                    </MonthDiv>
                     <GradeChart>
                         <ChartDivA>
                             <ChartContent>초급</ChartContent>
-                            {/* <Chart/> */}
-                            <LineChart
+                            <Chart1/>
+                            {/* <ChartContentDiv>
+                                { level_name.map(i=> (                    
+                                        // <Month onClick={()=> {setMonth(i)}} style={{Color: active ? "black":"orange"}}>{i}월</Month>
+                                        <ChartContent onClick={()=> {setLevel(i)}}>{i}</ChartContent>                
+                                    )
+                                )}
+                            </ChartContentDiv> */}
+                            {/* <LineChart
                                 width={800}
                                 height={400}
                                 data={data}
@@ -200,30 +131,30 @@ const Grade = (props) => {
                                 //   lineSize={20}
                                 >
                                     <CartesianGrid strokeDasharray="3 3" />
-                                    {/* <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} /> */}
+                                    {/* <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
                                     <XAxis dataKey="name"/>
                                     <YAxis />
                                     <Tooltip />
                                     <Legend />
-                                    {/* <CartesianGrid strokeDasharray="3 3"/> */}
-                                    <Line type="monotone" dataKey="초급맞춘갯수" stroke="black">
+                                    {/* <CartesianGrid strokeDasharray="3 3"/>
+                                    <Line type="monotone" dataKey="초급맞춘갯수" stroke="#FF7A00">
                                     </Line>
-                                    <Line type="monotone" dataKey="중급맞춘갯수" stroke="#8884d8">
+                                    {/* <Line type="monotone" dataKey="중급맞춘갯수" stroke="#8884d8">
                                     </Line>
                                     <Line type="monotone" dataKey="고급맞춘갯수" stroke="#82ca9d">
                                     </Line>
-                                    {/* <Line dataKey="맞춘갯수" fill="#FF7A00" background={{ fill: "#D9D9D9" }} /> */}
+                                    {/* <Line dataKey="맞춘갯수" fill="#FF7A00" background={{ fill: "#D9D9D9" }} />
 
-                                </LineChart>
+                                </LineChart> */}
                         </ChartDivA>
-                        {/* <ChartDivB>
+                        <ChartDivB>
                             <ChartContent>중급</ChartContent>
                             <Chart2/>
                         </ChartDivB>
                         <ChartDivC>
                             <ChartContent>고급</ChartContent>
                             <Chart3/>
-                        </ChartDivC> */}
+                        </ChartDivC>
                     </GradeChart>
                 </GradeDiv>
             </MediaDiv>
