@@ -25,7 +25,7 @@ export default function Grade_chart_2() {
 
   const getGroupList2 = async()=>{
     try{
-      const res = await axios.get(`/test/${year}/10/1`)
+      const res = await axios.get(`/test/${year}/11/1`)
 
       const _inputData = await res.data.data.level2.map((rowData) => (
         setLastIdx(lastIdx+1),

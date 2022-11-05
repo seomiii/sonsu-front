@@ -20,7 +20,7 @@ import {
     Month,
 } from '../component_css/Wrong_style';
 // import { Toolbar } from '@material-ui/core';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+// import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const Month_Arr=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
