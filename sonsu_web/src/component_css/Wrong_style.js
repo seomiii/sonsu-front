@@ -146,7 +146,8 @@ export const WrongReapeatNumber=styled.div`
 export const WrongReapeat=styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: start;
     margin: 40px;
     background-color: #F9F9F9;
     border: solid 1px #D9D9D9;
@@ -157,6 +158,7 @@ export const WrongReapeat=styled.div`
 export const WrongReapeatContent=styled.div`
     background-color: white;
     border-radius: 12px;
+    margin-right: 20px;
     padding: 20px 20px 40px;
     box-shadow: 2px 4px 100px -70px;
 `
