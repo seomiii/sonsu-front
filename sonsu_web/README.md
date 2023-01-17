@@ -4,4 +4,4 @@
 ![serviceIntro](https://user-images.githubusercontent.com/86819719/212893363-8fe79dca-e154-4166-99bf-e92a0e18cb9b.png)
 
 ## ✨ 시연 영상
-[![Video Label](http://img.youtube.com/vi/G2csz38fCOE/0.jpg)](https://https://www.youtube.com/watch?v=G2csz38fCOE)
+[![Video Label](http://img.youtube.com/vi/G2csz38fCOE/0.jpg)](https://www.youtube.com/watch?v=G2csz38fCOE)
