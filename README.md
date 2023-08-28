@@ -38,11 +38,21 @@ PC💻, Smart Phone📱, Smart Pad, Webcam📽️
 
 <br/>
 
-## Members
+## 🧑‍🤝‍🧑 팀원 소개
+
+|  ![image](https://avatars.githubusercontent.com/u/86819719)   | ![image](https://avatars.githubusercontent.com/u/65223360?v=4)     |   ![image](https://avatars.githubusercontent.com/u/76553061?v=4)  |  ![image](https://avatars.githubusercontent.com/u/102950984?v=4)    |  
+| :---: | :---:| :---: | :---:
+|Front-End & Deep Learning|Back-End & Design|Full-Stack & Deep Learning|Front-End & Data|
+| [김미서](https://github.com/seomiii) | [유문희](https://github.com/muunioi) | [장지현](https://github.com/jihyeonjjang) | [최정윤](https://github.com/jeong-yooon) |
+
+<br><br>
+
+<!--
 #### 🌟Kim Mi Seo (<a href="https://github.com/seomiii">@seomiii</a>) | Frontend, Deep Learning
 #### 🌟Yoo Moon Hee (<a href="https://github.com/muunioi">@muunioi</a>) | Backend, Design
 #### 🌟Jang Ji Hyeon (<a href="https://github.com/jihyeonjjang">@jihyeonjjang</a>) | Android, Deep Learning
 #### 🌟Choi Jeong Yoon (<a href="https://github.com/jeong-yooon">@jeong-yooon</a>) | Frontend, Data Set
+-->
 
 <br/>
 
